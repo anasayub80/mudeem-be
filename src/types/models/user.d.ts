@@ -5,11 +5,14 @@ export interface IUser extends Document {
   email: string;
   password: string;
   role: 'user' | 'admin';
+  phone: string;
+  username: string;
   emailVerified: boolean;
   emailVerificationToken?: number | null;
   emailVerificationTokenExpires?: Date | null;
   passwordResetToken?: number | null;
   passwordResetTokenExpires?: Date | null;
+  greenPoints: number;
   isActive: boolean;
   getJWTToken(): string;
   comparePassword(enteredPassword: string): Promise<boolean>;

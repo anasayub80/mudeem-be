@@ -12,19 +12,36 @@ import mongoose from 'mongoose';
 const register: RequestHandler = async (req, res) => {
   // #swagger.tags = ['auth']
   try {
-    const { name, email, password } = req.body as authTypes.RegisterBody;
-    const user: IUser | null = await User.findOne({ email });
+    const { name, email, phone, username, password } =
+      req.body as authTypes.RegisterBody;
+    const user: IUser | null = await User.findOne({ 
+      $or: [{ email }, { username }, { phone }]
+     });
+
     if (user) {
+      let conflictField: string = '';
+      if (user.email === email) {
+        conflictField = 'Email';
+      }
+      if (user.username === username) {
+        conflictField = 'Username';
+      }
+      if (user.phone === phone) {
+        conflictField = 'Phone';
+      }
       return ErrorHandler({
-        message: 'User already exists',
+        message: `${conflictField} already exists`,
         statusCode: 400,
         req,
         res
       });
     }
+
     const newUser: IUser | null = await User.create({
       name,
       email,
+      phone,
+      username,
       password
     });
     newUser.save();
@@ -46,7 +63,6 @@ const register: RequestHandler = async (req, res) => {
 //request email verification token
 const requestEmailToken: RequestHandler = async (req, res) => {
   // #swagger.tags = ['auth']
-
   try {
     const { email } = req.body as authTypes.RequestEmailTokenBody;
     const user: IUser | null = await User.findOne({ email });

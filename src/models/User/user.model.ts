@@ -22,6 +22,15 @@ const userSchema = new mongoose.Schema<IUser>({
     type: String,
     required: true
   },
+  phone: {
+    type: String,
+    required: true
+  },
+  username: {
+    type: String,
+    required: true,
+    unique: true
+  },
   role: {
     type: String,
     enum: ['user', 'admin'],
@@ -46,6 +55,10 @@ const userSchema = new mongoose.Schema<IUser>({
   passwordResetTokenExpires: {
     type: Date,
     default: null
+  },
+  greenPoints: {
+    type: Number,
+    default: 0
   },
   isActive: {
     type: Boolean,
