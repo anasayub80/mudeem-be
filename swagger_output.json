@@ -63,6 +63,12 @@
                 "email": {
                   "example": "any"
                 },
+                "phone": {
+                  "example": "any"
+                },
+                "username": {
+                  "example": "any"
+                },
                 "password": {
                   "example": "any"
                 }
@@ -291,6 +297,13 @@
             "description": "Internal Server Error"
           }
         }
+      }
+    },
+    "/shop/category/": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
       }
     }
   }

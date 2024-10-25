@@ -1,10 +1,13 @@
 import { Request, Response } from 'express';
 import { IUser } from './models/user';
 import 'express-session';
+import { File } from 'multer';
 
 declare module 'express-serve-static-core' {
   interface Request {
     user?: IUser | null;
+    file?: File;
+    files?: File[];
   }
 }
 declare module 'express-session' {
