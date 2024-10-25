@@ -422,6 +422,7 @@ const me: RequestHandler = async (req, res) => {
 };
 
 const removeSessions: RequestHandler = async (req, res) => {
+  // #swagger.tags = ['auth']
   try {
     const { sessionIds } = req.body as authTypes.RemoveSessionsBody;
     const user = req.user;

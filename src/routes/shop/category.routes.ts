@@ -9,7 +9,7 @@ const router: Router = express.Router();
 
 router
   .route('/')
-  //   .get(isAuthenticated, categoryController.getAllCategories)
+  .get(isAuthenticated, categoryController.getAllCategories)
   .post(
     isAuthenticated,
     isAdmin,
@@ -17,16 +17,16 @@ router
     validate(schema.createCategory),
     categoryController.createCategory
   );
-// router
-//   .route('/:id')
-//   .get(isAuthenticated, categoryController.getCategory)
-//   .put(
-//     isAuthenticated,
-//     isAdmin,
-//     multerMiddleware.single('image'),
-//     validate(schema.updateCategory),
-//     categoryController.updateCategory
-//   )
-//   .delete(isAuthenticated, isAdmin, categoryController.deleteCategory);
+router
+  .route('/:id')
+  .get(isAuthenticated, categoryController.getCategory)
+  .put(
+    isAuthenticated,
+    isAdmin,
+    // multerMiddleware.single('image'),
+    validate(schema.updateCategory),
+    categoryController.updateCategory
+  )
+  .delete(isAuthenticated, isAdmin, categoryController.deleteCategory);
 
 export default router;

@@ -40,7 +40,7 @@ const createCategory: RequestHandler = async (req, res) => {
   }
 };
 const getAllCategories: RequestHandler = async (req, res) => {
-  // #swagger.tags = ['Category']
+  // #swagger.tags = ['category']
   try {
     const searchFilter: object = req.query.search
       ? { name: { $regex: req.query.search as string, $options: 'i' } }
@@ -64,7 +64,7 @@ const getAllCategories: RequestHandler = async (req, res) => {
   }
 };
 const getCategory: RequestHandler = async (req, res) => {
-  // #swagger.tags = ['Category']
+  // #swagger.tags = ['category']
   try {
     const category: ICategory | null = await Category.findById(req.params.id);
     if (!category) {
@@ -90,7 +90,7 @@ const getCategory: RequestHandler = async (req, res) => {
   }
 };
 const updateCategory: RequestHandler = async (req, res) => {
-  // #swagger.tags = ['Category']
+  // #swagger.tags = ['category']
   try {
     const category: ICategory | null = await Category.findById(req.params.id);
     if (!category) {
@@ -125,7 +125,7 @@ const updateCategory: RequestHandler = async (req, res) => {
   }
 };
 const deleteCategory: RequestHandler = async (req, res) => {
-  // #swagger.tags = ['Category']
+  // #swagger.tags = ['category']
   try {
     const category: ICategory | null = await Category.findById(req.params.id);
     if (!category) {
