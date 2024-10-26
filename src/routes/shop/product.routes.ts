@@ -1,12 +1,6 @@
 import express, { Router } from 'express';
 // import { isAuthenticated, isAdmin } from 'middleware/auth.middleware';
-// import {
-//   createProduct,
-//   getAllProducts,
-//   getProduct,
-//   updateProduct,
-//   deleteProduct,
-// } from 'controllers/product.controller';
+// import { validate } from 'middleware/validate.middleware';
 const router: Router = express.Router();
 
 // router

@@ -63,7 +63,11 @@ const userSchema = new mongoose.Schema<IUser>({
   isActive: {
     type: Boolean,
     default: true
-  }
+  },
+  adminApproved: {
+    type: Boolean,
+    default: false
+  },
 }, { timestamps: true });
 
 // Hash password before saving

@@ -8,15 +8,25 @@ import * as authTypes from '../types/controllers/auth';
 import passport from 'passport';
 import { captureUserAgent } from '../middleware/userAgent.middleware';
 import mongoose from 'mongoose';
+import SendMail from '../utils/sendMail';
 //register
 const register: RequestHandler = async (req, res) => {
   // #swagger.tags = ['auth']
   try {
-    const { name, email, phone, username, password } =
+    const { name, email, phone, username, password, role } =
       req.body as authTypes.RegisterBody;
-    const user: IUser | null = await User.findOne({ 
+
+    if (role === 'admin') {
+      return ErrorHandler({
+        message: 'Unauthorized',
+        statusCode: 401,
+        req,
+        res
+      });
+    }
+    const user: IUser | null = await User.findOne({
       $or: [{ email }, { username }, { phone }]
-     });
+    });
 
     if (user) {
       let conflictField: string = '';
@@ -42,14 +52,26 @@ const register: RequestHandler = async (req, res) => {
       email,
       phone,
       username,
-      password
+      password,
+      role
     });
     newUser.save();
-    return SuccessHandler({
+    SuccessHandler({
       data: newUser,
       statusCode: 201,
       res
     });
+
+    if (role === 'vendor') {
+      const admins = await User.find({ role: 'admin' });
+      admins.forEach(async (admin) => {
+        await SendMail({
+          email: admin.email,
+          subject: 'New Vendor Registered',
+          text: `A new vendor with the store ${username} has registered.`
+        });
+      });
+    }
   } catch (error) {
     return ErrorHandler({
       message: (error as Error).message,
@@ -179,6 +201,22 @@ const login: RequestHandler = async (req, res) => {
       if (!user.emailVerified) {
         return ErrorHandler({
           message: 'Email not verified',
+          statusCode: 400,
+          req,
+          res
+        });
+      }
+      if (!user.isActive) {
+        return ErrorHandler({
+          message: 'User has been deactivated',
+          statusCode: 400,
+          req,
+          res
+        });
+      }
+      if (user.role === 'vendor' && !user.adminApproved) {
+        return ErrorHandler({
+          message: 'Vendor not approved by admin',
           statusCode: 400,
           req,
           res

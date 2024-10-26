@@ -4,6 +4,7 @@ interface RegisterBody {
   phone: string;
   username: string;
   password: string;
+  role: 'user' | 'vendor' | 'admin';
 }
 
 interface RequestEmailTokenBody {

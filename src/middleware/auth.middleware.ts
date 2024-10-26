@@ -24,3 +24,17 @@ export const isAdmin: RequestHandler = async (req, res, next) => {
     res.status(500).json({ success: false, message: (error as Error).message });
   }
 }
+
+export const isVendor: RequestHandler = async (req, res, next) => {
+  try {
+    const user = req.user;
+    if (!user || user.role !== 'vendor') {
+      return res
+        .status(403)
+        .json({ success: false, message: 'Not authorized' });
+    }
+    next();
+  } catch (error) {
+    res.status(500).json({ success: false, message: (error as Error).message });
+  }
+}

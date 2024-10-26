@@ -4,7 +4,7 @@ export interface IUser extends Document {
   name: string;
   email: string;
   password: string;
-  role: 'user' | 'admin';
+  role: 'user' | 'admin' | 'vendor';
   phone: string;
   username: string;
   emailVerified: boolean;
@@ -14,6 +14,7 @@ export interface IUser extends Document {
   passwordResetTokenExpires?: Date | null;
   greenPoints: number;
   isActive: boolean;
+  adminApproved: boolean;
   getJWTToken(): string;
   comparePassword(enteredPassword: string): Promise<boolean>;
 }

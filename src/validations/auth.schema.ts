@@ -9,6 +9,11 @@ const register = Joi.object({
   password: Joi.string().pattern(passwordRegex).required().messages({
     'string.pattern.base':
       'Password must have at least one uppercase letter, one special character and one number'
+  }),
+  username: Joi.string().min(3).required(),
+  phone: Joi.string().required(),
+  role: Joi.string().valid('user', 'vendor').required().messages({
+    'any.only': 'Role must be either user or vendor'
   })
 });
 

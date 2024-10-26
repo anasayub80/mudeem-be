@@ -11,7 +11,7 @@ router.route('/logout').get(auth.logout);
 router.route('/me').get(isAuthenticated, auth.me);
 
 // POST routes
-router.route('/register').post(validate(schema.register), auth.register);
+router.route('/register-user').post(validate(schema.register), auth.register);
 router.route('/login').post(validate(schema.login), auth.login);
 router
   .route('/requestEmailToken')
