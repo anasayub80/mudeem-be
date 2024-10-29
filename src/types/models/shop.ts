@@ -22,4 +22,6 @@ export interface IProduct extends Document {
   images: string;
   variants: mongoose.Schema.Types.ObjectId;
   isActive: boolean;
+  user: mongoose.Schema.Types.ObjectId;
+  greenPointsPerUnit: number;
 }

@@ -3,7 +3,7 @@ import ErrorHandler from '../../utils/errorHandler';
 import { RequestHandler } from 'express';
 import User from '../../models/user/user.model';
 import { IUser } from '../../types/models/user';
-import SendMail from 'utils/sendMail';
+import SendMail from '../../utils/sendMail';
 
 const getAllVendors: RequestHandler = async (req, res) => {
   // #swagger.tags = ['vendor']
@@ -18,12 +18,16 @@ const getAllVendors: RequestHandler = async (req, res) => {
           ]
         }
       : {};
-
+    const page = parseInt(req.query.page as string) || 1;
+    const limit = parseInt(req.query.limit as string) || 10;
+    const skip = (page - 1) * limit;
     const vendors = await User.find({
       role: 'vendor',
       isActive: true,
       ...searchFilter
-    });
+    })
+      .skip(skip)
+      .limit(limit);
 
     // later add no of products, no of total, no of completed, no of pending orders
 

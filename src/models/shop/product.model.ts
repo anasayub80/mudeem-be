@@ -33,6 +33,15 @@ const productSchema = new mongoose.Schema<IProduct>({
   isActive: {
     type: Boolean,
     default: true
+  },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
+  greenPointsPerUnit: {
+    type: Number,
+    default: 0
   }
 });
 

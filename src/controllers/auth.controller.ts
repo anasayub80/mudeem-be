@@ -1,6 +1,5 @@
 import User from '../models/user/user.model';
 import { IUser, UserSession } from '../types/models/user';
-import sendMail from '../utils/sendMail';
 import SuccessHandler from '../utils/successHandler';
 import ErrorHandler from '../utils/errorHandler';
 import { RequestHandler } from 'express';
@@ -107,7 +106,7 @@ const requestEmailToken: RequestHandler = async (req, res) => {
     await user.save();
     const message: string = `Your email verification token is ${emailVerificationToken} and it expires in 10 minutes`;
     const subject: string = `Email verification token`;
-    await sendMail({
+    await SendMail({
       email,
       subject,
       text: message
@@ -306,7 +305,7 @@ const forgotPassword: RequestHandler = async (req, res) => {
     await user.save();
     const message: string = `Your password reset token is ${passwordResetToken} and it expires in 10 minutes`;
     const subject: string = `Password reset token`;
-    await sendMail({ email, subject, text: message });
+    await SendMail({ email, subject, text: message });
     return SuccessHandler({
       data: `Password reset token sent to ${email}`,
       statusCode: 200,
