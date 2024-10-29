@@ -495,3 +495,16 @@
 {"date":"2024-10-25T21:59:21.609Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/api-docs/swagger-ui-init.js"}
 {"date":"2024-10-25T21:59:22.590Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/api-docs/favicon-32x32.png"}
 {"date":"2024-10-25T21:59:23.184Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/api-docs/favicon-32x32.png"}
+{"date":"2024-10-29T18:04:12.252Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/api-docs"}
+{"date":"2024-10-29T18:04:12.310Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/api-docs/"}
+{"date":"2024-10-29T18:04:12.409Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/api-docs/swagger-ui.css"}
+{"date":"2024-10-29T18:04:12.457Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/api-docs/swagger-ui-bundle.js"}
+{"date":"2024-10-29T18:04:12.461Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/api-docs/swagger-ui-standalone-preset.js"}
+{"date":"2024-10-29T18:04:12.481Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/api-docs/swagger-ui-init.js"}
+{"date":"2024-10-29T18:04:13.909Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/api-docs/favicon-32x32.png"}
+{"date":"2024-10-29T18:05:06.621Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/category"}
+{"date":"2024-10-29T18:06:06.211Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/category"}
+{"date":"2024-10-29T18:06:06.245Z","level":"error","message":"Image is required","method":"POST","service":"user-service","url":"/"}
+{"date":"2024-10-29T18:06:34.744Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/category"}
+{"date":"2024-10-29T18:07:04.736Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/category"}
+{"date":"2024-10-29T18:07:24.889Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/category"}
