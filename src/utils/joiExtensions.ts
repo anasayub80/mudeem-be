@@ -1,4 +1,5 @@
-import Joi from 'joi';
+import Joi, { CustomHelpers } from 'joi';
+import mongoose from 'mongoose';
 
 const jsonParserJoi = Joi.extend({
   type: 'json',
@@ -15,4 +16,37 @@ const jsonParserJoi = Joi.extend({
   }
 });
 
-export { jsonParserJoi };
+// Wrapper function for checking array or object
+const validateParsedJSON = (type: 'array' | 'object', schema: Joi.AnySchema) =>
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  jsonParserJoi.json().custom((value: any, helpers: CustomHelpers) => {
+    if (type === 'array' && !Array.isArray(value)) {
+      return helpers.error('json.base', { label: 'Expected an array' });
+    }
+    if (type === 'object' && typeof value !== 'object') {
+      return helpers.error('json.base', { label: 'Expected an object' });
+    }
+
+    // Validate the parsed JSON using the provided schema
+    const { error } = schema.validate(value, { allowUnknown: true });
+    if (error) {
+      throw error; // Joi handles this error and formats it
+    }
+    return value;
+  });
+
+const objectIDJoi = Joi.extend({
+  type: 'objectId',
+  base: Joi.string(),
+  messages: {
+    'objectId.base': '{{#label}} must be a valid ObjectID'
+  },
+  coerce: (value, helpers) => {
+    if (!mongoose.Types.ObjectId.isValid(value)) {
+      return { errors: [helpers.error('objectId.base')] };
+    }
+    return { value };
+  }
+});
+
+export { objectIDJoi, validateParsedJSON };

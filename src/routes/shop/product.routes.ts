@@ -5,18 +5,26 @@ import {
   isVendor
 } from '../../middleware/auth.middleware';
 import { validate } from '../../middleware/validate.middleware';
-// import * as schema from '../../validations/product.schema';
+import * as schema from '../../validations/product.schema';
 import * as productController from '../../controllers/shop/product.controller';
+import multerMiddleware from '../../middleware/multer.middleware';
+
 const router: Router = express.Router();
 
 router
   .route('/')
-  .post(isAuthenticated, isAdmin, productController.createProduct)
+  .post(
+    isAuthenticated,
+    isVendor,
+    multerMiddleware.array('images', 5),
+    validate(schema.createProduct),
+    productController.createProduct
+  )
   .get(productController.getAllProducts);
 router
   .route('/:id')
   .get(productController.getProduct)
-  .put(isAuthenticated, isAdmin, productController.updateProduct)
+  .put(isAuthenticated, isVendor, productController.updateProduct)
   .delete(isAuthenticated, isAdmin, productController.deleteProduct);
 
 export default router;

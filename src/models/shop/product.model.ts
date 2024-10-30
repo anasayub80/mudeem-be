@@ -42,8 +42,40 @@ const productSchema = new mongoose.Schema<IProduct>({
   greenPointsPerUnit: {
     type: Number,
     default: 0
+  },
+  rating: {
+    stars: {
+      type: Number,
+      default: 0
+    },
+    total: {
+      type: Number,
+      default: 0
+    }
+  },
+  reviews: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Review'
+    }
+  ],
+  stock: {
+    type: Boolean,
+    default: true
+  },
+  brand: {
+    type: String,
+    required: true
+  },
+  featured: {
+    type: Boolean,
+    default: false
+  },
+  sold: {
+    type: Number,
+    default: 0
   }
-});
+}, { timestamps: true });
 
 const Product = mongoose.model<IProduct>('Product', productSchema);
 export default Product;
