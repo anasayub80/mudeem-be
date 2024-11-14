@@ -23,7 +23,7 @@ const createProduct: RequestHandler = async (req, res) => {
 
     const jsonVariants = JSON.parse(variants);
 
-    if (!req.files || req.files?.length === 0) {
+    if (!req.files || req.files) {
       return ErrorHandler({
         message: 'Image is required',
         statusCode: 400,
@@ -257,12 +257,92 @@ const getProduct: RequestHandler = async (req, res) => {
   }
 };
 
-// work left
 const updateProduct: RequestHandler = async (req, res) => {
   // #swagger.tags = ['product']
   const session = await mongoose.startSession();
   try {
     session.startTransaction();
+    const {
+      name,
+      description,
+      price,
+      category,
+      updatedVariants,
+      deletedVariants,
+      greenPointsPerUnit,
+      brand,
+      deletedImages
+    } = req.body;
+    const product: IProduct | null = await Product.findById(req.params.id);
+    if (!product) {
+      return ErrorHandler({
+        message: 'Product not found',
+        statusCode: 404,
+        req,
+        res
+      });
+    }
+    const jsonVariants = JSON.parse(updatedVariants);
+    const deletedVariantsArray = JSON.parse(deletedVariants);
+    const deletedImagesArray = JSON.parse(deletedImages);
+    // handling updated variants
+    if (jsonVariants.length > 0) {
+      Promise.all(
+        jsonVariants.map(async (variant: IVariant) => {
+          if (variant._id) {
+            const updatedVariant: IVariant | null =
+              await Variant.findByIdAndUpdate(variant._id, variant, {
+                new: true,
+                session
+              });
+            if (!updatedVariant) {
+              throw new Error('Variant not found');
+            }
+            return updatedVariant;
+          }
+        })
+      ).then((variants: IVariant[]) => {
+        variants.forEach((variant) => {
+          product.variants.push(variant._id);
+        });
+      });
+    }
+    // handling deleted variants
+    if (deletedVariantsArray.length > 0) {
+      await Variant.deleteMany(
+        { _id: { $in: deletedVariantsArray } },
+        { session }
+      );
+      product.variants = product.variants.filter(
+        (variant) => !deletedVariantsArray.includes(variant)
+      );
+    }
+    // handling deleted images
+    if (deletedImagesArray.length > 0) {
+      // await deleteFile(deletedImagesArray[0], req, res);
+      product.images = product.images.filter(
+        (image) => !deletedImagesArray.includes(image)
+      );
+    }
+    // handling new images
+    if (req.files) {
+      // const urls: string[] = await uploadFile(req.files as Express.Multer.File[]);
+      // product.images.push(...urls);
+    }
+    product.name = name;
+    product.description = description;
+    product.price = price;
+    product.category = category;
+    product.greenPointsPerUnit = greenPointsPerUnit;
+    product.brand = brand;
+    await product.save({ session });
+    await session.commitTransaction();
+    session.endSession();
+    return SuccessHandler({
+      data: { message: 'Product updated' },
+      statusCode: 201,
+      res
+    });
   } catch (error) {
     session.abortTransaction();
     session.endSession();

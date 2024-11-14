@@ -11,6 +11,7 @@ const jsonParserJoi = Joi.extend({
     try {
       return { value: JSON.parse(value) }; // Parse JSON if it's a valid string
     } catch (e) {
+      console.log(e)
       return { errors: [helpers.error('json.base')] };
     }
   }

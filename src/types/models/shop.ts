@@ -25,7 +25,7 @@ export interface IProduct extends Document {
   description: string;
   price: number;
   category: mongoose.Schema.Types.ObjectId;
-  images: string;
+  images: string[];
   variants: mongoose.Schema.Types.ObjectId[];
   isActive: boolean;
   user: mongoose.Schema.Types.ObjectId;
