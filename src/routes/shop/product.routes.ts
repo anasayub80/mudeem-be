@@ -24,7 +24,13 @@ router
 router
   .route('/:id')
   .get(productController.getProduct)
-  .put(isAuthenticated, isVendor, productController.updateProduct)
+  .put(
+    isAuthenticated,
+    isVendor,
+    multerMiddleware.array('images', 5),
+    validate(schema.updateProduct),
+    productController.updateProduct
+  )
   .delete(isAuthenticated, isAdmin, productController.deleteProduct);
 
 export default router;

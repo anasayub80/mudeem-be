@@ -1,4 +1,4 @@
-import { Document } from 'mongoose';
+import mongoose, { Document } from 'mongoose';
 
 export interface IUser extends Document {
   name: string;
@@ -44,4 +44,15 @@ export interface UserSession extends Document {
     };
     lastActive: Date;
   };
+}
+
+export interface IAddress extends Document {
+  user: mongoose.Schema.Types.ObjectId;
+  name: string;
+  address1: string;
+  address2: string;
+  city: string;
+  state: string;
+  country: string;
+  zip: string;
 }

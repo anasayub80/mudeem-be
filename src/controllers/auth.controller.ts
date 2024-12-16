@@ -373,7 +373,6 @@ const resetPassword: RequestHandler = async (req, res) => {
 //update password
 const updatePassword: RequestHandler = async (req, res) => {
   // #swagger.tags = ['auth']
-
   try {
     const { currentPassword, newPassword } =
       req.body as authTypes.UpdatePasswordBody;

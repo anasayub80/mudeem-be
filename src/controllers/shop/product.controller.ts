@@ -38,6 +38,8 @@ const createProduct: RequestHandler = async (req, res) => {
       session
     });
 
+    const user = req.user
+
     await Product.create(
       [
         {
@@ -52,7 +54,9 @@ const createProduct: RequestHandler = async (req, res) => {
           variants: variantsArray.map((variant) => variant._id),
           greenPointsPerUnit,
           user: req.user?._id,
-          brand
+          brand,
+          featured: req.body.featured || false,
+          vendor: user?._id
         }
       ],
       { session }
@@ -335,6 +339,10 @@ const updateProduct: RequestHandler = async (req, res) => {
     product.category = category;
     product.greenPointsPerUnit = greenPointsPerUnit;
     product.brand = brand;
+    product.featured = req.body.featured
+      ? JSON.parse(req.body.featured)
+      : false;
+    product.stock = req.body.stock ? JSON.parse(req.body.stock) : product.stock;
     await product.save({ session });
     await session.commitTransaction();
     session.endSession();

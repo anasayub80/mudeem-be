@@ -1,4 +1,5 @@
 import mongoose, { Document } from 'mongoose';
+import { IAddress } from './user';
 
 export interface ICategory extends Document {
   name: string;
@@ -12,11 +13,11 @@ export interface IVariant extends Document {
   sizes: {
     size: string;
     stock: number;
-  };
+  }[];
   colors: {
     color: string;
     stock: number;
-  };
+  }[];
   isActive: boolean;
 }
 
@@ -39,6 +40,7 @@ export interface IProduct extends Document {
   brand: string;
   featured: boolean;
   sold: number;
+  vendor: mongoose.Schema.Types.ObjectId;
 }
 
 export interface IReview extends Document {
@@ -48,4 +50,21 @@ export interface IReview extends Document {
   user: mongoose.Schema.Types.ObjectId;
   product: mongoose.Schema.Types.ObjectId;
   order: mongoose.Schema.Types.ObjectId;
+}
+
+export interface IOrder extends Document {
+  user: mongoose.Schema.Types.ObjectId;
+  items: {
+    product: IProduct;
+    variant: IVariant;
+    color: string;
+    size: string;
+    quantity: number;
+  }[];
+  totalAmount: number;
+  deliveryCharge: number;
+  address: IAddress;
+  totalGreenPoints: number;
+  status: string;
+  vendor: mongoose.Schema.Types.ObjectId;
 }
