@@ -9,6 +9,24 @@ const router: Router = express.Router();
 
 router
   .route('/checkout')
-  .post(isAuthenticated, validate(schema.checkoutSchema), orderController.checkout);
+  .post(
+    isAuthenticated,
+    validate(schema.checkoutSchema),
+    orderController.checkout
+  );
+
+router
+  .route('/')
+  .get(isAuthenticated, orderController.getOrders)
+  .post(
+    isAuthenticated,
+    validate(schema.createOrderSchema),
+    orderController.createOrder
+  )
+  .patch(
+    isAuthenticated,
+    validate(schema.updateStatusSchema),
+    orderController.updateOrderStatus
+  );
 
 export default router;
