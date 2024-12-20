@@ -40,6 +40,7 @@ const order = new mongoose.Schema<IOrder>(
     },
     status: {
       type: String,
+      enum: ['confirmed', 'shipped', 'delivered'],
       required: true
     },
     deliveryCharge: {

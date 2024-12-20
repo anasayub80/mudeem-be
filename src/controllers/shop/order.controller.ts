@@ -114,6 +114,14 @@ const createOrder: RequestHandler = async (req, res) => {
   // #swagger.tags = ['order']
   try {
     const { items, deliveryCharge, totalAmount, totalGreenPoints } = req.body;
+    if (req.user?.greenPoints && req.user?.greenPoints < totalAmount) {
+      return ErrorHandler({
+        message: 'Insufficient green points',
+        statusCode: 400,
+        req,
+        res
+      });
+    }
     // Logic to create order
     const order: IOrder | null = await Order.create({
       user: req.user?._id,
@@ -123,18 +131,21 @@ const createOrder: RequestHandler = async (req, res) => {
       address: await Address.findOne({
         user: req.user?._id
       }),
-      status: 'pending',
+      status: 'confirmed',
       totalGreenPoints
     });
 
-    await User.updateOne(
-      {
-        _id: req.user?._id
-      },
-      {
-        $inc: { greenPoints: totalGreenPoints }
-      }
-    );
+    req.user?.greenPoints &&
+      (await User.updateOne(
+        {
+          _id: req.user?._id
+        },
+        {
+          $set: {
+            greenPoints: req.user.greenPoints - totalAmount + totalGreenPoints
+          }
+        }
+      ));
     return SuccessHandler({
       res,
       data: {
