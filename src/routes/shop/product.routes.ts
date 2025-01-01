@@ -14,8 +14,8 @@ const router: Router = express.Router();
 router
   .route('/')
   .post(
-    isAuthenticated,
-    isVendor,
+    // isAuthenticated,
+    // isVendor,
     multerMiddleware.array('images', 5),
     validate(schema.createProduct),
     productController.createProduct

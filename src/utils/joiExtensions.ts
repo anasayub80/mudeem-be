@@ -11,7 +11,7 @@ const jsonParserJoi = Joi.extend({
     try {
       return { value: JSON.parse(value) }; // Parse JSON if it's a valid string
     } catch (e) {
-      console.log(e)
+      console.log(e);
       return { errors: [helpers.error('json.base')] };
     }
   }
@@ -20,7 +20,26 @@ const jsonParserJoi = Joi.extend({
 // Wrapper function for checking array or object
 const validateParsedJSON = (type: 'array' | 'object', schema: Joi.AnySchema) =>
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  jsonParserJoi.json().custom((value: any, helpers: CustomHelpers) => {
+  // jsonParserJoi.json().custom((value: any, helpers: CustomHelpers) => {
+  //   console.log("value", value)
+  //   if (type === 'array' && !Array.isArray(value)) {
+  //     return helpers.error('json.base', { label: 'Expected an array' });
+  //   }
+  //   if (type === 'object' && typeof value !== 'object') {
+  //     return helpers.error('json.base', { label: 'Expected an object' });
+  //   }
+
+  //   // Validate the parsed JSON using the provided schema
+  //   const { error } = schema.validate(value, { allowUnknown: true });
+  //   if (error) {
+  //     throw error; // Joi handles this error and formats it
+  //   }
+  //   return value;
+  // });
+
+  jsonParserJoi.string().custom((value: any, helpers: CustomHelpers) => {
+    console.log('value', typeof value);
+    value = JSON.parse(value);
     if (type === 'array' && !Array.isArray(value)) {
       return helpers.error('json.base', { label: 'Expected an array' });
     }

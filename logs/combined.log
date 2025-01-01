@@ -508,3 +508,45 @@
 {"date":"2024-10-29T18:06:34.744Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/category"}
 {"date":"2024-10-29T18:07:04.736Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/category"}
 {"date":"2024-10-29T18:07:24.889Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/category"}
+{"date":"2024-12-31T20:58:58.386Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2024-12-31T21:05:48.599Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2024-12-31T21:07:47.010Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2024-12-31T21:09:24.544Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2024-12-31T21:10:55.227Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2024-12-31T21:12:20.479Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2024-12-31T21:14:42.678Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2024-12-31T21:15:50.164Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2024-12-31T21:16:44.134Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2024-12-31T21:16:44.182Z","level":"error","message":"Image is required","method":"POST","service":"user-service","url":"/"}
+{"date":"2024-12-31T21:18:05.324Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2024-12-31T21:18:05.364Z","level":"error","message":"Image is required","method":"POST","service":"user-service","url":"/"}
+{"date":"2024-12-31T21:18:54.782Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2024-12-31T21:20:20.190Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2024-12-31T21:21:02.689Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2024-12-31T21:21:54.491Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2024-12-31T21:24:20.899Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2024-12-31T21:28:04.979Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2024-12-31T21:57:55.088Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2024-12-31T21:58:19.815Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2024-12-31T21:59:39.303Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2024-12-31T22:01:20.125Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2024-12-31T22:01:50.587Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2024-12-31T22:02:15.903Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2024-12-31T22:02:15.945Z","level":"error","message":"Image is required","method":"POST","service":"user-service","url":"/"}
+{"date":"2024-12-31T22:41:34.655Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2024-12-31T22:41:34.672Z","level":"error","message":"Image is required","method":"POST","service":"user-service","url":"/"}
+{"date":"2024-12-31T22:42:05.769Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2024-12-31T22:42:05.798Z","level":"error","message":"Image is required","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-01-01T22:18:38.913Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/protuct"}
+{"date":"2025-01-01T22:19:07.051Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2025-01-01T22:19:07.121Z","level":"error","message":"Image is required","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-01-01T22:20:22.021Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2025-01-01T22:20:22.138Z","level":"error","message":"Product validation failed: user: Path `user` is required., vendor: Path `vendor` is required.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-01-01T22:21:20.264Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2025-01-01T22:21:20.375Z","level":"error","message":"Product validation failed: user: Path `user` is required.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-01-01T22:22:20.953Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2025-01-01T22:23:19.091Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2025-01-01T22:24:03.806Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2025-01-01T22:26:28.234Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2025-01-01T22:27:14.316Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2025-01-01T22:28:16.958Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}

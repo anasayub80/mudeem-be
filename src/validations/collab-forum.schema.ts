@@ -5,9 +5,8 @@ const createUpdatePost = Joi.object({
     'string.base': 'Content must be a string',
     'any.required': 'Content is required'
   }),
-  images: Joi.array().items(Joi.string()).required().min(1).messages({
+  images: Joi.array().items(Joi.string()).optional().min(1).messages({
     'array.base': 'Images must be an array',
-    'any.required': 'Images is required',
     'array.min': 'Images must have at least 1 image'
   })
 });

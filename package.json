@@ -5,7 +5,7 @@
   "main": "./src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "eslint . && nodemon src/index.ts",
+    "dev": "nodemon src/index.ts",
     "start": "node ./dist/index.js",
     "swagger": "ts-node ./swagger.ts",
     "format": "prettier --write .",

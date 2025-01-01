@@ -8,6 +8,7 @@ import mongoose from 'mongoose';
 
 const createProduct: RequestHandler = async (req, res) => {
   // #swagger.tags = ['product']
+  console.log(req.body);
   const session = await mongoose.startSession();
   try {
     session.startTransaction();
@@ -23,7 +24,9 @@ const createProduct: RequestHandler = async (req, res) => {
 
     const jsonVariants = JSON.parse(variants);
 
-    if (!req.files || req.files) {
+    console.log(req.files);
+
+    if (!req.files || req.files?.length === 0) {
       return ErrorHandler({
         message: 'Image is required',
         statusCode: 400,
@@ -38,9 +41,9 @@ const createProduct: RequestHandler = async (req, res) => {
       session
     });
 
-    const user = req.user
+    const user = req.user;
 
-    await Product.create(
+    const product = await Product.create(
       [
         {
           name,
@@ -56,25 +59,27 @@ const createProduct: RequestHandler = async (req, res) => {
           user: req.user?._id,
           brand,
           featured: req.body.featured || false,
-          vendor: user?._id
+          vendor: user?._id || '6763ed1956b22e551b58a262'
         }
       ],
       { session }
     );
+    await session.commitTransaction();
     return SuccessHandler({
-      data: { message: `Product created` },
+      data: { message: `Product created`, product },
       statusCode: 201,
       res
     });
   } catch (error) {
-    session.abortTransaction();
-    session.endSession();
+    await session.abortTransaction();
     return ErrorHandler({
       message: (error as Error).message,
       statusCode: 500,
       req,
       res
     });
+  } finally {
+    session.endSession();
   }
 };
 
