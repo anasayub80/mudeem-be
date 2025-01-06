@@ -276,11 +276,12 @@ const updateProduct: RequestHandler = async (req, res) => {
       description,
       price,
       category,
-      updatedVariants,
-      deletedVariants,
+      updatedVariants = '[]',
+      deletedVariants = '[]',
+      newVariants = '[]',
       greenPointsPerUnit,
       brand,
-      deletedImages
+      deletedImages = '[]'
     } = req.body;
     const product: IProduct | null = await Product.findById(req.params.id);
     if (!product) {
@@ -292,10 +293,12 @@ const updateProduct: RequestHandler = async (req, res) => {
       });
     }
     const jsonVariants = JSON.parse(updatedVariants);
+    const newVariantsArray = JSON.parse(newVariants);
     const deletedVariantsArray = JSON.parse(deletedVariants);
     const deletedImagesArray = JSON.parse(deletedImages);
     // handling updated variants
     if (jsonVariants.length > 0) {
+      console.log(jsonVariants, 'jsonVariants');
       Promise.all(
         jsonVariants.map(async (variant: IVariant) => {
           if (variant._id) {
@@ -304,27 +307,38 @@ const updateProduct: RequestHandler = async (req, res) => {
                 new: true,
                 session
               });
+            console.log(updatedVariant, 'updatedVariant');
             if (!updatedVariant) {
               throw new Error('Variant not found');
             }
             return updatedVariant;
           }
         })
-      ).then((variants: IVariant[]) => {
-        variants.forEach((variant) => {
-          product.variants.push(variant._id);
-        });
-      });
+      );
     }
     // handling deleted variants
     if (deletedVariantsArray.length > 0) {
+      console.log(deletedVariantsArray, 'deletedVariantsArray');
       await Variant.deleteMany(
         { _id: { $in: deletedVariantsArray } },
         { session }
       );
       product.variants = product.variants.filter(
-        (variant) => !deletedVariantsArray.includes(variant)
+        (variant) => !deletedVariantsArray.includes(variant.toString())
       );
+    }
+
+    // handling new variants
+    if (newVariantsArray.length > 0) {
+      const newVariants: IVariant[] = await Variant.insertMany(
+        newVariantsArray,
+        {
+          session
+        }
+      );
+      newVariants.forEach((variant) => {
+        product.variants.push(variant._id);
+      });
     }
     // handling deleted images
     if (deletedImagesArray.length > 0) {
@@ -348,23 +362,26 @@ const updateProduct: RequestHandler = async (req, res) => {
       ? JSON.parse(req.body.featured)
       : false;
     product.stock = req.body.stock ? JSON.parse(req.body.stock) : product.stock;
+    console.log(product.variants, 'product');
     await product.save({ session });
+    console.log('here');
     await session.commitTransaction();
-    session.endSession();
     return SuccessHandler({
       data: { message: 'Product updated' },
       statusCode: 201,
       res
     });
   } catch (error) {
-    session.abortTransaction();
-    session.endSession();
+    await session.abortTransaction();
+    console.log('here2');
     return ErrorHandler({
       message: (error as Error).message,
       statusCode: 500,
       req,
       res
     });
+  } finally {
+    await session.endSession();
   }
 };
 

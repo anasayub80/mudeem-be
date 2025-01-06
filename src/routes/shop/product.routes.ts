@@ -25,8 +25,8 @@ router
   .route('/:id')
   .get(productController.getProduct)
   .put(
-    isAuthenticated,
-    isVendor,
+    // isAuthenticated,
+    // isVendor,
     multerMiddleware.array('images', 5),
     validate(schema.updateProduct),
     productController.updateProduct

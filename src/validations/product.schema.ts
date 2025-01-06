@@ -175,21 +175,28 @@ const updateProduct = Joi.object({
   updatedVariants: validateParsedJSON(
     'array',
     Joi.array().items(variantSchemaWith_id)
-  ).messages({
-    'json.base': 'Updated Variants must be a valid JSON array'
-  }),
+  )
+    .optional()
+    .messages({
+      'json.base': 'Updated Variants must be a valid JSON array'
+    }),
   deletedVariants: validateParsedJSON(
     'array',
-    Joi.array().items(Joi.string())
+    Joi.array().items(Joi.string()).optional()
   ).messages({
     'json.base': 'Deleted Variants must be a valid JSON array'
   }),
-  deletedImages: validateParsedJSON(
+  newVariants: validateParsedJSON(
     'array',
-    Joi.array().items(Joi.string())
+    Joi.array().items(variantSchema).optional()
   ).messages({
-    'json.base': 'Deleted Images must be a valid JSON array'
+    'json.base': 'New Variants must be a valid JSON array'
   }),
+  deletedImages: validateParsedJSON('array', Joi.array().items(Joi.string()))
+    .optional()
+    .messages({
+      'json.base': 'Deleted Images must be a valid JSON array'
+    }),
   greenPointsPerUnit: Joi.number().messages({
     'number.base': 'Green points per unit must be a number'
   }),

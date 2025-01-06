@@ -550,3 +550,23 @@
 {"date":"2025-01-01T22:26:28.234Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
 {"date":"2025-01-01T22:27:14.316Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
 {"date":"2025-01-01T22:28:16.958Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2025-01-06T20:20:58.898Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2025-01-06T20:21:28.443Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2025-01-06T20:22:14.838Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2025-01-06T20:23:54.132Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/product"}
+{"date":"2025-01-06T20:51:29.795Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/shop/product/677c3bda553176da48452595"}
+{"date":"2025-01-06T20:54:43.127Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/shop/product/677c3bda553176da48452595"}
+{"date":"2025-01-06T20:54:43.386Z","level":"error","message":"Given transaction number 1 does not match any in-progress transactions. The active transaction number is -1","method":"PUT","service":"user-service","url":"/677c3bda553176da48452595"}
+{"date":"2025-01-06T20:57:58.144Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/shop/product/677c3bda553176da48452595"}
+{"date":"2025-01-06T20:57:58.615Z","level":"error","message":"Product validation failed: brand: Path `brand` is required.","method":"PUT","service":"user-service","url":"/677c3bda553176da48452595"}
+{"date":"2025-01-06T21:00:34.619Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/shop/product/677c3bda553176da48452595"}
+{"date":"2025-01-06T21:00:34.942Z","level":"error","message":"Given transaction number 1 does not match any in-progress transactions. The active transaction number is -1","method":"PUT","service":"user-service","url":"/677c3bda553176da48452595"}
+{"date":"2025-01-06T21:01:24.966Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/shop/product/677c3bda553176da48452595"}
+{"date":"2025-01-06T21:01:25.444Z","level":"error","message":"Given transaction number 1 does not match any in-progress transactions. The active transaction number is -1","method":"PUT","service":"user-service","url":"/677c3bda553176da48452595"}
+{"date":"2025-01-06T21:02:13.069Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/shop/product/677c3bda553176da48452595"}
+{"date":"2025-01-06T21:14:47.056Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/shop/product/677c3bda553176da48452595"}
+{"date":"2025-01-06T21:29:11.057Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/shop/product/677c3bda553176da48452595"}
+{"date":"2025-01-06T21:29:11.672Z","level":"error","message":"Given transaction number 1 does not match any in-progress transactions. The active transaction number is -1","method":"PUT","service":"user-service","url":"/677c3bda553176da48452595"}
+{"date":"2025-01-06T21:29:17.272Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/shop/product/677c3bda553176da48452595"}
+{"date":"2025-01-06T21:29:17.465Z","level":"error","message":"Given transaction number 2 does not match any in-progress transactions. The active transaction number is 1","method":"PUT","service":"user-service","url":"/677c3bda553176da48452595"}
+{"date":"2025-01-06T21:29:20.671Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/shop/product/677c3bda553176da48452595"}
