@@ -1,7 +1,7 @@
 import { RequestHandler } from 'express';
 import Post from '../../models/collab-forum/post';
 import ErrorHandler from '../../utils/errorHandler';
-import { uploadFile } from 'utils/fileHandling';
+import uploadFile from '../../utils/upload';
 import SuccessHandler from '../../utils/successHandler';
 import Comment from '../../models/collab-forum/comment';
 import mongoose from 'mongoose';
@@ -10,7 +10,7 @@ import path from 'path';
 const createPost: RequestHandler = async (req, res) => {
   // #swagger.tags = ['collab-forum']
   try {
-    const { content, images } = req.body;
+    const { content } = req.body;
     const user = req.user;
     // #swagger.parameters['req'] = {
     //   in: 'body',
@@ -31,15 +31,18 @@ const createPost: RequestHandler = async (req, res) => {
     }
 
     // const urls: string[] = await uploadFile(req.files as Express.Multer.File[]);
-
+    let images = await Promise.all(
+      req?.files?.map(async (item) => {
+        const result = await uploadFile(item?.buffer);
+        return result.secure_url;
+      }) || []
+    );
     // Logic to create a post
     const post = await Post.create({
       user: user?._id,
       content,
       // images: urls || []
-      imagegs: [
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHZqj-XReJ2R76nji51cZl4ETk6-eHRmZBRw&s'
-      ]
+      imagegs: images
     });
 
     return SuccessHandler({

@@ -3,6 +3,8 @@ import ErrorHandler from '../../utils/errorHandler';
 import { RequestHandler } from 'express';
 import Category from '../../models/shop/category.model';
 import { ICategory } from '../../types/models/shop';
+import uploadFile from '../../utils/upload';
+import { equal } from 'joi';
 // import { uploadFile } from '../../utils/fileHandling';
 
 const createCategory: RequestHandler = async (req, res) => {
@@ -17,13 +19,12 @@ const createCategory: RequestHandler = async (req, res) => {
         res
       });
     }
-    console.log(req.file);
     // const urls: string[] = await uploadFile([req.file as Express.Multer.File]);
+    let image = await uploadFile(req.file.buffer);
 
     const category: ICategory = await Category.create({
       name,
-      image:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHZqj-XReJ2R76nji51cZl4ETk6-eHRmZBRw&s'
+      image: image.secure_url
     });
     return SuccessHandler({
       data: { message: `Category created`, category },
@@ -104,10 +105,11 @@ const updateCategory: RequestHandler = async (req, res) => {
     const { name } = req.body;
     category.name = name;
     if (req.file) {
+      let image = await uploadFile(req.file.buffer);
+
       // const urls: string[] = await uploadFile([req.file
       // as Express.Multer.File]);
-      category.image =
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHZqj-XReJ2R76nji51cZl4ETk6-eHRmZBRw&s';
+      category.image = image.secure_url;
     }
     await category.save();
     return SuccessHandler({
