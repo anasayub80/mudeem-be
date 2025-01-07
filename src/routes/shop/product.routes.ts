@@ -14,8 +14,8 @@ const router: Router = express.Router();
 router
   .route('/')
   .post(
-    // isAuthenticated,
-    // isVendor,
+    isAuthenticated,
+    isAdmin,
     multerMiddleware.array('images', 5),
     validate(schema.createProduct),
     productController.createProduct
@@ -25,8 +25,8 @@ router
   .route('/:id')
   .get(productController.getProduct)
   .put(
-    // isAuthenticated,
-    // isVendor,
+    isAuthenticated,
+    isAdmin,
     multerMiddleware.array('images', 5),
     validate(schema.updateProduct),
     productController.updateProduct
