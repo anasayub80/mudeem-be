@@ -5,6 +5,7 @@ import Product from '../../models/shop/product.model';
 import Variant from '../../models/shop/variant.model';
 import { IProduct, IVariant } from '../../types/models/shop';
 import mongoose from 'mongoose';
+import uploadFile from '../../utils/upload';
 
 const createProduct: RequestHandler = async (req, res) => {
   // #swagger.tags = ['product']
@@ -43,6 +44,13 @@ const createProduct: RequestHandler = async (req, res) => {
 
     const user = req.user;
 
+    const images = await Promise.all(
+      req.files.map(async (item) => {
+        const result = await uploadFile(item.buffer);
+        return result.secure_url;
+      })
+    );
+
     const product = await Product.create(
       [
         {
@@ -50,10 +58,7 @@ const createProduct: RequestHandler = async (req, res) => {
           description,
           price,
           category,
-          images: [
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHZqj-XReJ2R76nji51cZl4ETk6-eHRmZBRw&s',
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHZqj-XReJ2R76nji51cZl4ETk6-eHRmZBRw&s'
-          ],
+          images: images,
           variants: variantsArray.map((variant) => variant._id),
           greenPointsPerUnit,
           user: req.user?._id,
