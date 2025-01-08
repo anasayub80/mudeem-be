@@ -56,3 +56,9 @@ export interface IAddress extends Document {
   country: string;
   zip: string;
 }
+
+export interface IEvent extends Document {
+  name: string;
+  description: string;
+  dateTime: Date;
+}

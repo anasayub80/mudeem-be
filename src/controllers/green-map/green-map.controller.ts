@@ -149,7 +149,6 @@ const rewardGreenMap: RequestHandler = async (req, res) => {
   // #swagger.tags = ['green-map']
   try {
     const { id } = req.params;
-    const { userId } = req.body;
     const greenMap = await GreenMap.findById(id);
     if (!greenMap) {
       return ErrorHandler({
@@ -160,7 +159,7 @@ const rewardGreenMap: RequestHandler = async (req, res) => {
       });
     }
 
-    const user = await User.findById(userId);
+    const user = await User.findById(req.user?._id);
     if (!user) {
       return ErrorHandler({
         message: 'User not found',

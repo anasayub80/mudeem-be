@@ -2,7 +2,7 @@ import express from 'express';
 import { Router } from 'express';
 import { isAuthenticated, isAdmin } from '../../middleware/auth.middleware';
 import { validate } from '../../middleware/validate.middleware';
-import * as greenMapController from '../../controllers/green-map/green-map.controller';
+import * as eventsController from '../../controllers/events/events.controller';
 
 const router: Router = express.Router();
 
@@ -12,23 +12,19 @@ router
     isAuthenticated,
     isAdmin,
     // validate(greenMapController.createGreenMap),
-    greenMapController.createGreenMap
+    eventsController.createEvent
   )
-  .get(greenMapController.getAllGreenMaps);
+  .get(eventsController.getAllEvents);
 
 router
   .route('/:id')
-  .get(greenMapController.getGreenMap)
+  .get(eventsController.getEvent)
   .put(
     isAuthenticated,
     isAdmin,
     // validate(greenMapController.updateGreenMap),
-    greenMapController.updateGreenMap
+    eventsController.updateEvent
   )
-  .delete(isAuthenticated, isAdmin, greenMapController.deleteGreenMap);
-
-router
-  .route('/reward/:id')
-  .put(isAuthenticated, greenMapController.rewardGreenMap);
+  .delete(isAuthenticated, isAdmin, eventsController.deleteEvent);
 
 export default router;
