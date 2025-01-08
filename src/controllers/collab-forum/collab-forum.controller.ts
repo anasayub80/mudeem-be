@@ -67,7 +67,10 @@ const getAllPosts: RequestHandler = async (req, res) => {
     let query = {};
     if (req.query?.mine == 'true') {
       const userId = new mongoose.Types.ObjectId(req.user?._id);
-      query = { user: userId };
+      query = {
+        user: userId,
+        status: req.user?.role === 'admin' ? { $ne: 'rejected' } : 'accepted'
+      };
     }
     const posts = await Post.aggregate([
       {

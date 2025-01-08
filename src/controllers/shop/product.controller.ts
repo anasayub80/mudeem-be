@@ -113,6 +113,9 @@ const getAllProducts: RequestHandler = async (req, res) => {
     const skip = (page - 1) * limit;
 
     const products: IProduct[] = await Product.find(filters)
+      // .populate('category')
+      // .populate('user')
+      // .populate('variants')
       .skip(skip)
       .limit(limit);
     return SuccessHandler({
