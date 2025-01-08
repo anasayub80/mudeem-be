@@ -1,11 +1,12 @@
 import { RequestHandler } from 'express';
-import Post from '../../models/collab-forum/post';
 import ErrorHandler from '../../utils/errorHandler';
-import uploadFile from '../../utils/upload';
-import SuccessHandler from '../../utils/successHandler';
-import Comment from '../../models/collab-forum/comment';
 import mongoose from 'mongoose';
+import SuccessHandler from '../../utils/successHandler';
+import Post from '../../models/collab-forum/post';
+import uploadFile from '../../utils/upload';
+import Comment from '../../models/collab-forum/comment';
 import path from 'path';
+import User from '../../models/user/user.model';
 
 const createPost: RequestHandler = async (req, res) => {
   // #swagger.tags = ['collab-forum']
@@ -21,14 +22,14 @@ const createPost: RequestHandler = async (req, res) => {
     //   }
     // }
 
-    if (!req.files || req.files.length === 0) {
-      return ErrorHandler({
-        message: 'Please upload at least one image',
-        statusCode: 400,
-        req,
-        res
-      });
-    }
+    // if (!req.files || req.files.length === 0) {
+    //   return ErrorHandler({
+    //     message: 'Please upload at least one image',
+    //     statusCode: 400,
+    //     req,
+    //     res
+    //   });
+    // }
 
     // const urls: string[] = await uploadFile(req.files as Express.Multer.File[]);
     let images = await Promise.all(
@@ -42,7 +43,7 @@ const createPost: RequestHandler = async (req, res) => {
       user: user?._id,
       content,
       // images: urls || []
-      imagegs: images
+      images: images
     });
 
     return SuccessHandler({
@@ -162,6 +163,7 @@ const updatePost: RequestHandler = async (req, res) => {
     const { content } = req.body;
     const user = req.user;
     const post = await Post.findById(id);
+
     if (!post) {
       return ErrorHandler({
         message: 'Post not found',
@@ -416,6 +418,134 @@ const createReply: RequestHandler = async (req, res) => {
   }
 };
 
+// admin apis
+
+const getAllPostsForAdmin: RequestHandler = async (req, res) => {
+  // #swagger.tags = ['collab-forum']
+
+  try {
+    const { status = 'requested', page = 0, limit = 10 } = req.query;
+
+    const skip = Number(page) * Number(limit);
+
+    const post = await Post.aggregate([
+      {
+        $facet: {
+          totalDocs: [
+            {
+              $match: {
+                status: status
+              }
+            },
+            {
+              $count: 'count'
+            }
+          ],
+          posts: [
+            {
+              $match: {
+                status: status
+              }
+            },
+            {
+              $lookup: {
+                from: 'users',
+                localField: 'user',
+                foreignField: '_id',
+                as: 'user'
+              }
+            },
+            {
+              $unwind: '$user'
+            },
+            {
+              $skip: skip
+            },
+            {
+              $limit: Number(limit)
+            },
+            {
+              $sort: { createdAt: -1 }
+            }
+          ]
+        }
+      }
+    ]);
+
+    if (!post) {
+      return ErrorHandler({
+        message: 'Posts not found',
+        statusCode: 404,
+        req,
+        res
+      });
+    }
+    return SuccessHandler({
+      res,
+      data: post,
+      statusCode: 200
+    });
+  } catch (error) {
+    console.log('kyu masla aaraha ahai');
+
+    return ErrorHandler({
+      message: (error as Error).message,
+      statusCode: 500,
+      req,
+      res
+    });
+  }
+};
+
+const changePostStatus: RequestHandler = async (req, res) => {
+  // #swagger.tags = ['collab-forum']
+
+  try {
+    const { id } = req.params;
+    const { points = 0, status = 'requested' } = req.body;
+
+    const post = await Post.findById(id).populate('user', 'name email');
+
+    if (!post) {
+      return ErrorHandler({
+        message: 'Posts not found',
+        statusCode: 404,
+        req,
+        res
+      });
+    }
+    post.status = String(status);
+    await post.save();
+
+    const user = await User.findById(post?.user);
+    if (!user) {
+      return ErrorHandler({
+        message: 'User not found',
+        statusCode: 404,
+        req,
+        res
+      });
+    }
+    user.greenPoints =
+      status === 'accepted'
+        ? user.greenPoints + Number(points)
+        : user.greenPoints;
+    await user.save();
+    return SuccessHandler({
+      res,
+      data: post,
+      statusCode: 200
+    });
+  } catch (error) {
+    return ErrorHandler({
+      message: (error as Error).message,
+      statusCode: 500,
+      req,
+      res
+    });
+  }
+};
+
 export {
   createPost,
   getAllPosts,
@@ -425,5 +555,8 @@ export {
   createComment,
   deleteComment,
   likeUnlikeComment,
-  createReply
+  createReply,
+  // admin apis
+  getAllPostsForAdmin,
+  changePostStatus
 };

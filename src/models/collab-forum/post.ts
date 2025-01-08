@@ -12,6 +12,11 @@ const postSchema = new mongoose.Schema<IPost>(
       type: String,
       required: true
     },
+    status: {
+      type: String,
+      enum: ['requested', 'accepted', 'rejected'],
+      default: 'requested'
+    },
     images: [
       {
         type: String

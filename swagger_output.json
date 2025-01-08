@@ -921,7 +921,10 @@
                 "content": {
                   "example": "any"
                 },
-                "images": {
+                "points": {
+                  "example": "any"
+                },
+                "status": {
                   "example": "any"
                 }
               }
@@ -939,6 +942,22 @@
             "description": "Internal Server Error"
           }
         }
+      }
+    },
+    "/collab-forum/getPostForAdmin": {
+      "get": {
+        "tags": [
+          "collab-forum"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {}
       }
     },
     "/collab-forum/{id}": {
@@ -1161,6 +1180,129 @@
             "description": "Internal Server Error"
           }
         }
+      }
+    },
+    "/collab-forum/changePostStatus/{id}": {
+      "put": {
+        "tags": [
+          "collab-forum"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "points": {
+                  "example": "any"
+                },
+                "status": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/sustainable-innovation/": {
+      "get": {
+        "tags": [
+          "sustainble-innovation"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      },
+      "post": {
+        "tags": [
+          "sustainble-innovation"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/sustainable-innovation/{id}": {
+      "get": {
+        "tags": [
+          "sustainble-innovation"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      },
+      "put": {
+        "tags": [
+          "sustainble-innovation"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "points": {
+                  "example": "any"
+                },
+                "status": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {}
       }
     }
   }

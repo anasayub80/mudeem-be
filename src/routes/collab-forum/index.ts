@@ -1,6 +1,6 @@
 import express from 'express';
 import { Router } from 'express';
-import { isAuthenticated } from '../../middleware/auth.middleware';
+import { isAdmin, isAuthenticated } from '../../middleware/auth.middleware';
 import * as collabForumController from '../../controllers/collab-forum/collab-forum.controller';
 import * as schema from '../../validations/collab-forum.schema';
 import { validate } from '../../middleware/validate.middleware';
@@ -17,6 +17,10 @@ router
     collabForumController.createPost
   )
   .get(collabForumController.getAllPosts);
+
+router
+  .route('/getPostForAdmin')
+  .get(isAuthenticated, isAdmin, collabForumController.getAllPostsForAdmin);
 
 router
   .route('/:id')
@@ -51,5 +55,9 @@ router
     validate(schema.createCommentReply),
     collabForumController.createReply
   );
+
+router
+  .route('/changePostStatus/:id')
+  .put(isAuthenticated, isAdmin, collabForumController.changePostStatus);
 
 export default router;
