@@ -1,6 +1,6 @@
 import { RequestHandler } from 'express';
 import ErrorHandler from '../../utils/errorHandler';
-
+import uploadFile from '../../utils/upload';
 import SuccessHandler from '../../utils/successHandler';
 import Project from '../../models/sustainable-innovation/project';
 import User from '../../models/User/user.model';
@@ -11,12 +11,19 @@ const createProject: RequestHandler = async (req, res) => {
     const { title, description } = req.body;
     const user = req.user;
 
+    let images = await Promise.all(
+      req?.files?.map(async (item) => {
+        const result = await uploadFile(item?.buffer);
+        return result.secure_url;
+      }) || []
+    );
+
     const project = await Project.create({
       user: user?._id,
       title,
-      description
+      description,
       // images: urls || []
-      // images: images
+      documents: images
     });
 
     return SuccessHandler({
@@ -45,15 +52,23 @@ const getAllProjects: RequestHandler = async (req, res) => {
         $facet: {
           totalDocs: [
             {
+              $match: { status: 'requested' }
+            },
+            {
               $count: 'count'
             }
           ],
           projects: [
             {
+              $match: {
+                status: 'requested'
+              }
+            },
+            {
               $lookup: {
-                from: 'user',
-                localField: '_id',
-                foreignField: 'user',
+                from: 'users',
+                localField: 'user',
+                foreignField: '_id',
                 as: 'user'
               }
             },
