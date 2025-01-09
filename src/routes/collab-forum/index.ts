@@ -19,10 +19,6 @@ router
   .get(collabForumController.getAllPosts);
 
 router
-  .route('/getPostForAdmin')
-  .get(isAuthenticated, isAdmin, collabForumController.getAllPostsForAdmin);
-
-router
   .route('/:id')
   .get(collabForumController.getPost)
   .put(

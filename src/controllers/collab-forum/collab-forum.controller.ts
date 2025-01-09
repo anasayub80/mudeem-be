@@ -64,30 +64,108 @@ const getAllPosts: RequestHandler = async (req, res) => {
   // #swagger.tags = ['collab-forum']
 
   try {
+    const { status = 'requested', page = 0, limit = 10 } = req.query;
+    const skip = Number(page) * Number(limit);
+
     let query = {};
-    if (req.query?.mine == 'true') {
+    if (req.user?.role !== 'admin') {
       const userId = new mongoose.Types.ObjectId(req.user?._id);
       query = {
         user: userId,
-        status: req.user?.role === 'admin' ? { $ne: 'rejected' } : 'accepted'
+        status: 'accepted'
+      };
+    } else {
+      query = {
+        status: status
       };
     }
     const posts = await Post.aggregate([
       {
-        $match: query
-      },
-      {
-        $lookup: {
-          from: 'users',
-          localField: 'user',
-          foreignField: '_id',
-          as: 'user'
+        $facet: {
+          totalDocs: [
+            {
+              $match: query
+            },
+            {
+              $count: 'count'
+            }
+          ],
+          posts: [
+            {
+              $match: query
+            },
+            {
+              $lookup: {
+                from: 'comments',
+                localField: 'comments',
+                foreignField: '_id',
+                as: 'comments'
+              }
+            },
+            {
+              $unwind: {
+                path: '$comments',
+                preserveNullAndEmptyArrays: true // Avoids removing documents with no comments
+              }
+            },
+            {
+              $lookup: {
+                from: 'comments',
+                localField: 'comments.replies',
+                foreignField: '_id',
+                as: 'comments.replies'
+              }
+            },
+            {
+              $lookup: {
+                from: 'users',
+                localField: 'user',
+                foreignField: '_id',
+                as: 'user'
+              }
+            },
+            {
+              $project: {
+                _id: 1,
+                comments: 1,
+                images: 1,
+                content: 1,
+                createdAt: 1,
+                user: 1,
+                status: 1
+              }
+            },
+            {
+              $group: {
+                _id: '$_id',
+                comments: { $push: '$comments' },
+                user: { $first: '$user' },
+                images: { $first: '$images' },
+                content: { $first: '$content' },
+                createdAt: { $first: '$createdAt' },
+                status: { $first: '$status' }
+              }
+            },
+            {
+              $unwind: {
+                path: '$user',
+                preserveNullAndEmptyArrays: true // Avoid removing posts without a user match
+              }
+            },
+            {
+              $skip: skip
+            },
+            {
+              $limit: Number(limit)
+            },
+            {
+              $sort: { createdAt: -1 }
+            }
+          ]
         }
-      },
-      {
-        $unwind: '$user'
       }
     ]);
+
     return SuccessHandler({
       res,
       data: posts,
@@ -423,83 +501,6 @@ const createReply: RequestHandler = async (req, res) => {
 
 // admin apis
 
-const getAllPostsForAdmin: RequestHandler = async (req, res) => {
-  // #swagger.tags = ['collab-forum']
-
-  try {
-    const { status = 'requested', page = 0, limit = 10 } = req.query;
-
-    const skip = Number(page) * Number(limit);
-
-    const post = await Post.aggregate([
-      {
-        $facet: {
-          totalDocs: [
-            {
-              $match: {
-                status: status
-              }
-            },
-            {
-              $count: 'count'
-            }
-          ],
-          posts: [
-            {
-              $match: {
-                status: status
-              }
-            },
-            {
-              $lookup: {
-                from: 'users',
-                localField: 'user',
-                foreignField: '_id',
-                as: 'user'
-              }
-            },
-            {
-              $unwind: '$user'
-            },
-            {
-              $skip: skip
-            },
-            {
-              $limit: Number(limit)
-            },
-            {
-              $sort: { createdAt: -1 }
-            }
-          ]
-        }
-      }
-    ]);
-
-    if (!post) {
-      return ErrorHandler({
-        message: 'Posts not found',
-        statusCode: 404,
-        req,
-        res
-      });
-    }
-    return SuccessHandler({
-      res,
-      data: post,
-      statusCode: 200
-    });
-  } catch (error) {
-    console.log('kyu masla aaraha ahai');
-
-    return ErrorHandler({
-      message: (error as Error).message,
-      statusCode: 500,
-      req,
-      res
-    });
-  }
-};
-
 const changePostStatus: RequestHandler = async (req, res) => {
   // #swagger.tags = ['collab-forum']
 
@@ -560,6 +561,5 @@ export {
   likeUnlikeComment,
   createReply,
   // admin apis
-  getAllPostsForAdmin,
   changePostStatus
 };
