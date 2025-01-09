@@ -3,7 +3,7 @@ import ErrorHandler from '../../utils/errorHandler';
 import SuccessHandler from '../../utils/successHandler';
 import uploadFile from '../../utils/upload';
 import Farm from '../../models/farm/farm.model';
-import User from '../../models/user/user.model';
+import User from '../../models/User/user.model';
 
 const createFarm: RequestHandler = async (req, res) => {
   // #swagger.tags = ['farm']

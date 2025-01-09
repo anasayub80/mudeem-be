@@ -1,17 +1,17 @@
 import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
-import User from '../models/user/user.model';
+import User from '../models/User/user.model';
 import { IUser } from '../types/models/user';
 
 passport.use(
   new LocalStrategy(
     {
       usernameField: 'email',
-      passwordField: 'password',
+      passwordField: 'password'
     },
     async (email, password, done) => {
       try {
-        const user: IUser | null = await User.findOne({ email })
+        const user: IUser | null = await User.findOne({ email });
         if (!user) {
           return done(null, false, { message: 'Incorrect email.' });
         }
@@ -28,13 +28,13 @@ passport.use(
 );
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-passport.serializeUser((user:any, done) => {
+passport.serializeUser((user: any, done) => {
   done(null, user.id);
 });
 
 passport.deserializeUser(async (id, done) => {
   try {
-    const user: IUser|null = await User.findById(id).exec();
+    const user: IUser | null = await User.findById(id).exec();
     done(null, user);
   } catch (error) {
     done(error);

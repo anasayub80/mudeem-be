@@ -3,7 +3,7 @@ import ErrorHandler from '../../utils/errorHandler';
 
 import SuccessHandler from '../../utils/successHandler';
 import Project from '../../models/sustainable-innovation/project';
-import User from '../../models/user/user.model';
+import User from '../../models/User/user.model';
 
 const createProject: RequestHandler = async (req, res) => {
   // #swagger.tags = ['sustainble-innovation']

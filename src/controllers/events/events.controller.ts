@@ -1,7 +1,7 @@
 import { RequestHandler } from 'express';
 import ErrorHandler from '../../utils/errorHandler';
 import SuccessHandler from '../../utils/successHandler';
-import Event from '../../models/user/events.model';
+import Event from '../../models/User/events.model';
 
 const createEvent: RequestHandler = async (req, res) => {
   // #swagger.tags = ['events']
