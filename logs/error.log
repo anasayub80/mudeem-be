@@ -54,3 +54,9 @@
 {"date":"2025-01-08T08:16:43.464Z","level":"error","message":"Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Post\"","method":"PUT","service":"user-service","url":"/changePostStatus/undefined"}
 {"date":"2025-01-08T10:58:32.343Z","level":"error","message":"path option to $unwind stage should be prefixed with a '$': totalDocs","method":"GET","service":"user-service","url":"/getPostForAdmin"}
 {"date":"2025-01-08T10:59:02.532Z","level":"error","message":"path option to $unwind stage should be prefixed with a '$': user","method":"GET","service":"user-service","url":"/getPostForAdmin"}
+{"date":"2025-01-09T07:57:42.029Z","level":"error","message":"a group specification must include an _id","method":"GET","service":"user-service","url":"/"}
+{"date":"2025-01-09T08:03:50.627Z","level":"error","message":"Invalid $project :: caused by :: Path collision at comments.replies remaining portion replies","method":"GET","service":"user-service","url":"/"}
+{"date":"2025-01-09T08:12:19.581Z","level":"error","message":"$count takes no arguments, i.e. $count:{}","method":"GET","service":"user-service","url":"/"}
+{"date":"2025-01-09T08:17:09.507Z","level":"error","message":"Invalid $project :: caused by :: Path collision at comments.replies remaining portion replies","method":"GET","service":"user-service","url":"/"}
+{"date":"2025-01-09T10:41:25.570Z","level":"error","message":"Converting circular structure to JSON\n    --> starting at object with constructor 'MongoClient'\n    |     property 's' -> object with constructor 'Object'\n    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'\n    --- property 'client' closes the circle","method":"GET","service":"user-service","url":"/"}
+{"date":"2025-01-10T07:13:31.902Z","level":"error","message":"Product not found","method":"GET","service":"user-service","url":"/6778e5e9801e601b738f1020"}

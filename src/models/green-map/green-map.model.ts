@@ -3,10 +3,6 @@ import { IGreenMap } from 'types/models/green-map';
 
 const greenMapSchema = new mongoose.Schema<IGreenMap>(
   {
-    name: {
-      type: String,
-      required: true
-    },
     description: {
       type: String,
       required: true
@@ -30,10 +26,6 @@ const greenMapSchema = new mongoose.Schema<IGreenMap>(
       required: true
     },
     greenPointsPerTime: {
-      type: Number,
-      required: true
-    },
-    timeLimit: {
       type: Number,
       required: true
     }

@@ -1,7 +1,6 @@
 import { Document } from 'mongoose';
 
 export interface IGreenMap extends Document {
-  name: string;
   description: string;
   location: string;
   coordinates: {
@@ -10,5 +9,4 @@ export interface IGreenMap extends Document {
   };
   category: string;
   greenPointsPerTime: number;
-  timeLimit: number;
 }

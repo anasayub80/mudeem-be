@@ -9,22 +9,20 @@ const createGreenMap: RequestHandler = async (req, res) => {
   try {
     // Logic to create a green map
     const {
-      name,
       description,
       location,
       coordinates,
       category,
-      greenPointsPerTime,
-      timeLimit
+      greenPointsPerTime
+      // timeLimit
     } = req.body;
     const greenMap = await GreenMap.create({
-      name,
       description,
       location,
       coordinates,
       category,
-      greenPointsPerTime,
-      timeLimit
+      greenPointsPerTime
+      // timeLimit
     });
     return SuccessHandler({
       res,

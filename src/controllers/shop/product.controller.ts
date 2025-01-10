@@ -113,9 +113,9 @@ const getAllProducts: RequestHandler = async (req, res) => {
     const skip = (page - 1) * limit;
 
     const products: IProduct[] = await Product.find(filters)
-      // .populate('category')
+      .populate('category')
       // .populate('user')
-      // .populate('variants')
+      .populate('variants')
       .skip(skip)
       .limit(limit);
     return SuccessHandler({
@@ -145,111 +145,114 @@ const getProduct: RequestHandler = async (req, res) => {
       reviewSort = { createdAt: -1 };
     }
 
-    const product = await Product.aggregate([
-      {
-        $match: {
-          _id: new mongoose.Types.ObjectId(req.params.id),
-          isActive: true
-        }
-      },
-      {
-        $lookup: {
-          from: 'variants',
-          localField: 'variants',
-          foreignField: '_id',
-          as: 'variants'
-        }
-      },
-      {
-        $lookup: {
-          from: 'categories',
-          localField: 'category',
-          foreignField: '_id',
-          as: 'category'
-        }
-      },
-      { $unwind: '$category' },
-      {
-        $lookup: {
-          from: 'users',
-          localField: 'user',
-          foreignField: '_id',
-          as: 'user'
-        }
-      },
-      { $unwind: '$user' },
-      {
-        $lookup: {
-          from: 'reviews',
-          let: { productId: '$_id' },
-          pipeline: [
-            { $match: { $expr: { $eq: ['$product', '$$productId'] } } },
-            { $sort: reviewSort },
-            {
-              $group: {
-                _id: '$rating',
-                count: { $sum: 1 }
-              }
-            }
-          ],
-          as: 'ratingBreakdown'
-        }
-      },
-      {
-        $lookup: {
-          from: 'reviews',
-          let: { productId: '$_id' },
-          pipeline: [
-            { $match: { $expr: { $eq: ['$product', '$$productId'] } } },
-            { $sort: reviewSort }
-          ],
-          as: 'reviews'
-        }
-      },
-      {
-        $lookup: {
-          from: 'users',
-          localField: 'reviews.user',
-          foreignField: '_id',
-          as: 'reviews.user'
-        }
-      },
-      {
-        $addFields: {
-          ratingBreakdown: {
-            $arrayToObject: {
-              $map: {
-                input: '$ratingBreakdown',
-                as: 'r',
-                in: {
-                  k: { $concat: [{ $toString: '$$r._id' }, '-star'] },
-                  v: '$$r.count'
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        $project: {
-          name: 1,
-          description: 1,
-          price: 1,
-          category: 1,
-          images: 1,
-          variants: 1,
-          greenPointsPerUnit: 1,
-          user: 1,
-          brand: 1,
-          rating: 1,
-          stock: 1,
-          featured: 1,
-          sold: 1,
-          reviews: 1,
-          ratingBreakdown: 1
-        }
-      }
-    ]);
+    const product = await Product.findById(req.params.id)
+      .populate('category')
+      .populate('variants');
+    // const product = await Product.aggregate([
+    //   {
+    //     $match: {
+    //       _id: new mongoose.Types.ObjectId(req.params.id),
+    //       isActive: true
+    //     }
+    //   },
+    //   {
+    //     $lookup: {
+    //       from: 'variants',
+    //       localField: 'variants',
+    //       foreignField: '_id',
+    //       as: 'variants'
+    //     }
+    //   },
+    //   {
+    //     $lookup: {
+    //       from: 'categories',
+    //       localField: 'category',
+    //       foreignField: '_id',
+    //       as: 'category'
+    //     }
+    //   },
+    //   { $unwind: '$category' },
+    //   {
+    //     $lookup: {
+    //       from: 'users',
+    //       localField: 'user',
+    //       foreignField: '_id',
+    //       as: 'user'
+    //     }
+    //   },
+    //   { $unwind: '$user' },
+    //   {
+    //     $lookup: {
+    //       from: 'reviews',
+    //       let: { productId: '$_id' },
+    //       pipeline: [
+    //         { $match: { $expr: { $eq: ['$product', '$$productId'] } } },
+    //         { $sort: reviewSort },
+    //         {
+    //           $group: {
+    //             _id: '$rating',
+    //             count: { $sum: 1 }
+    //           }
+    //         }
+    //       ],
+    //       as: 'ratingBreakdown'
+    //     }
+    //   },
+    //   {
+    //     $lookup: {
+    //       from: 'reviews',
+    //       let: { productId: '$_id' },
+    //       pipeline: [
+    //         { $match: { $expr: { $eq: ['$product', '$$productId'] } } },
+    //         { $sort: reviewSort }
+    //       ],
+    //       as: 'reviews'
+    //     }
+    //   },
+    //   {
+    //     $lookup: {
+    //       from: 'users',
+    //       localField: 'reviews.user',
+    //       foreignField: '_id',
+    //       as: 'reviews.user'
+    //     }
+    //   },
+    //   {
+    //     $addFields: {
+    //       ratingBreakdown: {
+    //         $arrayToObject: {
+    //           $map: {
+    //             input: '$ratingBreakdown',
+    //             as: 'r',
+    //             in: {
+    //               k: { $concat: [{ $toString: '$$r._id' }, '-star'] },
+    //               v: '$$r.count'
+    //             }
+    //           }
+    //         }
+    //       }
+    //     }
+    //   },
+    //   {
+    //     $project: {
+    //       name: 1,
+    //       description: 1,
+    //       price: 1,
+    //       category: 1,
+    //       images: 1,
+    //       variants: 1,
+    //       greenPointsPerUnit: 1,
+    //       user: 1,
+    //       brand: 1,
+    //       rating: 1,
+    //       stock: 1,
+    //       featured: 1,
+    //       sold: 1,
+    //       reviews: 1,
+    //       ratingBreakdown: 1
+    //     }
+    //   }
+    // ]);
 
     if (!product) {
       return ErrorHandler({

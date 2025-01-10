@@ -64,7 +64,7 @@ const getAllPosts: RequestHandler = async (req, res) => {
   // #swagger.tags = ['collab-forum']
 
   try {
-    const { status = 'requested', page = 0, limit = 10 } = req.query;
+    const { status = 'requested', page = 0, limit = 8 } = req.query;
     const skip = Number(page) * Number(limit);
 
     let query = {};
@@ -85,6 +85,7 @@ const getAllPosts: RequestHandler = async (req, res) => {
           totalDocs: [
             {
               $match: query
+              // $match: { status: status }
             },
             {
               $count: 'count'
@@ -93,28 +94,7 @@ const getAllPosts: RequestHandler = async (req, res) => {
           posts: [
             {
               $match: query
-            },
-            {
-              $lookup: {
-                from: 'comments',
-                localField: 'comments',
-                foreignField: '_id',
-                as: 'comments'
-              }
-            },
-            {
-              $unwind: {
-                path: '$comments',
-                preserveNullAndEmptyArrays: true // Avoids removing documents with no comments
-              }
-            },
-            {
-              $lookup: {
-                from: 'comments',
-                localField: 'comments.replies',
-                foreignField: '_id',
-                as: 'comments.replies'
-              }
+              // $match: { status: status }
             },
             {
               $lookup: {
@@ -125,41 +105,17 @@ const getAllPosts: RequestHandler = async (req, res) => {
               }
             },
             {
-              $project: {
-                _id: 1,
-                comments: 1,
-                images: 1,
-                content: 1,
-                createdAt: 1,
-                user: 1,
-                status: 1
-              }
-            },
-            {
-              $group: {
-                _id: '$_id',
-                comments: { $push: '$comments' },
-                user: { $first: '$user' },
-                images: { $first: '$images' },
-                content: { $first: '$content' },
-                createdAt: { $first: '$createdAt' },
-                status: { $first: '$status' }
-              }
-            },
-            {
               $unwind: {
                 path: '$user',
                 preserveNullAndEmptyArrays: true // Avoid removing posts without a user match
               }
             },
+            { $sort: { createdAt: -1 } },
             {
-              $skip: skip
+              $skip: Number(skip)
             },
             {
-              $limit: Number(limit)
-            },
-            {
-              $sort: { createdAt: -1 }
+              $limit: 8
             }
           ]
         }
@@ -304,6 +260,7 @@ const likeUnlikePost: RequestHandler = async (req, res) => {
     } else {
       post.likes.push(user?._id);
     }
+    post.save();
     return SuccessHandler({
       res,
       data: post,

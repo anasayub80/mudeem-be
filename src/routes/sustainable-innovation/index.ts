@@ -17,8 +17,8 @@ router
     sustainableInnovationController.createProject
   )
   .get(
-    isAuthenticated,
-    isAdmin,
+    // isAuthenticated,
+    // isAdmin,
     sustainableInnovationController.getAllProjects
   );
 
@@ -30,8 +30,8 @@ router
     sustainableInnovationController.getSingleProject
   )
   .put(
-    isAuthenticated,
-    isAdmin,
+    // isAuthenticated,
+    // isAdmin,
     sustainableInnovationController.changeProjectStatus
   );
 
