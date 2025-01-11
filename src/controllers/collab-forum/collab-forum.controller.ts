@@ -64,14 +64,20 @@ const getAllPosts: RequestHandler = async (req, res) => {
   // #swagger.tags = ['collab-forum']
 
   try {
-    const { status = 'requested', page = 0, limit = 8 } = req.query;
+    const { status = 'requested', page = 0, limit = 8, type } = req.query;
     const skip = Number(page) * Number(limit);
 
     let query = {};
-    if (req.user?.role !== 'admin') {
-      const userId = new mongoose.Types.ObjectId(req.user?._id);
+    if (type === 'me') {
+      if (req.user?.role !== 'admin') {
+        const userId = new mongoose.Types.ObjectId(req.user?._id);
+        query = {
+          user: userId,
+          status: 'accepted'
+        };
+      }
+    } else if (type === 'others') {
       query = {
-        user: userId,
         status: 'accepted'
       };
     } else {

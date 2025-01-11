@@ -4,8 +4,6 @@ import { RequestHandler } from 'express';
 import Category from '../../models/shop/category.model';
 import { ICategory } from '../../types/models/shop';
 import uploadFile from '../../utils/upload';
-import { equal } from 'joi';
-// import { uploadFile } from '../../utils/fileHandling';
 
 const createCategory: RequestHandler = async (req, res) => {
   // #swagger.tags = ['category']

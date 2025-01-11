@@ -1,6 +1,12 @@
 import mongoose, { Document } from 'mongoose';
 import { IAddress } from './user';
 
+export interface IBanner extends Document {
+  name: string;
+  image: string;
+  isActive: boolean;
+}
+
 export interface ICategory extends Document {
   name: string;
   image: string;

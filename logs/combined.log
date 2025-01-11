@@ -2729,3 +2729,17 @@
 {"date":"2025-01-10T13:30:50.436Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
 {"date":"2025-01-10T13:32:03.554Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/green-map"}
 {"date":"2025-01-10T13:32:03.639Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-01-11T09:05:31.641Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/banner"}
+{"date":"2025-01-11T09:09:16.713Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/banner"}
+{"date":"2025-01-11T09:09:16.866Z","level":"error","message":"Image is required","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-01-11T09:09:45.039Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/banner"}
+{"date":"2025-01-11T09:09:45.195Z","level":"error","message":"Cannot read properties of undefined (reading 'buffer')","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-01-11T09:11:34.130Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/banner"}
+{"date":"2025-01-11T09:11:34.274Z","level":"error","message":"Banner validation failed: image: Path `image` is required.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-01-11T09:13:03.925Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/banner"}
+{"date":"2025-01-11T09:19:48.684Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/banner"}
+{"date":"2025-01-11T09:20:10.386Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/shop/banner/678236205819d6f9c62edb02"}
+{"date":"2025-01-11T09:20:16.771Z","level":"info","message":"Request received","method":"DELETE","service":"user-service","url":"/shop/banner/678236205819d6f9c62edb02"}
+{"date":"2025-01-11T09:20:23.131Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/banner/"}
+{"date":"2025-01-11T09:34:57.335Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-01-11T09:34:57.382Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product?search=&category=&page=1&limit=10"}

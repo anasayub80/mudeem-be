@@ -60,3 +60,6 @@
 {"date":"2025-01-09T08:17:09.507Z","level":"error","message":"Invalid $project :: caused by :: Path collision at comments.replies remaining portion replies","method":"GET","service":"user-service","url":"/"}
 {"date":"2025-01-09T10:41:25.570Z","level":"error","message":"Converting circular structure to JSON\n    --> starting at object with constructor 'MongoClient'\n    |     property 's' -> object with constructor 'Object'\n    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'\n    --- property 'client' closes the circle","method":"GET","service":"user-service","url":"/"}
 {"date":"2025-01-10T07:13:31.902Z","level":"error","message":"Product not found","method":"GET","service":"user-service","url":"/6778e5e9801e601b738f1020"}
+{"date":"2025-01-11T09:09:16.866Z","level":"error","message":"Image is required","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-01-11T09:09:45.195Z","level":"error","message":"Cannot read properties of undefined (reading 'buffer')","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-01-11T09:11:34.274Z","level":"error","message":"Banner validation failed: image: Path `image` is required.","method":"POST","service":"user-service","url":"/"}
