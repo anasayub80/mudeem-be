@@ -4,6 +4,7 @@ import { IAddress } from './user';
 export interface IBanner extends Document {
   name: string;
   image: string;
+  type: 'farm' | 'shop';
   isActive: boolean;
 }
 

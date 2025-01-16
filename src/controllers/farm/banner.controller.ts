@@ -8,8 +8,8 @@ import uploadFile from '../../utils/upload';
 const getBanners: RequestHandler = async (req, res) => {
   // #swagger.tags = ['category']
   try {
-    const { type = 'shop' } = req.query;
-    const banners = await Banner.find({ type: type });
+    // const { type = 'shop' } = req.query;
+    const banners = await Banner.find();
     return SuccessHandler({
       data: { message: `Banners fetched`, banners },
       statusCode: 201,
@@ -28,7 +28,7 @@ const getBanners: RequestHandler = async (req, res) => {
 const createBanner: RequestHandler = async (req, res) => {
   // #swagger.tags = ['category']
   try {
-    const { name, type = 'shop' } = req.body;
+    const { name, type = 'farm' } = req.body;
     let image = { secure_url: 'dfff' };
     if (!req.file) {
       return ErrorHandler({

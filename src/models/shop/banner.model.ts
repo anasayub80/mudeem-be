@@ -14,6 +14,11 @@ const bannerSchema = new mongoose.Schema<IBanner>(
     isActive: {
       type: Boolean,
       default: true
+    },
+    type: {
+      type: String,
+      enum: ['shop', 'farm'],
+      default: 'farm'
     }
   },
   { timestamps: true }

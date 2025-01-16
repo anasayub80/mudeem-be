@@ -66,7 +66,7 @@ const createFarm: RequestHandler = async (req, res) => {
 const getFarms: RequestHandler = async (req, res) => {
   // #swagger.tags = ['farm']
   try {
-    const { page = 1, limit = 10 } = req.query;
+    const { page = 0, limit = 10 } = req.query;
     const skip = Number(page) * Number(limit);
     interface IFilter {
       location?: { $regex: string; $options: string };
