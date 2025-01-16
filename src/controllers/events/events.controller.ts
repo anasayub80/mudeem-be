@@ -1,7 +1,8 @@
 import { RequestHandler } from 'express';
 import ErrorHandler from '../../utils/errorHandler';
 import SuccessHandler from '../../utils/successHandler';
-import Event from '../../models/User/events.model';
+import Event from '../../models/user/events.model';
+import moment from 'moment';
 
 const createEvent: RequestHandler = async (req, res) => {
   // #swagger.tags = ['events']
@@ -34,11 +35,18 @@ const getAllEvents: RequestHandler = async (req, res) => {
     const skip = Number(page) * Number(limit);
     interface IFilter {
       name?: { $regex: string; $options: string };
+      dateTime?: { $gte: Date; $lt: Date };
     }
     const filter: IFilter = {};
 
     req.query.search &&
       (filter['name'] = { $regex: String(req.query.search), $options: 'i' });
+
+    req.query.dateTime &&
+      (filter['dateTime'] = {
+        $gte: moment(String(req.query.dateTime)).toDate(),
+        $lt: moment(String(req.query.dateTime)).add(1, 'day').toDate()
+      });
 
     const events = await Event.find(filter)
       .skip(skip)
