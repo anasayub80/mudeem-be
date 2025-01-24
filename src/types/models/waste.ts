@@ -9,3 +9,15 @@ export interface ICompany extends Document {
   description: string;
   isActive: boolean;
 }
+
+export interface IRequest extends Document {
+  wasteType: string;
+  quantity: number;
+  company: Schema.Types.ObjectId;
+  status: string;
+  user: Schema.Types.ObjectId;
+  description: string;
+  address1: string;
+  address2: string;
+  pickupDateTime: Date;
+}

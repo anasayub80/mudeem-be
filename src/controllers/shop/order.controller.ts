@@ -92,7 +92,7 @@ const checkout: RequestHandler = async (req, res) => {
         res,
         data: {
           items,
-          orderAmount,
+          orderAmount, 
           deliveryCharge,
           totalAmount,
           totalGreenPoints
