@@ -3293,3 +3293,56 @@
 {"date":"2025-01-18T13:04:33.985Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?page=1&limit=5"}
 {"date":"2025-01-18T13:04:34.001Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/banner/"}
 {"date":"2025-01-18T13:04:34.021Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?limit=10&page=1&featured=true"}
+{"date":"2025-01-25T13:09:10.929Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?limit=10&page=1&featured=true"}
+{"date":"2025-01-25T13:09:11.007Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/category"}
+{"date":"2025-01-25T13:09:11.028Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/banner/"}
+{"date":"2025-01-25T13:09:11.038Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?page=1&limit=5"}
+{"date":"2025-01-25T13:09:14.994Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/logout"}
+{"date":"2025-01-25T13:09:17.496Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2025-01-25T13:09:18.246Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-01-25T13:09:20.716Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/category"}
+{"date":"2025-01-25T13:09:20.745Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/banner/"}
+{"date":"2025-01-25T13:09:20.759Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?limit=10&page=1&featured=true"}
+{"date":"2025-01-25T13:09:20.780Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?page=1&limit=5"}
+{"date":"2025-01-25T13:09:22.553Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/677be0fa68ca8b7edad2a486"}
+{"date":"2025-01-25T13:09:50.417Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/order/checkout"}
+{"date":"2025-01-25T13:13:17.681Z","level":"error","message":"Color #850000 not available for variant with id 677be0fa68ca8b7edad2a481","method":"POST","service":"user-service","url":"/checkout"}
+{"date":"2025-01-25T13:14:05.030Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/order/checkout"}
+{"date":"2025-01-25T13:14:05.387Z","level":"error","message":"Color #850000 not available for variant with id 677be0fa68ca8b7edad2a481","method":"POST","service":"user-service","url":"/checkout"}
+{"date":"2025-01-25T13:15:41.830Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/order/checkout"}
+{"date":"2025-01-25T13:17:15.682Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2025-01-25T13:17:16.790Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-01-25T13:17:27.812Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?limit=10&page=1&featured=true"}
+{"date":"2025-01-25T13:17:27.823Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/category"}
+{"date":"2025-01-25T13:17:27.842Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/banner/"}
+{"date":"2025-01-25T13:17:27.856Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?page=1&limit=5"}
+{"date":"2025-01-25T13:17:29.804Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/677be0fa68ca8b7edad2a486"}
+{"date":"2025-01-25T13:17:54.876Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/order/checkout"}
+{"date":"2025-01-25T13:27:30.850Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2025-01-25T13:27:31.611Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-01-25T13:27:37.215Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/collab-forum/?status=accepted&type=me"}
+{"date":"2025-01-25T13:27:37.228Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/collab-forum/?status=accepted&type=other"}
+{"date":"2025-01-25T13:27:40.117Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/collab-forum/6782741595463e4fd4cbe5fa/like-unlike"}
+{"date":"2025-01-25T13:27:46.083Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/collab-forum/?status=accepted&type=other"}
+{"date":"2025-01-25T13:27:46.095Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/collab-forum/?status=accepted&type=me"}
+{"date":"2025-01-25T13:27:50.621Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/collab-forum/678104cff65d4f7a75cf2c4f/like-unlike"}
+{"date":"2025-01-25T13:27:55.244Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/green-map/?category="}
+{"date":"2025-01-25T13:27:58.706Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/collab-forum/?status=accepted&type=other"}
+{"date":"2025-01-25T13:27:58.721Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/collab-forum/?status=accepted&type=me"}
+{"date":"2025-02-07T19:15:43.672Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/register-user"}
+{"date":"2025-02-07T19:15:43.789Z","level":"error","message":"Username already exists","method":"POST","service":"user-service","url":"/register-user"}
+{"date":"2025-02-07T19:16:16.587Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/register-user"}
+{"date":"2025-02-07T19:16:16.673Z","level":"error","message":"Email already exists","method":"POST","service":"user-service","url":"/register-user"}
+{"date":"2025-02-07T19:17:21.652Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/register-user"}
+{"date":"2025-02-07T19:37:33.038Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2025-02-07T19:45:37.168Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/order/checkout"}
+{"date":"2025-02-07T19:46:32.857Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/order/checkout"}
+{"date":"2025-02-07T19:47:38.208Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/order/checkout"}
+{"date":"2025-02-07T19:57:23.145Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/order"}
+{"date":"2025-02-07T19:58:49.405Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/order"}
+{"date":"2025-02-07T19:59:58.179Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/order"}
+{"date":"2025-02-07T20:00:07.211Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/order"}
+{"date":"2025-02-07T20:00:07.388Z","level":"error","message":"Order validation failed: vendor: Path `vendor` is required., address: Path `address` is required.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-07T20:03:26.597Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/order"}
+{"date":"2025-02-07T20:03:26.761Z","level":"error","message":"Order validation failed: vendor: Path `vendor` is required., address: Path `address` is required.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-07T20:05:34.270Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/order"}
