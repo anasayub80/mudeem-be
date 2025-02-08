@@ -259,18 +259,16 @@ const likeUnlikePost: RequestHandler = async (req, res) => {
       });
     }
     const isLiked = post.likes.includes(user?._id);
-    if (isLiked) {
-      post.likes = post.likes.filter(
-        (like) => like.toString() !== user?._id.toString()
-      );
-    } else {
-      post.likes.push(user?._id);
-    }
-    post.save();
+    const update = isLiked
+      ? { $pull: { likes: user?._id } } // Remove user ID from likes
+      : { $push: { likes: user?._id } }; // Add user ID to likes
+
+    const updatedPost = await Post.findByIdAndUpdate(id, update, { new: true });
+
     return SuccessHandler({
       res,
-      data: post,
-      statusCode: 200
+      data: updatedPost,
+      statusCode: 200,
     });
   } catch (error) {
     return ErrorHandler({
