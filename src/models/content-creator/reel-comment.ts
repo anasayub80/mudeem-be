@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import { IComment } from 'types/models/collab-forum';
 
-const commentSchema = new mongoose.Schema<IComment>(
+const reelCommentSchema = new mongoose.Schema<IComment>(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
@@ -21,7 +21,7 @@ const commentSchema = new mongoose.Schema<IComment>(
     replies: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        reg: 'Comment'
+        reg: 'ReelComment'
       }
     ]
   },
@@ -30,5 +30,5 @@ const commentSchema = new mongoose.Schema<IComment>(
   }
 );
 
-const Comment = mongoose.model<IComment>('Comment', commentSchema);
-export default Comment;
+const ReelComment = mongoose.model<IComment>('ReelComment', reelCommentSchema);
+export default ReelComment;

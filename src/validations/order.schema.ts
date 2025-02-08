@@ -31,8 +31,8 @@ const createOrderSchema = Joi.object({
   items: Joi.array()
     .items(
       Joi.object({
-        product: Joi.string().required(),
-        variant: Joi.string().required(),
+        product: Joi.object().required(),
+        variant: Joi.object().required(),
         color: Joi.string().required(),
         size: Joi.string().required(),
         quantity: Joi.number().required(),
