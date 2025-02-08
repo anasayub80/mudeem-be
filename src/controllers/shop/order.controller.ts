@@ -4,7 +4,7 @@ import { RequestHandler } from 'express';
 import { IOrder, IProduct, IVariant } from '../../types/models/shop';
 import Product from '../../models/shop/product.model';
 import Variant from '../../models/shop/variant.model';
-import Address from '../../models/user/address.model';
+import Address from '../../models/User/address.model';
 import Order from '../../models/shop/order.model';
 import User from '../../models/User/user.model';
 
@@ -13,6 +13,7 @@ const checkout: RequestHandler = async (req, res) => {
   try {
     const { cart } = req.body;
     // Logic to checkout the cart
+    console.log(cart);
     Promise.all(
       cart.map(async (item: any) => {
         // Validate product availability
@@ -35,12 +36,14 @@ const checkout: RequestHandler = async (req, res) => {
         if (!variant) {
           throw new Error(`Variant with id ${item.variant} not found`);
         }
-        if (!variant.colors.includes(item.color)) {
+        if (
+          variant.colors.findIndex((color) => color.color === item.color) === -1
+        ) {
           throw new Error(
             `Color ${item.color} not available for variant with id ${item.variant}`
           );
         }
-        if (!variant.sizes.includes(item.size)) {
+        if (variant.sizes.findIndex((size) => size.size === item.size) === -1) {
           throw new Error(
             `Size ${item.size} not available for variant with id ${item.variant}`
           );
@@ -57,49 +60,59 @@ const checkout: RequestHandler = async (req, res) => {
           greenPoints: product.greenPointsPerUnit * item.quantity
         };
       })
-    ).then(async (items) => {
-      const orderAmount: number = items.reduce(
-        (acc, item) => acc + item.total,
-        0
-      );
-      const deliveryCharge: number = 50;
-      const totalAmount: number = orderAmount + deliveryCharge;
-      const totalGreenPoints: number = items.reduce(
-        (acc, item) => acc + item.greenPoints,
-        0
-      );
-      if (req.body.address) {
-        const exAddress = await Address.findOne({
-          user: req.user?._id
-        });
-        if (!exAddress) {
-          await Address.create({
-            user: req.user?._id,
-            ...req.body.address
+    )
+      .then(async (items) => {
+        const orderAmount: number = items.reduce(
+          (acc, item) => acc + item.total,
+          0
+        );
+        const deliveryCharge: number = 50;
+        const totalAmount: number = orderAmount + deliveryCharge;
+        const totalGreenPoints: number = items.reduce(
+          (acc, item) => acc + item.greenPoints,
+          0
+        );
+        if (req.body.address) {
+          const exAddress = await Address.findOne({
+            user: req.user?._id
           });
-        } else {
-          await Address.updateOne(
-            {
-              user: req.user?._id
-            },
-            {
-              $set: req.body.address
-            }
-          );
+          if (!exAddress) {
+            await Address.create({
+              user: req.user?._id,
+              ...req.body.address
+            });
+          } else {
+            await Address.updateOne(
+              {
+                user: req.user?._id
+              },
+              {
+                $set: req.body.address
+              }
+            );
+          }
         }
-      }
-      return SuccessHandler({
-        res,
-        data: {
-          items,
-          orderAmount, 
-          deliveryCharge,
-          totalAmount,
-          totalGreenPoints
-        },
-        statusCode: 200
+
+        return SuccessHandler({
+          res,
+          data: {
+            items,
+            orderAmount,
+            deliveryCharge,
+            totalAmount,
+            totalGreenPoints
+          },
+          statusCode: 200
+        });
+      })
+      .catch((error) => {
+        return ErrorHandler({
+          message: (error as Error).message,
+          statusCode: 400,
+          req,
+          res
+        });
       });
-    });
   } catch (error) {
     return ErrorHandler({
       message: (error as Error).message,
@@ -122,17 +135,33 @@ const createOrder: RequestHandler = async (req, res) => {
         res
       });
     }
+    let address = await Address.findOne({
+      user: req.user?._id
+    });
+    if (!address) {
+      if (!req.body.address) {
+        return ErrorHandler({
+          message: 'Address is required',
+          statusCode: 400,
+          req,
+          res
+        });
+      }
+      address = await Address.create({
+        user: req.user?._id,
+        ...req.body.address
+      });
+    }
     // Logic to create order
     const order: IOrder | null = await Order.create({
       user: req.user?._id,
       items,
       totalAmount,
       deliveryCharge,
-      address: await Address.findOne({
-        user: req.user?._id
-      }),
+      address,
       status: 'confirmed',
-      totalGreenPoints
+      totalGreenPoints,
+      vendor: items[0].product.vendor
     });
 
     req.user?.greenPoints &&
