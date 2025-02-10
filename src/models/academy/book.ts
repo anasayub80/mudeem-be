@@ -34,6 +34,10 @@ const bookSchema = new mongoose.Schema<IBook>(
     price: {
       type: Number,
       required: true
+    },
+    content: {
+      type: String,
+      required: true
     }
   },
   {

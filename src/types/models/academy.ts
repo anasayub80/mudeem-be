@@ -9,4 +9,5 @@ export interface IBook extends Document {
   language: string;
   year: number;
   price: number;
+  content: string;
 }
