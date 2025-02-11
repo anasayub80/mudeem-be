@@ -44,6 +44,11 @@ const getReels: RequestHandler = async (req, res) => {
   try {
     const reels = await Reel.find({
       user: req.user?._id
+    }).populate({
+      path: 'comments',
+      populate: {
+        path: 'user'
+      }
     });
     return SuccessHandler({
       res,
@@ -74,16 +79,27 @@ const getReel: RequestHandler = async (req, res) => {
       { $sample: { size: 1 } },
       {
         $lookup: {
+          from: 'users',
+          localField: 'user',
+          foreignField: '_id',
+          as: 'userDetails'
+        }
+      },
+      {
+        $lookup: {
           from: 'reelcomments',
           localField: 'comments',
           foreignField: '_id',
           as: 'comments'
         }
       },
-      // comments is array containing user ids
-      // populate user details and also include rest of fields of comment
       // Unwind comments to process each comment separately
-      { $unwind: '$comments' },
+      {
+        $unwind: {
+          path: '$comments',
+          preserveNullAndEmptyArrays: true
+        }
+      },
 
       // Lookup user details inside each comment
       {

@@ -14,7 +14,7 @@ router
     isAuthenticated,
     multerMiddleware.fields([
       { name: 'cover', maxCount: 1 },
-      { name: 'file', maxCount: 1 }
+      { name: 'book', maxCount: 1 }
     ]),
     // validate(schema.createAcademy),
     academyController.createBook
@@ -35,7 +35,7 @@ router
   )
   .delete(isAuthenticated, academyController.deleteBook);
 
-router.route('/book/mine').get(isAuthenticated, academyController.getMyBooks);
+router.route('/book/mine/purchased').get(isAuthenticated, academyController.getMyBooks);
 
 router
   .route('/book/purchase/:id')

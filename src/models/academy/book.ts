@@ -38,6 +38,11 @@ const bookSchema = new mongoose.Schema<IBook>(
     content: {
       type: String,
       required: true
+    },
+    type: {
+      type: String,
+      required: true,
+      enum: ['new', 'popular']
     }
   },
   {

@@ -9,9 +9,9 @@ import User from '../../models/User/user.model';
 const createBook: RequestHandler = async (req, res) => {
   // #swagger.tags = ['academy']
   try {
-    const { title, description, author, pages, language, year, price } =
+    const { title, description, author, pages, language, year, price, type } =
       req.body;
-
+    console.log(req.files);
     if (!req?.files) {
       return ErrorHandler({
         message: 'Thumbnail and Book file is required',
@@ -20,11 +20,10 @@ const createBook: RequestHandler = async (req, res) => {
         res
       });
     }
-
     // @ts-ignore
     let thumbnail = await uploadFile(req.files.cover[0].buffer);
     // @ts-ignore
-    let bookpdf = await uploadFile(req.files.file[0].buffer);
+    let bookpdf = await uploadFile(req.files.book[0].buffer);
 
     const book = await Book.create({
       title,
@@ -35,7 +34,8 @@ const createBook: RequestHandler = async (req, res) => {
       content: bookpdf.secure_url,
       language,
       year,
-      price
+      price,
+      type
     });
 
     return SuccessHandler({
@@ -64,6 +64,7 @@ const getAllBooks: RequestHandler = async (req, res) => {
       language?: string;
       year?: string;
       price?: { $gt: number } | number;
+      type?: string;
     } = {};
 
     req.query.title &&
@@ -75,6 +76,7 @@ const getAllBooks: RequestHandler = async (req, res) => {
     req.query.type &&
       (filters.price =
         (req.query.type as string) === 'premium' ? { $gt: 0 } : 0);
+    req.query.type2 && (filters.type = req.query.type2 as string);
 
     const books = await Book.find(filters)
       .skip(skip)

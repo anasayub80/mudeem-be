@@ -10,4 +10,5 @@ export interface IBook extends Document {
   year: number;
   price: number;
   content: string;
+  type: 'new' | 'popular';
 }

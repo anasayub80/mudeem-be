@@ -147,3 +147,22 @@
 {"date":"2025-02-11T12:01:41.648Z","level":"error","message":"Must supply api_key","method":"POST","service":"user-service","url":"/"}
 {"date":"2025-02-11T12:08:57.381Z","level":"error","message":"Must supply api_key","method":"POST","service":"user-service","url":"/"}
 {"date":"2025-02-11T12:09:37.881Z","level":"error","message":"Invalid image file","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-11T15:26:48.193Z","level":"error","message":"Incorrect password.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-11T15:30:45.098Z","level":"error","message":"Cannot read properties of undefined (reading '0')","method":"POST","service":"user-service","url":"/book"}
+{"date":"2025-02-11T15:35:30.210Z","level":"error","message":"Cannot read properties of undefined (reading '0')","method":"POST","service":"user-service","url":"/book"}
+{"date":"2025-02-11T15:35:32.079Z","level":"error","message":"Cannot read properties of undefined (reading '0')","method":"POST","service":"user-service","url":"/book"}
+{"date":"2025-02-11T15:35:35.573Z","level":"error","message":"Cannot read properties of undefined (reading '0')","method":"POST","service":"user-service","url":"/book"}
+{"date":"2025-02-11T15:41:29.247Z","level":"error","message":"Cannot read properties of undefined (reading '0')","method":"POST","service":"user-service","url":"/book"}
+{"date":"2025-02-11T15:41:44.091Z","level":"error","message":"Cannot read properties of undefined (reading '0')","method":"POST","service":"user-service","url":"/book"}
+{"date":"2025-02-11T15:42:10.547Z","level":"error","message":"Cannot read properties of undefined (reading '0')","method":"POST","service":"user-service","url":"/book"}
+{"date":"2025-02-11T15:45:02.872Z","level":"error","message":"Cannot read properties of undefined (reading '0')","method":"POST","service":"user-service","url":"/book"}
+{"date":"2025-02-11T15:45:35.844Z","level":"error","message":"Cannot read properties of undefined (reading '0')","method":"POST","service":"user-service","url":"/book"}
+{"date":"2025-02-11T15:47:39.641Z","level":"error","message":"Cannot read properties of undefined (reading '0')","method":"POST","service":"user-service","url":"/book"}
+{"date":"2025-02-11T15:50:53.622Z","level":"error","message":"Book validation failed: pages: Path `pages` is required.","method":"POST","service":"user-service","url":"/book"}
+{"date":"2025-02-11T15:52:19.101Z","level":"error","message":"Cannot read properties of undefined (reading '0')","method":"POST","service":"user-service","url":"/book"}
+{"date":"2025-02-11T15:56:47.095Z","level":"error","message":"Invalid book id","method":"GET","service":"user-service","url":"/book/mine"}
+{"date":"2025-02-11T15:56:52.425Z","level":"error","message":"Invalid book id","method":"GET","service":"user-service","url":"/book/mine"}
+{"date":"2025-02-11T16:03:58.129Z","level":"error","message":"Invalid book id","method":"PUT","service":"user-service","url":"/book/purchase/%7Bid%7D"}
+{"date":"2025-02-11T16:04:31.158Z","level":"error","message":"Insufficient green points","method":"PUT","service":"user-service","url":"/book/purchase/67ab726dbcb9bd344c76d007"}
+{"date":"2025-02-11T16:37:42.153Z","level":"error","message":"Book already purchased","method":"PUT","service":"user-service","url":"/book/purchase/67ab726dbcb9bd344c76d007"}
+{"date":"2025-02-11T17:30:25.741Z","level":"error","message":"Invalid book id","method":"GET","service":"user-service","url":"/book/id=67ab71eebcb9bd344c76d001"}
