@@ -17,6 +17,8 @@ router
   )
   .get(contentCreatorController.getReel);
 
+router.route('/get/my/reels').get(isAuthenticated, contentCreatorController.getReels);
+
 router
   .route('/:id')
   .delete(isAuthenticated, contentCreatorController.deleteReel);

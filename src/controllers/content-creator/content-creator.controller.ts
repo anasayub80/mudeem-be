@@ -42,7 +42,14 @@ const getReels: RequestHandler = async (req, res) => {
   // #swagger.tags = ['content-creator']
 
   try {
-    //
+    const reels = await Reel.find({
+      user: req.user?._id
+    });
+    return SuccessHandler({
+      res,
+      data: { reels },
+      statusCode: 200
+    });
   } catch (error) {
     return ErrorHandler({
       message: (error as Error).message,
@@ -64,7 +71,48 @@ const getReel: RequestHandler = async (req, res) => {
     // get random reel except the excluded ones
     const reel = await Reel.aggregate([
       { $match: { _id: { $nin: excludedIds } } },
-      { $sample: { size: 1 } }
+      { $sample: { size: 1 } },
+      {
+        $lookup: {
+          from: 'reelcomments',
+          localField: 'comments',
+          foreignField: '_id',
+          as: 'comments'
+        }
+      },
+      // comments is array containing user ids
+      // populate user details and also include rest of fields of comment
+      // Unwind comments to process each comment separately
+      { $unwind: '$comments' },
+
+      // Lookup user details inside each comment
+      {
+        $lookup: {
+          from: 'users', // Assuming your user collection is named 'users'
+          localField: 'comments.user', // The user field inside each comment
+          foreignField: '_id',
+          as: 'comments.userDetails'
+        }
+      },
+
+      // Flatten the userDetails array (since lookup returns an array)
+      {
+        $unwind: {
+          path: '$comments.userDetails',
+          preserveNullAndEmptyArrays: true // In case some comments don't have a user
+        }
+      },
+
+      // Group comments back into an array
+      {
+        $group: {
+          _id: '$_id',
+          url: { $first: '$url' },
+          description: { $first: '$description' },
+          comments: { $push: '$comments' },
+          likes: { $first: '$likes' }
+        }
+      }
     ]);
 
     return SuccessHandler({
@@ -117,6 +165,7 @@ const likeUnlikeReel: RequestHandler = async (req, res) => {
 
   try {
     const { id } = req.params;
+    console.log(id);
     const reel = await Reel.findById(id);
     if (!reel) {
       return ErrorHandler({
@@ -128,7 +177,9 @@ const likeUnlikeReel: RequestHandler = async (req, res) => {
     }
     const userId = req.user?._id;
     if (reel.likes.includes(userId)) {
-      reel.likes = reel.likes.filter((like) => like.toString() !== userId);
+      reel.likes = reel.likes.filter(
+        (like) => like.toString() !== userId.toString()
+      );
     } else {
       reel.likes.push(userId);
     }

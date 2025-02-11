@@ -142,3 +142,8 @@
 {"date":"2025-01-16T06:54:48.882Z","level":"error","message":"Cast to ObjectId failed for value \"banner\" (type string) at path \"_id\" for model \"Farm\"","method":"GET","service":"user-service","url":"/banner"}
 {"date":"2025-01-16T06:55:19.973Z","level":"error","message":"Cast to ObjectId failed for value \"banner\" (type string) at path \"_id\" for model \"Farm\"","method":"GET","service":"user-service","url":"/banner"}
 {"date":"2025-01-16T06:57:14.106Z","level":"error","message":"Cast to ObjectId failed for value \"ba\" (type string) at path \"_id\" for model \"Farm\"","method":"GET","service":"user-service","url":"/ba"}
+{"date":"2025-02-11T11:40:18.032Z","level":"error","message":"Cast to ObjectId failed for value \"{id}\" (type string) at path \"_id\" for model \"Reel\"","method":"PUT","service":"user-service","url":"/%7Bid%7D/like-unlike"}
+{"date":"2025-02-11T12:01:18.142Z","level":"error","message":"Must supply api_key","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-11T12:01:41.648Z","level":"error","message":"Must supply api_key","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-11T12:08:57.381Z","level":"error","message":"Must supply api_key","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-11T12:09:37.881Z","level":"error","message":"Invalid image file","method":"POST","service":"user-service","url":"/"}

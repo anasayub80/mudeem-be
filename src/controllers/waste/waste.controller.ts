@@ -73,7 +73,9 @@ const createRequest: RequestHandler = async (req, res) => {
       description,
       address1,
       address2,
-      pickupDateTime
+      pickupDateTime,
+      user,
+      company
     } = req.body;
     const request = await Waste.create({
       wasteType,
@@ -81,7 +83,9 @@ const createRequest: RequestHandler = async (req, res) => {
       description,
       address1,
       address2,
-      pickupDateTime
+      pickupDateTime,
+      user,
+      company
     });
     return SuccessHandler({
       res,
