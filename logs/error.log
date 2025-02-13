@@ -213,3 +213,28 @@
 {"date":"2025-02-12T10:52:56.906Z","level":"error","message":"RequestWaste validation failed: pickupDateTime: Cast to date failed for value \"2025-02-12 15:52:25.0002025-02-14 00:00:00.000Z\" (type string) at path \"pickupDateTime\"","method":"POST","service":"user-service","url":"/request"}
 {"date":"2025-02-12T11:06:44.736Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4d4ce0f1ab1362900f73,67ab4a98d44fbf03ad6ab622,67ab6c79bdc8624594f46999"}
 {"date":"2025-02-12T11:06:45.200Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4d4ce0f1ab1362900f73,67ab4a98d44fbf03ad6ab622,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T08:40:40.253Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T08:40:40.641Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T08:43:18.702Z","level":"error","message":"Chat validation failed: messages.0.content: Path `content` is required., messages.1.content: Path `content` is required.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T08:47:47.728Z","level":"error","message":"Chat validation failed: messages.0.content: Path `content` is required., messages.1.content: Path `content` is required.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T08:51:03.507Z","level":"error","message":"Chat validation failed: messages.0.content: Path `content` is required.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T08:51:33.961Z","level":"error","message":"Chat validation failed: messages.0.content: Path `content` is required.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T08:53:40.359Z","level":"error","message":"Chat validation failed: messages.0.content: Path `content` is required., messages.1.content: Path `content` is required.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T08:54:32.969Z","level":"error","message":"Chat validation failed: messages.0.content: Path `content` is required., messages.1.content: Path `content` is required.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T09:15:18.690Z","level":"error","message":"Chat not found","method":"GET","service":"user-service","url":"/"}
+{"date":"2025-02-13T09:19:12.772Z","level":"error","message":"Chat not found","method":"GET","service":"user-service","url":"/"}
+{"date":"2025-02-13T09:22:45.664Z","level":"error","message":"All fields are required","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T09:23:16.463Z","level":"error","message":"All fields are required","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T09:23:23.268Z","level":"error","message":"All fields are required","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T09:23:33.868Z","level":"error","message":"All fields are required","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T09:27:45.501Z","level":"error","message":"All fields are required","method":"POST","service":"user-service","url":"/?titile=HIDC&UAE=UAE&Description=Hiring%20for%20multiple%20position&salary=1200&company=Neom%20Green%20Hydrogen%20Company"}
+{"date":"2025-02-13T09:27:50.440Z","level":"error","message":"All fields are required","method":"POST","service":"user-service","url":"/?titile=HIDC&UAE=UAE&Description=Hiring%20for%20multiple%20position&salary=1200&company=Neom%20Green%20Hydrogen%20Company"}
+{"date":"2025-02-13T09:28:06.902Z","level":"error","message":"All fields are required","method":"POST","service":"user-service","url":"/?titile=HIDC&UAE=UAE&Description=Hiring%20for%20multiple%20position&salary=1200&company=Neom%20Green%20Hydrogen%20Company"}
+{"date":"2025-02-13T09:28:15.374Z","level":"error","message":"All fields are required","method":"POST","service":"user-service","url":"/?titile=HIDC&UAE=UAE&Description=Hiring%20for%20multiple%20position&salary=1200&company=Neom%20Green%20Hydrogen%20Company"}
+{"date":"2025-02-13T09:33:16.565Z","level":"error","message":"All fields are required","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T09:33:35.847Z","level":"error","message":"All fields are required","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T09:34:07.836Z","level":"error","message":"All fields are required","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T09:34:31.599Z","level":"error","message":"All fields are required","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T09:35:04.879Z","level":"error","message":"uploadFile is not defined","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T09:36:40.458Z","level":"error","message":"Job validation failed: jobType: Path `jobType` is required., linkedInUrl: Path `linkedInUrl` is required., title: Path `title` is required.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T09:36:51.859Z","level":"error","message":"Job validation failed: jobType: Path `jobType` is required., linkedInUrl: Path `linkedInUrl` is required., title: Path `title` is required.","method":"POST","service":"user-service","url":"/"}

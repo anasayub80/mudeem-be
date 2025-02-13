@@ -1,11 +1,11 @@
-import OpenAI from "openai";
-import dotenv from "dotenv";
+import OpenAI from 'openai';
+import dotenv from 'dotenv';
 
-dotenv.config({ path: "../config/config.env" });
+dotenv.config({ path: '../config/config.env' });
 
 // Initialize OpenAI API
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY as string, // This is also the default, can be omitted
+  apiKey: process.env.OPENAI_API_KEY as string // This is also the default, can be omitted
 });
 
 export const createThread = async (): Promise<string> => {
@@ -19,16 +19,16 @@ export const generateAiResponse = async (
   tags: string[]
 ): Promise<string | null> => {
   try {
-    const joinTags = tags.join(", ");
-    const systemMessage = `You are knowledgeable only about ${joinTags}. Respond \"I am sorry have no idea\" other than the topics mentioned`;
-
+    const joinTags = tags.join(', ');
+    const systemMessage = `You are knowledgeable only about ${joinTags}. Respond \"I am sorry have no idea\" other than the topics mentioned. Prompt: ${prompt}`;
+    console.log('System message:', prompt);
     await openai.beta.threads.messages.create(threadId, {
-      role: "user",
-      content: prompt,
+      role: 'user',
+      content: [{ type: 'text', text: prompt }]
     });
 
     const response = await openai.beta.threads.runs.create(threadId, {
-      assistant_id: process.env.ASSISTANT_ID as string,
+      assistant_id: process.env.ASSISTANT_ID as string
     });
 
     let completed = false;
@@ -44,28 +44,28 @@ export const generateAiResponse = async (
         response.id
       );
 
-      console.log("Run status:", runInfo.status);
-      console.log("Run runInfo:", runInfo.id);
+      console.log('Run status:', runInfo.status);
+      console.log('Run runInfo:', runInfo.id);
 
       // Check if the response has been completed
-      if (runInfo.status === "completed") {
+      if (runInfo.status === 'completed') {
         const messages = await openai.beta.threads.messages.list(threadId);
         //@ts-ignore
         aiResponse = messages.body.data[0]?.content[0]?.text?.value || null;
         completed = true;
       } else if (
-        runInfo.status === "failed" ||
-        runInfo.status === "cancelled"
+        runInfo.status === 'failed' ||
+        runInfo.status === 'cancelled'
       ) {
         throw new Error(
           `AI response failed or was cancelled. Status: ${runInfo.status}`
         );
       }
     }
-
+    console.log('AI response:', aiResponse);
     return aiResponse;
   } catch (error) {
-    console.error(error);
+    console.log(error);
     return null;
   }
 };

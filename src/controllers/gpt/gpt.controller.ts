@@ -29,7 +29,7 @@ const sendMessage: RequestHandler = async (req, res) => {
       });
       return SuccessHandler({
         res,
-        data: { chat },
+        data: { response },
         statusCode: 201
       });
     } else {
@@ -48,7 +48,7 @@ const sendMessage: RequestHandler = async (req, res) => {
       await exChat.save();
       return SuccessHandler({
         res,
-        data: { chat: exChat },
+        data: { chat: response },
         statusCode: 200
       });
     }

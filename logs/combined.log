@@ -4463,3 +4463,88 @@
 {"date":"2025-02-13T08:09:37.358Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/collab-forum/?status=accepted&type=other"}
 {"date":"2025-02-13T08:09:37.427Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/collab-forum/?status=accepted&type=me"}
 {"date":"2025-02-13T08:09:49.870Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/collab-forum/6782741595463e4fd4cbe5fa"}
+{"date":"2025-02-13T08:40:38.050Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds="}
+{"date":"2025-02-13T08:40:38.634Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-13T08:40:39.227Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73"}
+{"date":"2025-02-13T08:40:40.093Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T08:40:40.253Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T08:40:40.476Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T08:40:40.641Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T08:43:08.579Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T08:43:15.164Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2025-02-13T08:43:17.399Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T08:43:18.702Z","level":"error","message":"Chat validation failed: messages.0.content: Path `content` is required., messages.1.content: Path `content` is required.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T08:47:46.351Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T08:47:47.728Z","level":"error","message":"Chat validation failed: messages.0.content: Path `content` is required., messages.1.content: Path `content` is required.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T08:50:51.246Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T08:51:03.507Z","level":"error","message":"Chat validation failed: messages.0.content: Path `content` is required.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T08:51:28.270Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T08:51:33.961Z","level":"error","message":"Chat validation failed: messages.0.content: Path `content` is required.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T08:51:49.724Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T08:53:39.043Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T08:53:40.359Z","level":"error","message":"Chat validation failed: messages.0.content: Path `content` is required., messages.1.content: Path `content` is required.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T08:54:31.666Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T08:54:32.969Z","level":"error","message":"Chat validation failed: messages.0.content: Path `content` is required., messages.1.content: Path `content` is required.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T08:55:21.282Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T08:57:03.672Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T08:57:37.262Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T09:05:15.386Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T09:09:30.176Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/api-docs"}
+{"date":"2025-02-13T09:09:30.205Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/api-docs/"}
+{"date":"2025-02-13T09:09:30.310Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/api-docs/swagger-ui.css"}
+{"date":"2025-02-13T09:09:30.319Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/api-docs/swagger-ui-bundle.js"}
+{"date":"2025-02-13T09:09:30.326Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/api-docs/swagger-ui-standalone-preset.js"}
+{"date":"2025-02-13T09:09:30.331Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/api-docs/swagger-ui-init.js"}
+{"date":"2025-02-13T09:09:31.332Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/api-docs/favicon-32x32.png"}
+{"date":"2025-02-13T09:12:00.342Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/api-docs/"}
+{"date":"2025-02-13T09:12:04.700Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/api-docs/"}
+{"date":"2025-02-13T09:12:08.166Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/api-docs/"}
+{"date":"2025-02-13T09:12:09.859Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/api-docs/"}
+{"date":"2025-02-13T09:14:20.947Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T09:14:40.132Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/logout"}
+{"date":"2025-02-13T09:14:50.554Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2025-02-13T09:15:06.570Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T09:15:18.512Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T09:15:18.690Z","level":"error","message":"Chat not found","method":"GET","service":"user-service","url":"/"}
+{"date":"2025-02-13T09:18:14.477Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/logout"}
+{"date":"2025-02-13T09:18:50.420Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2025-02-13T09:18:51.111Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-02-13T09:19:12.617Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T09:19:12.772Z","level":"error","message":"Chat not found","method":"GET","service":"user-service","url":"/"}
+{"date":"2025-02-13T09:21:46.499Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T09:22:12.318Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/logout"}
+{"date":"2025-02-13T09:22:18.719Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2025-02-13T09:22:30.216Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T09:22:37.964Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2025-02-13T09:22:45.558Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T09:22:45.664Z","level":"error","message":"All fields are required","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T09:23:16.340Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T09:23:16.463Z","level":"error","message":"All fields are required","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T09:23:23.165Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T09:23:23.268Z","level":"error","message":"All fields are required","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T09:23:33.762Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T09:23:33.868Z","level":"error","message":"All fields are required","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T09:27:45.394Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/careers/?titile=HIDC&UAE=UAE&Description=Hiring%20for%20multiple%20position&salary=1200&company=Neom%20Green%20Hydrogen%20Company"}
+{"date":"2025-02-13T09:27:45.501Z","level":"error","message":"All fields are required","method":"POST","service":"user-service","url":"/?titile=HIDC&UAE=UAE&Description=Hiring%20for%20multiple%20position&salary=1200&company=Neom%20Green%20Hydrogen%20Company"}
+{"date":"2025-02-13T09:27:50.334Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/careers/?titile=HIDC&UAE=UAE&Description=Hiring%20for%20multiple%20position&salary=1200&company=Neom%20Green%20Hydrogen%20Company"}
+{"date":"2025-02-13T09:27:50.440Z","level":"error","message":"All fields are required","method":"POST","service":"user-service","url":"/?titile=HIDC&UAE=UAE&Description=Hiring%20for%20multiple%20position&salary=1200&company=Neom%20Green%20Hydrogen%20Company"}
+{"date":"2025-02-13T09:28:06.792Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/careers/?titile=HIDC&UAE=UAE&Description=Hiring%20for%20multiple%20position&salary=1200&company=Neom%20Green%20Hydrogen%20Company"}
+{"date":"2025-02-13T09:28:06.902Z","level":"error","message":"All fields are required","method":"POST","service":"user-service","url":"/?titile=HIDC&UAE=UAE&Description=Hiring%20for%20multiple%20position&salary=1200&company=Neom%20Green%20Hydrogen%20Company"}
+{"date":"2025-02-13T09:28:15.268Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/careers/?titile=HIDC&UAE=UAE&Description=Hiring%20for%20multiple%20position&salary=1200&company=Neom%20Green%20Hydrogen%20Company"}
+{"date":"2025-02-13T09:28:15.374Z","level":"error","message":"All fields are required","method":"POST","service":"user-service","url":"/?titile=HIDC&UAE=UAE&Description=Hiring%20for%20multiple%20position&salary=1200&company=Neom%20Green%20Hydrogen%20Company"}
+{"date":"2025-02-13T09:33:16.429Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T09:33:16.565Z","level":"error","message":"All fields are required","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T09:33:35.741Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T09:33:35.847Z","level":"error","message":"All fields are required","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T09:34:07.728Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T09:34:07.836Z","level":"error","message":"All fields are required","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T09:34:31.482Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T09:34:31.599Z","level":"error","message":"All fields are required","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T09:35:04.730Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T09:35:04.879Z","level":"error","message":"uploadFile is not defined","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T09:36:35.891Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T09:36:40.458Z","level":"error","message":"Job validation failed: jobType: Path `jobType` is required., linkedInUrl: Path `linkedInUrl` is required., title: Path `title` is required.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T09:36:49.633Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T09:36:51.859Z","level":"error","message":"Job validation failed: jobType: Path `jobType` is required., linkedInUrl: Path `linkedInUrl` is required., title: Path `title` is required.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T09:37:06.449Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T09:37:29.433Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}

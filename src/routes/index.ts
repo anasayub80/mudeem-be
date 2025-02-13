@@ -10,6 +10,7 @@ import waste from './waste/index';
 import contentCreator from './content-creator/index';
 import academy from './academy/index';
 import gpt from './gpt/index';
+import careers from './careers/index';
 const router: Router = express.Router();
 
 router.use('/auth', auth);
@@ -23,5 +24,6 @@ router.use('/waste', waste);
 router.use('/content-creator', contentCreator);
 router.use('/academy', academy);
 router.use('/gpt', gpt);
+router.use('/careers', careers);
 
 export default router;
