@@ -112,7 +112,9 @@ const getBook: RequestHandler = async (req, res) => {
 
     let book;
 
-    if (user?.myBooks.includes(new mongoose.Schema.Types.ObjectId(id))) {
+    console.log(user?.myBooks);
+
+    if (user?.myBooks.includes(new mongoose.Types.ObjectId(id))) {
       book = await Book.findById(id);
     } else {
       book = await Book.findById(id).select('-content');

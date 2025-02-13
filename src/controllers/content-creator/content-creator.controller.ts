@@ -4,6 +4,8 @@ import SuccessHandler from '../../utils/successHandler';
 import uploadFile from '../../utils/upload';
 import Reel from '../../models/content-creator/reel';
 import ReelComment from '../../models/content-creator/reel-comment';
+import mongoose from 'mongoose';
+import User from '../../models/User/user.model';
 
 const createContent: RequestHandler = async (req, res) => {
   // #swagger.tags = ['content-creator']
@@ -75,16 +77,22 @@ const getReel: RequestHandler = async (req, res) => {
 
     // get random reel except the excluded ones
     const reel = await Reel.aggregate([
-      { $match: { _id: { $nin: excludedIds } } },
-      { $sample: { size: 1 } },
       {
-        $lookup: {
-          from: 'users',
-          localField: 'user',
-          foreignField: '_id',
-          as: 'userDetails'
+        $match: {
+          _id: {
+            $nin: excludedIds.map((id) => new mongoose.Types.ObjectId(id))
+          }
         }
       },
+      { $sample: { size: 1 } },
+      //   {
+      //     $lookup: {
+      //       from: 'users',
+      //       localField: 'user',
+      //       foreignField: '_id',
+      //       as: 'userDetails'
+      //     }
+      //   },
       {
         $lookup: {
           from: 'reelcomments',
@@ -126,10 +134,24 @@ const getReel: RequestHandler = async (req, res) => {
           url: { $first: '$url' },
           description: { $first: '$description' },
           comments: { $push: '$comments' },
-          likes: { $first: '$likes' }
+          likes: { $first: '$likes' },
+          user: { $first: '$user' }
         }
       }
     ]);
+
+    if (!reel.length) {
+      return ErrorHandler({
+        message: 'No reel found',
+        statusCode: 404,
+        req,
+        res
+      });
+    }
+    console.log(reel[0]);
+    const user = await User.findById(reel[0].user);
+
+    reel[0].user = user;
 
     return SuccessHandler({
       res,

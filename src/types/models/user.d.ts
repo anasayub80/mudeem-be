@@ -15,7 +15,7 @@ export interface IUser extends Document {
   greenPoints: number;
   isActive: boolean;
   adminApproved: boolean;
-  myBooks: mongoose.Schema.Types.ObjectId[];
+  myBooks: mongoose.Types.ObjectId[];
   getJWTToken(): string;
   comparePassword(enteredPassword: string): Promise<boolean>;
 }

@@ -19,7 +19,11 @@ const chatSchema = new mongoose.Schema<IChat>(
           required: true
         }
       }
-    ]
+    ],
+    thread: {
+      type: String,
+      required: true
+    }
   },
   {
     timestamps: true

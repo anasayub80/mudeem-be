@@ -2014,9 +2014,6 @@
           }
         ],
         "responses": {
-          "400": {
-            "description": "Bad Request"
-          },
           "401": {
             "description": "Unauthorized"
           },
@@ -2250,6 +2247,12 @@
                   "example": "any"
                 },
                 "pickupDateTime": {
+                  "example": "any"
+                },
+                "user": {
+                  "example": "any"
+                },
+                "company": {
                   "example": "any"
                 }
               }
@@ -2612,6 +2615,11 @@
             "type": "string"
           },
           {
+            "name": "type2",
+            "in": "query",
+            "type": "string"
+          },
+          {
             "name": "page",
             "in": "query",
             "type": "string"
@@ -2662,6 +2670,9 @@
                   "example": "any"
                 },
                 "price": {
+                  "example": "any"
+                },
+                "type": {
                   "example": "any"
                 }
               }
@@ -2746,7 +2757,7 @@
         }
       }
     },
-    "/academy/book/mine": {
+    "/academy/book/mine/purchased": {
       "get": {
         "tags": [
           "academy"
@@ -2775,6 +2786,51 @@
             "in": "path",
             "required": true,
             "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/gpt/": {
+      "get": {
+        "tags": [
+          "gpt"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "gpt"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
         "responses": {
