@@ -4548,3 +4548,241 @@
 {"date":"2025-02-13T09:36:51.859Z","level":"error","message":"Job validation failed: jobType: Path `jobType` is required., linkedInUrl: Path `linkedInUrl` is required., title: Path `title` is required.","method":"POST","service":"user-service","url":"/"}
 {"date":"2025-02-13T09:37:06.449Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/careers/"}
 {"date":"2025-02-13T09:37:29.433Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T09:42:28.520Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T09:44:39.895Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T09:44:45.740Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T09:46:21.175Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T09:47:02.689Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T09:49:37.282Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T09:49:58.265Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T09:50:22.757Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T09:50:37.290Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T09:52:12.407Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T09:53:30.830Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T09:53:48.839Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T09:54:08.777Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T09:54:29.499Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T09:55:31.899Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T10:00:31.374Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T10:00:58.518Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T10:01:22.195Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T10:01:34.652Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T10:02:19.483Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T10:03:26.066Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T10:03:36.726Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T10:03:50.376Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T10:04:05.837Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T10:04:19.180Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T10:04:37.737Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T10:13:30.505Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2025-02-13T10:13:31.460Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-02-13T10:13:38.945Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T10:15:35.282Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T10:15:50.533Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T10:16:02.770Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T10:16:26.260Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T10:16:40.019Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T10:16:54.297Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2025-02-13T10:16:55.225Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-02-13T10:17:35.483Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/register-user"}
+{"date":"2025-02-13T10:17:35.666Z","level":"error","message":"Phone already exists","method":"POST","service":"user-service","url":"/register-user"}
+{"date":"2025-02-13T10:17:40.397Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/register-user"}
+{"date":"2025-02-13T10:17:40.590Z","level":"error","message":"Username already exists","method":"POST","service":"user-service","url":"/register-user"}
+{"date":"2025-02-13T10:17:46.441Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/register-user"}
+{"date":"2025-02-13T10:19:02.413Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/requestEmailToken"}
+{"date":"2025-02-13T10:19:16.041Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-02-13T10:20:42.499Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/register-user"}
+{"date":"2025-02-13T10:20:47.342Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/register-user"}
+{"date":"2025-02-13T10:20:47.514Z","level":"error","message":"Email already exists","method":"POST","service":"user-service","url":"/register-user"}
+{"date":"2025-02-13T10:21:27.761Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/register-user"}
+{"date":"2025-02-13T10:21:35.925Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/requestEmailToken"}
+{"date":"2025-02-13T10:22:53.534Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/requestEmailToken"}
+{"date":"2025-02-13T10:24:19.013Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/register-user"}
+{"date":"2025-02-13T10:24:19.284Z","level":"error","message":"Email already exists","method":"POST","service":"user-service","url":"/register-user"}
+{"date":"2025-02-13T10:24:33.308Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T10:24:51.129Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/requestEmailToken"}
+{"date":"2025-02-13T10:25:54.132Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/requestEmailToken"}
+{"date":"2025-02-13T10:27:20.465Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/requestEmailToken"}
+{"date":"2025-02-13T10:28:05.576Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T10:28:33.716Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T10:30:04.353Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T10:30:21.440Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T10:30:22.154Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/requestEmailToken"}
+{"date":"2025-02-13T10:30:42.050Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T10:31:43.464Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/requestEmailToken"}
+{"date":"2025-02-13T10:32:21.173Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T10:39:47.630Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T10:46:33.749Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T10:48:39.927Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T10:49:15.338Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2025-02-13T10:49:16.174Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-02-13T10:50:01.949Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T10:53:26.625Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T10:55:44.351Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T10:57:40.482Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T10:58:11.428Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T10:58:48.377Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T11:00:22.295Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T11:01:44.689Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T11:02:49.223Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T11:03:08.178Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T11:04:15.128Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T11:05:03.538Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T11:06:26.345Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T11:07:12.849Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T11:09:21.070Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T11:10:31.055Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T11:10:40.435Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T11:12:01.029Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T11:12:51.618Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T11:13:50.422Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T11:14:38.692Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds="}
+{"date":"2025-02-13T11:14:39.648Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T11:14:40.771Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab6c79bdc8624594f46999,67ab4d4ce0f1ab1362900f73"}
+{"date":"2025-02-13T11:14:41.796Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab6c79bdc8624594f46999,67ab4d4ce0f1ab1362900f73,67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-13T11:14:41.966Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab6c79bdc8624594f46999,67ab4d4ce0f1ab1362900f73,67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-13T11:14:42.513Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab6c79bdc8624594f46999,67ab4d4ce0f1ab1362900f73,67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-13T11:14:42.681Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab6c79bdc8624594f46999,67ab4d4ce0f1ab1362900f73,67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-13T11:14:49.020Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds="}
+{"date":"2025-02-13T11:14:50.296Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-13T11:14:51.511Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73"}
+{"date":"2025-02-13T11:14:53.355Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T11:14:53.522Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T11:14:54.174Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T11:14:54.343Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T11:14:58.181Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T11:17:07.056Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T11:18:24.514Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/academy/book?type2=popular"}
+{"date":"2025-02-13T11:18:24.534Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/academy/book?type2=new"}
+{"date":"2025-02-13T11:18:32.729Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T11:21:48.215Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T11:22:49.448Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/collab-forum/?status=accepted&type=other"}
+{"date":"2025-02-13T11:22:49.457Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/collab-forum/?status=accepted&type=me"}
+{"date":"2025-02-13T11:23:08.799Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/collab-forum/6782741595463e4fd4cbe5fa/like-unlike"}
+{"date":"2025-02-13T11:23:11.348Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/collab-forum/6782741595463e4fd4cbe5fa/like-unlike"}
+{"date":"2025-02-13T11:26:11.742Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/green-map/?category="}
+{"date":"2025-02-13T11:27:05.077Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds="}
+{"date":"2025-02-13T11:27:06.244Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-13T11:27:07.372Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73"}
+{"date":"2025-02-13T11:27:08.613Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T11:27:08.780Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T11:27:09.292Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T11:27:09.465Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T11:28:06.169Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds="}
+{"date":"2025-02-13T11:28:07.681Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4d4ce0f1ab1362900f73"}
+{"date":"2025-02-13T11:28:08.656Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T11:28:09.521Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999,67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-13T11:28:09.692Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999,67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-13T11:28:10.242Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999,67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-13T11:28:10.418Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999,67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-13T11:31:00.477Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T11:32:20.917Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds="}
+{"date":"2025-02-13T11:32:21.634Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-13T11:32:22.563Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73"}
+{"date":"2025-02-13T11:32:23.788Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T11:32:23.953Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T11:32:24.603Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T11:32:24.775Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T11:33:06.306Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds="}
+{"date":"2025-02-13T11:33:07.716Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-13T11:33:09.557Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T11:33:10.892Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab6c79bdc8624594f46999,67ab4d4ce0f1ab1362900f73"}
+{"date":"2025-02-13T11:33:11.055Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab6c79bdc8624594f46999,67ab4d4ce0f1ab1362900f73"}
+{"date":"2025-02-13T11:33:11.708Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab6c79bdc8624594f46999,67ab4d4ce0f1ab1362900f73"}
+{"date":"2025-02-13T11:33:11.881Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab6c79bdc8624594f46999,67ab4d4ce0f1ab1362900f73"}
+{"date":"2025-02-13T11:33:21.657Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/get/my/reels"}
+{"date":"2025-02-13T11:38:04.573Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/category"}
+{"date":"2025-02-13T11:38:04.604Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?limit=10&page=1&featured=true"}
+{"date":"2025-02-13T11:38:04.867Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/banner/"}
+{"date":"2025-02-13T11:38:04.955Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?page=1&limit=5"}
+{"date":"2025-02-13T11:38:22.198Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/6778eab8801e601b738f1046"}
+{"date":"2025-02-13T11:42:31.296Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/banner/"}
+{"date":"2025-02-13T11:42:31.317Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?limit=10&page=1&featured=true"}
+{"date":"2025-02-13T11:42:31.326Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/category"}
+{"date":"2025-02-13T11:42:31.360Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?page=1&limit=5"}
+{"date":"2025-02-13T11:43:11.833Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/collab-forum/?status=accepted&type=other"}
+{"date":"2025-02-13T11:43:11.861Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/collab-forum/?status=accepted&type=me"}
+{"date":"2025-02-13T11:44:17.815Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T11:45:40.597Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/academy/book?type2=new"}
+{"date":"2025-02-13T11:45:40.604Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/academy/book?type2=popular"}
+{"date":"2025-02-13T11:46:44.500Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds="}
+{"date":"2025-02-13T11:46:45.764Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-13T11:46:46.610Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73"}
+{"date":"2025-02-13T11:46:47.633Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T11:46:47.817Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T11:46:48.252Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T11:46:48.434Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T11:49:15.554Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T11:49:21.319Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T11:49:28.863Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/collab-forum/?status=accepted&type=me"}
+{"date":"2025-02-13T11:49:28.874Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/collab-forum/?status=accepted&type=other"}
+{"date":"2025-02-13T11:51:12.039Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds="}
+{"date":"2025-02-13T11:51:13.204Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4d4ce0f1ab1362900f73"}
+{"date":"2025-02-13T11:51:14.078Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T11:51:14.941Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999,67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-13T11:51:15.128Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999,67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-13T11:51:15.622Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999,67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-13T11:51:15.815Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999,67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-13T11:51:31.598Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds="}
+{"date":"2025-02-13T11:51:32.887Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-13T11:51:34.667Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T11:51:36.204Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab6c79bdc8624594f46999,67ab4d4ce0f1ab1362900f73"}
+{"date":"2025-02-13T11:51:36.379Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab6c79bdc8624594f46999,67ab4d4ce0f1ab1362900f73"}
+{"date":"2025-02-13T11:51:37.226Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab6c79bdc8624594f46999,67ab4d4ce0f1ab1362900f73"}
+{"date":"2025-02-13T11:51:37.405Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab6c79bdc8624594f46999,67ab4d4ce0f1ab1362900f73"}
+{"date":"2025-02-13T11:54:05.330Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T11:58:36.235Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T12:00:07.015Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T12:01:46.625Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T12:11:54.487Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2025-02-13T12:11:56.924Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-02-13T12:12:08.427Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T12:12:20.529Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/gpt/"}
+{"date":"2025-02-13T12:15:43.003Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T12:16:58.625Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?limit=10&page=1&featured=true"}
+{"date":"2025-02-13T12:16:58.633Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/banner/"}
+{"date":"2025-02-13T12:16:58.645Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?page=1&limit=5"}
+{"date":"2025-02-13T12:16:59.708Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/category"}
+{"date":"2025-02-13T12:17:09.348Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/6778eab8801e601b738f1046"}
+{"date":"2025-02-13T12:17:51.126Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/order/checkout"}
+{"date":"2025-02-13T12:17:56.679Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/order/"}
+{"date":"2025-02-13T12:17:56.990Z","level":"error","message":"Cast to Number failed for value \"Infinity1500\" (type string) at path \"greenPoints\"","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T12:19:52.278Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/order/"}
+{"date":"2025-02-13T12:19:52.728Z","level":"error","message":"Cast to Number failed for value \"Infinity1500\" (type string) at path \"greenPoints\"","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T12:19:57.893Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/order/"}
+{"date":"2025-02-13T12:19:58.158Z","level":"error","message":"Cast to Number failed for value \"Infinity1500\" (type string) at path \"greenPoints\"","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T12:21:06.956Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/order/"}
+{"date":"2025-02-13T12:21:07.429Z","level":"error","message":"Cast to Number failed for value \"Infinity1500\" (type string) at path \"greenPoints\"","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T12:21:55.779Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/order/"}
+{"date":"2025-02-13T12:21:56.256Z","level":"error","message":"Cast to Number failed for value \"Infinity1500\" (type string) at path \"greenPoints\"","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T12:27:52.542Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/order/checkout"}
+{"date":"2025-02-13T12:28:04.624Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/shop/order/"}
+{"date":"2025-02-13T12:28:35.418Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-13T13:30:17.348Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2025-02-13T13:30:18.166Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-02-13T13:44:19.251Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/logout"}
+{"date":"2025-02-13T13:45:43.210Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/forgotPassword"}
+{"date":"2025-02-13T13:46:38.325Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/auth/resetPassword"}
+{"date":"2025-02-13T13:47:44.874Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/auth/resetPassword"}
+{"date":"2025-02-13T13:47:44.950Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/auth/resetPassword"}
+{"date":"2025-02-13T13:47:45.152Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/auth/resetPassword"}
+{"date":"2025-02-13T13:47:49.716Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/auth/resetPassword"}
+{"date":"2025-02-13T13:49:12.743Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/auth/resetPassword"}
+{"date":"2025-02-13T13:51:25.325Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/auth/resetPassword"}
+{"date":"2025-02-13T13:51:47.782Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/forgotPassword"}
+{"date":"2025-02-13T13:52:31.211Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/auth/resetPassword"}
+{"date":"2025-02-13T13:52:41.228Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2025-02-13T13:52:41.462Z","level":"error","message":"Email not verified","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-13T13:53:49.619Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/register-user"}
+{"date":"2025-02-13T13:53:50.047Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/requestEmailToken"}
+{"date":"2025-02-13T13:54:14.397Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/requestEmailToken"}
+{"date":"2025-02-13T13:54:28.310Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/verifyEmail"}
+{"date":"2025-02-13T13:54:53.214Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2025-02-13T13:54:53.475Z","level":"error","message":"Incorrect password.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-13T13:54:57.204Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/forgotPassword"}
+{"date":"2025-02-13T13:56:42.266Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/auth/resetPassword"}
+{"date":"2025-02-13T13:56:54.353Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2025-02-13T13:56:54.717Z","level":"error","message":"Incorrect password.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-13T13:57:05.209Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/forgotPassword"}
+{"date":"2025-02-13T13:57:11.718Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/auth/resetPassword"}
+{"date":"2025-02-13T13:57:11.779Z","level":"error","message":"Invalid token","method":"PUT","service":"user-service","url":"/resetPassword"}

@@ -11,4 +11,5 @@ export interface IBook extends Document {
   price: number;
   content: string;
   type: 'new' | 'popular';
+  greenPoints: number;
 }

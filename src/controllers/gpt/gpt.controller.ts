@@ -8,6 +8,14 @@ import { generateAiResponse, createThread } from '../../utils/openai';
 const sendMessage: RequestHandler = async (req, res) => {
   // #swagger.tags = ['gpt']
   try {
+    if (!req.user?.isSubscribed) {
+      return ErrorHandler({
+        message: 'You need to subscribe to access this feature',
+        statusCode: 403,
+        req,
+        res
+      });
+    }
     const exChat = await Chat.findOne({
       user: req.user?._id
     });

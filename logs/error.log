@@ -238,3 +238,34 @@
 {"date":"2025-02-13T09:35:04.879Z","level":"error","message":"uploadFile is not defined","method":"POST","service":"user-service","url":"/"}
 {"date":"2025-02-13T09:36:40.458Z","level":"error","message":"Job validation failed: jobType: Path `jobType` is required., linkedInUrl: Path `linkedInUrl` is required., title: Path `title` is required.","method":"POST","service":"user-service","url":"/"}
 {"date":"2025-02-13T09:36:51.859Z","level":"error","message":"Job validation failed: jobType: Path `jobType` is required., linkedInUrl: Path `linkedInUrl` is required., title: Path `title` is required.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T10:17:35.666Z","level":"error","message":"Phone already exists","method":"POST","service":"user-service","url":"/register-user"}
+{"date":"2025-02-13T10:17:40.590Z","level":"error","message":"Username already exists","method":"POST","service":"user-service","url":"/register-user"}
+{"date":"2025-02-13T10:20:47.514Z","level":"error","message":"Email already exists","method":"POST","service":"user-service","url":"/register-user"}
+{"date":"2025-02-13T10:24:19.284Z","level":"error","message":"Email already exists","method":"POST","service":"user-service","url":"/register-user"}
+{"date":"2025-02-13T11:14:41.966Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab6c79bdc8624594f46999,67ab4d4ce0f1ab1362900f73,67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-13T11:14:42.681Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab6c79bdc8624594f46999,67ab4d4ce0f1ab1362900f73,67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-13T11:14:53.522Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T11:14:54.343Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T11:27:08.780Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T11:27:09.465Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T11:28:09.692Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999,67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-13T11:28:10.418Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999,67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-13T11:32:23.953Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T11:32:24.775Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T11:33:11.055Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab6c79bdc8624594f46999,67ab4d4ce0f1ab1362900f73"}
+{"date":"2025-02-13T11:33:11.881Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab6c79bdc8624594f46999,67ab4d4ce0f1ab1362900f73"}
+{"date":"2025-02-13T11:46:47.817Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T11:46:48.434Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-13T11:51:15.128Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999,67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-13T11:51:15.815Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999,67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-13T11:51:36.379Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab6c79bdc8624594f46999,67ab4d4ce0f1ab1362900f73"}
+{"date":"2025-02-13T11:51:37.405Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67ab4a98d44fbf03ad6ab622,67ab6c79bdc8624594f46999,67ab4d4ce0f1ab1362900f73"}
+{"date":"2025-02-13T12:17:56.990Z","level":"error","message":"Cast to Number failed for value \"Infinity1500\" (type string) at path \"greenPoints\"","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T12:19:52.728Z","level":"error","message":"Cast to Number failed for value \"Infinity1500\" (type string) at path \"greenPoints\"","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T12:19:58.158Z","level":"error","message":"Cast to Number failed for value \"Infinity1500\" (type string) at path \"greenPoints\"","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T12:21:07.429Z","level":"error","message":"Cast to Number failed for value \"Infinity1500\" (type string) at path \"greenPoints\"","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T12:21:56.256Z","level":"error","message":"Cast to Number failed for value \"Infinity1500\" (type string) at path \"greenPoints\"","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-13T13:52:41.462Z","level":"error","message":"Email not verified","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-13T13:54:53.475Z","level":"error","message":"Incorrect password.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-13T13:56:54.717Z","level":"error","message":"Incorrect password.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-13T13:57:11.779Z","level":"error","message":"Invalid token","method":"PUT","service":"user-service","url":"/resetPassword"}

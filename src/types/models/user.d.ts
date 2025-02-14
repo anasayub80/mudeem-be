@@ -16,6 +16,8 @@ export interface IUser extends Document {
   isActive: boolean;
   adminApproved: boolean;
   myBooks: mongoose.Types.ObjectId[];
+  profilePicture: string;
+  isSubscribed: boolean;
   getJWTToken(): string;
   comparePassword(enteredPassword: string): Promise<boolean>;
 }

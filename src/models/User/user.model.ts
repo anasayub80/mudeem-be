@@ -3,78 +3,88 @@ import bcrypt from 'bcryptjs';
 import validator from 'validator';
 import { IUser } from '../../types/models/user';
 
-const userSchema = new mongoose.Schema<IUser>({
-  name: {
-    type: String,
-    required: true
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-    validate(value: string) {
-      if (!validator.isEmail(value)) {
-        throw new Error('Invalid Email');
+const userSchema = new mongoose.Schema<IUser>(
+  {
+    name: {
+      type: String,
+      required: true
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      validate(value: string) {
+        if (!validator.isEmail(value)) {
+          throw new Error('Invalid Email');
+        }
       }
+    },
+    password: {
+      type: String,
+      required: true
+    },
+    phone: {
+      type: String,
+      required: true
+    },
+    username: {
+      type: String,
+      required: true,
+      unique: true
+    },
+    role: {
+      type: String,
+      enum: ['user', 'admin', 'vendor'],
+      default: 'user'
+    },
+    emailVerified: {
+      type: Boolean,
+      default: false
+    },
+    emailVerificationToken: {
+      type: Number,
+      default: null
+    },
+    emailVerificationTokenExpires: {
+      type: Date,
+      default: null
+    },
+    passwordResetToken: {
+      type: Number,
+      default: null
+    },
+    passwordResetTokenExpires: {
+      type: Date,
+      default: null
+    },
+    greenPoints: {
+      type: Number,
+      default: 0
+    },
+    isActive: {
+      type: Boolean,
+      default: true
+    },
+    adminApproved: {
+      type: Boolean,
+      default: false
+    },
+    myBooks: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Book'
+      }
+    ],
+    profilePicture: {
+      type: String
+    },
+    isSubscribed: {
+      type: Boolean,
+      default: false
     }
   },
-  password: {
-    type: String,
-    required: true
-  },
-  phone: {
-    type: String,
-    required: true
-  },
-  username: {
-    type: String,
-    required: true,
-    unique: true
-  },
-  role: {
-    type: String,
-    enum: ['user', 'admin', 'vendor'],
-    default: 'user'
-  },
-  emailVerified: {
-    type: Boolean,
-    default: false
-  },
-  emailVerificationToken: {
-    type: Number,
-    default: null,
-  },
-  emailVerificationTokenExpires: {
-    type: Date,
-    default: null,
-  },
-  passwordResetToken: {
-    type: Number,
-    default: null
-  },
-  passwordResetTokenExpires: {
-    type: Date,
-    default: null
-  },
-  greenPoints: {
-    type: Number,
-    default: 0
-  },
-  isActive: {
-    type: Boolean,
-    default: true
-  },
-  adminApproved: {
-    type: Boolean,
-    default: false
-  },
-  myBooks: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Book'
-    }
-  ],
-}, { timestamps: true });
+  { timestamps: true }
+);
 
 // Hash password before saving
 userSchema.pre<IUser>('save', async function (next) {

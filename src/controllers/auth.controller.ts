@@ -8,6 +8,7 @@ import passport from 'passport';
 import { captureUserAgent } from '../middleware/userAgent.middleware';
 import mongoose from 'mongoose';
 import SendMail from '../utils/sendMail';
+import uploadFile from '../utils/upload';
 //register
 const register: RequestHandler = async (req, res) => {
   // #swagger.tags = ['auth']
@@ -494,6 +495,66 @@ const removeSessions: RequestHandler = async (req, res) => {
   }
 };
 
+const updateProfile: RequestHandler = async (req, res) => {
+  try {
+    const { name, email, phone, username } = req.body;
+
+    let link;
+    if (req.file) {
+      link = await uploadFile(req.file.buffer);
+    }
+    const user = await User.findById(req.user?._id);
+    if (!user) {
+      return ErrorHandler({
+        message: 'User not found',
+        statusCode: 404,
+        req,
+        res
+      });
+    }
+    if (name) user.name = name;
+    if (email) user.email = email;
+    if (phone) user.phone = phone;
+    if (username) user.username = username;
+    if (link) user.profilePicture = link.secure_url;
+  } catch (error) {
+    return ErrorHandler({
+      message: (error as Error).message,
+      statusCode: 500,
+      req,
+      res
+    });
+  }
+};
+
+const changeSubscriptionStatus: RequestHandler = async (req, res) => {
+  try {
+    const user = await User.findById(req.user?._id);
+    if (!user) {
+      return ErrorHandler({
+        message: 'User not found',
+        statusCode: 404,
+        req,
+        res
+      });
+    }
+    user.isSubscribed = !user.isSubscribed;
+    await user.save();
+    return SuccessHandler({
+      data: 'Subscription status updated successfully',
+      statusCode: 200,
+      res
+    });
+  } catch (error) {
+    return ErrorHandler({
+      message: (error as Error).message,
+      statusCode: 500,
+      req,
+      res
+    });
+  }
+};
+
 export {
   register,
   requestEmailToken,
@@ -504,5 +565,7 @@ export {
   forgotPassword,
   resetPassword,
   updatePassword,
-  removeSessions
+  removeSessions,
+  updateProfile,
+  changeSubscriptionStatus
 };

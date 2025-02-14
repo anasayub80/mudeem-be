@@ -12,20 +12,34 @@ const SendMail = async ({
   subject,
   text
 }: SendMailParams): Promise<void> => {
-  const transport: Transporter = createTransport(
-    nodemailerSendgrid({
-      apiKey: process.env.NODEMAILER_API_KEY as string
-    })
-  );
+  try {
+    const transport: Transporter = createTransport(
+      // nodemailerSendgrid({
+      //   apiKey: process.env.NODEMAILER_API_KEY as string
+      // })
+      // smtp transport
+      {
+        host: 'smtp-relay.brevo.com',
+        port: 587,
+        // secure: false,
+        auth: {
+          user: '83cabe001@smtp-brevo.com',
+          pass: 'KmMhxqWg5HwUEv0B'
+        }
+      }
+    );
 
-  const mailOptions: SendMailOptions = {
-    from: 'ah2k.dev@gmail.com',
-    to: email,
-    subject,
-    text
-  };
+    const mailOptions: SendMailOptions = {
+      from: 'mudeemsustainapp@gmail.com',
+      to: email,
+      subject,
+      text
+    };
 
-  await transport.sendMail(mailOptions);
+    await transport.sendMail(mailOptions);
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 export default SendMail;

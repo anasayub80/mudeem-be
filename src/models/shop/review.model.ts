@@ -10,11 +10,6 @@ const reviewSchema = new mongoose.Schema<IReview>({
     type: String,
     required: true
   },
-  images: [
-    {
-      type: String
-    }
-  ],
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',

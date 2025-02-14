@@ -9,8 +9,17 @@ import User from '../../models/User/user.model';
 const createBook: RequestHandler = async (req, res) => {
   // #swagger.tags = ['academy']
   try {
-    const { title, description, author, pages, language, year, price, type } =
-      req.body;
+    const {
+      title,
+      description,
+      author,
+      pages,
+      language,
+      year,
+      price,
+      type,
+      greenPoints
+    } = req.body;
     console.log(req.files);
     if (!req?.files) {
       return ErrorHandler({
@@ -35,7 +44,8 @@ const createBook: RequestHandler = async (req, res) => {
       language,
       year,
       price,
-      type
+      type,
+      greenPoints
     });
 
     return SuccessHandler({
@@ -292,7 +302,7 @@ const purchaseBook: RequestHandler = async (req, res) => {
 
     await User.findByIdAndUpdate(user._id, {
       $push: { myBooks: book._id },
-      $inc: { greenPoints: -book.price }
+      $inc: { greenPoints: -book.price + book.greenPoints }
     });
 
     return SuccessHandler({

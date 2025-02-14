@@ -10,21 +10,57 @@ import User from '../../models/User/user.model';
 const createContent: RequestHandler = async (req, res) => {
   // #swagger.tags = ['content-creator']
   try {
-    const { description } = req.body;
-    if (!req?.file) {
+    if (!req.user?.isSubscribed) {
       return ErrorHandler({
-        message: 'File is required',
+        message: 'You need to subscribe to access this feature',
+        statusCode: 403,
+        req,
+        res
+      });
+    }
+    const { description } = req.body;
+    if (!req?.files) {
+      return ErrorHandler({
+        message: 'Files are required',
         statusCode: 400,
         req,
         res
       });
     }
-    let link = await uploadFile(req.file.buffer);
+    // @ts-ignore
+    if (!req.files?.thumbnail[0]) {
+      return ErrorHandler({
+        message: 'Thumbnail is required',
+        statusCode: 400,
+        req,
+        res
+      });
+    }
+    // @ts-ignore
+    if (!req.files?.video[0]) {
+      return ErrorHandler({
+        message: 'Video is required',
+        statusCode: 400,
+        req,
+        res
+      });
+    }
+    // @ts-ignore
+    let videoLink = await uploadFile(req.files.video[0].buffer);
+    // @ts-ignore
+    let thumbnailLink = await uploadFile(req.files.thumbnail[0].buffer);
     const content = await Reel.create({
       user: req.user?._id,
-      url: link.secure_url,
+      url: videoLink.secure_url,
+      thumbnail: thumbnailLink.secure_url,
       description
     });
+    await User.updateOne(
+      { _id: req.user?._id },
+      {
+        $inc: { greenPoints: 30 }
+      }
+    );
     return SuccessHandler({
       res,
       data: { message: `Content created`, content },
@@ -44,6 +80,14 @@ const getReels: RequestHandler = async (req, res) => {
   // #swagger.tags = ['content-creator']
 
   try {
+    if (!req.user?.isSubscribed) {
+      return ErrorHandler({
+        message: 'You need to subscribe to access this feature',
+        statusCode: 403,
+        req,
+        res
+      });
+    }
     const reels = await Reel.find({
       user: req.user?._id
     }).populate({

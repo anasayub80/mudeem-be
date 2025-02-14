@@ -7,6 +7,7 @@ import Variant from '../../models/shop/variant.model';
 import Address from '../../models/User/address.model';
 import Order from '../../models/shop/order.model';
 import User from '../../models/User/user.model';
+import Review from '../../models/shop/review.model';
 
 const checkout: RequestHandler = async (req, res) => {
   // #swagger.tags = ['order']
@@ -163,6 +164,8 @@ const createOrder: RequestHandler = async (req, res) => {
       totalGreenPoints,
       vendor: items[0].product.vendor
     });
+    // @ts-ignore
+    console.log(req.user?.greenPoints, totalAmount, totalGreenPoints);
 
     req.user?.greenPoints &&
       (await User.updateOne(
@@ -184,6 +187,7 @@ const createOrder: RequestHandler = async (req, res) => {
       statusCode: 200
     });
   } catch (error) {
+    console.log(error);
     return ErrorHandler({
       message: (error as Error).message,
       statusCode: 500,
@@ -272,4 +276,47 @@ const updateOrderStatus: RequestHandler = async (req, res) => {
   }
 };
 
-export { checkout, createOrder, getOrders, updateOrderStatus };
+const reviewProduct: RequestHandler = async (req, res) => {
+  // #swagger.tags = ['order']
+  try {
+    const { orderId, productId, rating, review } = req.body;
+    const order: IOrder | null = await Order.findOne({
+      _id: orderId
+    });
+    if (!order) {
+      throw new Error(`Order with id ${orderId} not found`);
+    }
+    const product = await Product.findById(productId);
+    if (!product) {
+      throw new Error(`Product with id ${productId} not found`);
+    }
+    const createdReview = await Review.create({
+      rating,
+      review,
+      user: req.user?._id,
+      product: productId,
+      order: orderId
+    });
+    product.reviews.push(createdReview._id);
+    const totalRating = product.rating.stars * product.rating.total;
+    product.rating.total += 1;
+    product.rating.stars = (totalRating + rating) / product.rating.total;
+    await product.save();
+    return SuccessHandler({
+      res,
+      data: {
+        message: 'Product reviewed successfully'
+      },
+      statusCode: 200
+    });
+  } catch (error) {
+    return ErrorHandler({
+      message: (error as Error).message,
+      statusCode: 500,
+      req,
+      res
+    });
+  }
+};
+
+export { checkout, createOrder, getOrders, updateOrderStatus, reviewProduct };

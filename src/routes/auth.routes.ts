@@ -1,6 +1,6 @@
 import express, { Router } from 'express';
 import * as auth from '../controllers/auth.controller';
-import { isAuthenticated } from '../middleware/auth.middleware';
+import { isAdmin, isAuthenticated } from '../middleware/auth.middleware';
 import { validate } from '../middleware/validate.middleware';
 import * as schema from '../validations/auth.schema';
 
@@ -31,9 +31,19 @@ router
   .route('/updatePassword')
   .put(isAuthenticated, validate(schema.updatePassword), auth.updatePassword);
 
+router.route('/updateProfile').put(isAuthenticated, auth.updateProfile);
+
+router
+  .route('/changeSubscription')
+  .put(isAuthenticated, isAdmin, auth.changeSubscriptionStatus);
+
 // DELETE routes
 router
   .route('/removeSessions')
-  .delete(isAuthenticated, validate(schema.removeSessions), auth.removeSessions);
+  .delete(
+    isAuthenticated,
+    validate(schema.removeSessions),
+    auth.removeSessions
+  );
 
 export default router;

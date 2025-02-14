@@ -114,6 +114,12 @@ const getAllProducts: RequestHandler = async (req, res) => {
 
     const products: IProduct[] = await Product.find(filters)
       .populate('category')
+      .populate({
+        path: 'reviews',
+        populate: {
+          path: 'user'
+        }
+      })
       // .populate('user')
       // .populate('variants')
       .skip(skip)
@@ -147,7 +153,13 @@ const getProduct: RequestHandler = async (req, res) => {
 
     const product = await Product.findById(req.params.id)
       .populate('category')
-      .populate('variants');
+      .populate('variants')
+      .populate({
+        path: 'reviews',
+        populate: {
+          path: 'user'
+        }
+      });
     // const product = await Product.aggregate([
     //   {
     //     $match: {

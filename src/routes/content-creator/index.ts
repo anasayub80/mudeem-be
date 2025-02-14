@@ -12,12 +12,17 @@ router
   .route('/')
   .post(
     isAuthenticated,
-    multerMiddleware.single('file'),
+    multerMiddleware.fields([
+      { name: 'video', maxCount: 1 },
+      { name: 'thumbnail', maxCount: 1 }
+    ]),
     contentCreatorController.createContent
   )
   .get(contentCreatorController.getReel);
 
-router.route('/get/my/reels').get(isAuthenticated, contentCreatorController.getReels);
+router
+  .route('/get/my/reels')
+  .get(isAuthenticated, contentCreatorController.getReels);
 
 router
   .route('/:id')

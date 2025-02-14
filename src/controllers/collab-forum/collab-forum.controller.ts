@@ -348,6 +348,16 @@ const likeUnlikePost: RequestHandler = async (req, res) => {
 
     const updatedPost = await Post.findByIdAndUpdate(id, update, { new: true });
 
+    // give green points
+    if (!isLiked) {
+      const user = await User.findById(post.user);
+      if (user) {
+        user.greenPoints += 1;
+        await user.save();
+        //notification
+      }
+    }
+
     return SuccessHandler({
       res,
       data: updatedPost,
@@ -385,6 +395,14 @@ const createComment: RequestHandler = async (req, res) => {
     });
     post.comments.push(comment._id);
     await post.save();
+
+    // give green points
+    const postUser = await User.findById(post.user);
+    if (postUser) {
+      postUser.greenPoints += 1;
+      await postUser.save();
+      //notification
+    }
     return SuccessHandler({
       res,
       data: comment,

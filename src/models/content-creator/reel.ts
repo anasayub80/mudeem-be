@@ -11,6 +11,10 @@ const reelSchema = new mongoose.Schema<IReel>({
     type: String,
     required: true
   },
+  thumbnail: {
+    type: String,
+    required: true
+  },
   description: {
     type: String
   },

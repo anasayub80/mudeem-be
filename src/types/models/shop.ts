@@ -53,7 +53,6 @@ export interface IProduct extends Document {
 export interface IReview extends Document {
   rating: number;
   review: string;
-  images: string[];
   user: mongoose.Schema.Types.ObjectId;
   product: mongoose.Schema.Types.ObjectId;
   order: mongoose.Schema.Types.ObjectId;

@@ -43,6 +43,10 @@ const bookSchema = new mongoose.Schema<IBook>(
       type: String,
       required: true,
       enum: ['new', 'popular']
+    },
+    greenPoints: {
+      type: Number,
+      required: true
     }
   },
   {
