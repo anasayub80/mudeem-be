@@ -596,6 +596,13 @@ const changePostStatus: RequestHandler = async (req, res) => {
       status === 'accepted'
         ? user.greenPoints + Number(points)
         : user.greenPoints;
+    if (status === 'accepted') {
+      user.greenPointsHistory.push({
+        points: Number(points),
+        reason: 'Post Approval',
+        date: new Date()
+      });
+    }
     await user.save();
     return SuccessHandler({
       res,

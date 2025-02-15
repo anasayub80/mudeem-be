@@ -175,6 +175,13 @@ const createOrder: RequestHandler = async (req, res) => {
         {
           $set: {
             greenPoints: req.user.greenPoints - totalAmount + totalGreenPoints
+          },
+          $push: {
+            greenPointsHistory: {
+              points: totalGreenPoints,
+              type: 'debit',
+              orderId: order._id
+            }
           }
         }
       ));

@@ -181,7 +181,14 @@ const approveRejectRequest: RequestHandler = async (req, res) => {
     const request = await Waste.findByIdAndUpdate(id, { status });
     if (request && status === 'accepted') {
       await User.findByIdAndUpdate(request.user, {
-        $inc: { greenPoints: req.body.greenPoints }
+        $inc: { greenPoints: req.body.greenPoints },
+        $push: {
+          greenPointsHistory: {
+            points: req.body.greenPoints,
+            reason: 'Waste Collection',
+            date: Date.now()
+          }
+        }
       });
     }
     return SuccessHandler({ res, data: request, statusCode: 200 });

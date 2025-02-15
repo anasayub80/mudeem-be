@@ -58,7 +58,14 @@ const createContent: RequestHandler = async (req, res) => {
     await User.updateOne(
       { _id: req.user?._id },
       {
-        $inc: { greenPoints: 30 }
+        $inc: { greenPoints: 30 },
+        $push: {
+          greenPointsHistory: {
+            points: 30,
+            reason: 'content',
+            date: Date.now()
+          }
+        }
       }
     );
     return SuccessHandler({

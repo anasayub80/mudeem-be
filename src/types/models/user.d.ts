@@ -13,6 +13,11 @@ export interface IUser extends Document {
   passwordResetToken?: number | null;
   passwordResetTokenExpires?: Date | null;
   greenPoints: number;
+  greenPointsHistory: {
+    points: number;
+    reason: string;
+    date: Date;
+  }[];
   isActive: boolean;
   adminApproved: boolean;
   myBooks: mongoose.Types.ObjectId[];

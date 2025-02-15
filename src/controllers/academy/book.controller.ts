@@ -301,7 +301,14 @@ const purchaseBook: RequestHandler = async (req, res) => {
     }
 
     await User.findByIdAndUpdate(user._id, {
-      $push: { myBooks: book._id },
+      $push: {
+        myBooks: book._id,
+        greenPointsHistory: {
+          points: book.greenPoints,
+          reason: 'Book Purchase',
+          date: Date.now()
+        }
+      },
       $inc: { greenPoints: -book.price + book.greenPoints }
     });
 

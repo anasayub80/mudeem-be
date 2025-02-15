@@ -19,7 +19,7 @@ const createFarm: RequestHandler = async (req, res) => {
       electricGeneration
     } = req.body;
 
-    console.log("fdffd");
+    console.log('fdffd');
     if (!req?.files?.length) {
       return ErrorHandler({
         message: 'Please upload images',
@@ -158,7 +158,14 @@ const approveRejectFarm: RequestHandler = async (req, res) => {
     if (status === 'approved') {
       farm.status = 'approved';
       await User.findByIdAndUpdate(farm.user, {
-        $inc: { greenPoints: req.body.greenPoints }
+        $inc: { greenPoints: req.body.greenPoints },
+        $push: {
+          greenPointsHistory: {
+            points: req.body.greenPoints,
+            reason: 'Farm approved',
+            createdAt: new Date()
+          }
+        }
       });
     } else if (status === 'rejected') {
       farm.status = 'rejected';
