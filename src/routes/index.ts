@@ -11,6 +11,7 @@ import contentCreator from './content-creator/index';
 import academy from './academy/index';
 import gpt from './gpt/index';
 import careers from './careers/index';
+import leaderboard from './leaderboard';
 const router: Router = express.Router();
 
 router.use('/auth', auth);
@@ -25,5 +26,6 @@ router.use('/content-creator', contentCreator);
 router.use('/academy', academy);
 router.use('/gpt', gpt);
 router.use('/careers', careers);
+router.use('/leaderboard', leaderboard);
 
 export default router;

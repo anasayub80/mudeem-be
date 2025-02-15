@@ -4786,3 +4786,7 @@
 {"date":"2025-02-13T13:57:05.209Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/forgotPassword"}
 {"date":"2025-02-13T13:57:11.718Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/auth/resetPassword"}
 {"date":"2025-02-13T13:57:11.779Z","level":"error","message":"Invalid token","method":"PUT","service":"user-service","url":"/resetPassword"}
+{"date":"2025-02-15T00:59:29.021Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/leaderboard"}
+{"date":"2025-02-15T00:59:35.006Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/leaderboard"}
+{"date":"2025-02-15T01:00:27.267Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/leaderboard"}
+{"date":"2025-02-15T01:02:38.873Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/leaderboard"}
