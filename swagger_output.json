@@ -272,6 +272,59 @@
         }
       }
     },
+    "/auth/updateProfile": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "phone": {
+                  "example": "any"
+                },
+                "username": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/auth/changeSubscription": {
+      "put": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/auth/removeSessions": {
       "delete": {
         "tags": [
@@ -2674,6 +2727,9 @@
                 },
                 "type": {
                   "example": "any"
+                },
+                "greenPoints": {
+                  "example": "any"
                 }
               }
             }
@@ -2881,6 +2937,12 @@
                 },
                 "company": {
                   "example": "any"
+                },
+                "jobType": {
+                  "example": "any"
+                },
+                "linkedInUrl": {
+                  "example": "any"
                 }
               }
             }
@@ -2897,6 +2959,39 @@
             "description": "Internal Server Error"
           }
         }
+      }
+    },
+    "/leaderboard/": {
+      "get": {
+        "tags": [
+          "leaderboard"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/leaderboard/{id}": {
+      "get": {
+        "tags": [
+          "leaderboard"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
       }
     }
   }

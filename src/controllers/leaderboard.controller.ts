@@ -66,4 +66,52 @@ const getLeaderboard: RequestHandler = async (req, res) => {
   }
 };
 
-export { getLeaderboard };
+const getLeaderboardById: RequestHandler = async (req, res) => {
+  // #swagger.tags = ['leaderboard']
+
+  // we have user id, we need to get the rank of user by greenPoints
+  // include the greenPointsHistory of the user
+  try {
+    const { id } = req.params;
+    const user = await User.findById(id);
+    if (!user) {
+      return ErrorHandler({
+        message: 'User not found',
+        statusCode: 404,
+        req,
+        res
+      });
+    }
+    const data = await User.aggregate([
+      {
+        $unwind: '$greenPointsHistory'
+      },
+      {
+        $group: {
+          _id: '$_id',
+          name: { $first: '$name' },
+          profilePicture: { $first: '$profilePicture' },
+          points: { $sum: '$greenPointsHistory.points' }
+        }
+      },
+      {
+        $sort: { points: -1 }
+      }
+    ]); // get all users and their greenPoints
+    const rank = data.findIndex((item: any) => item._id.toString() === id);
+    return SuccessHandler({
+      res,
+      data: { ...user.toJSON(), rank: rank + 1 },
+      statusCode: 200
+    });
+  } catch (error) {
+    return ErrorHandler({
+      message: (error as Error).message,
+      statusCode: 500,
+      req,
+      res
+    });
+  }
+};
+
+export { getLeaderboard, getLeaderboardById };
