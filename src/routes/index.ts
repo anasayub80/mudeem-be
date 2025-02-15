@@ -12,6 +12,7 @@ import academy from './academy/index';
 import gpt from './gpt/index';
 import careers from './careers/index';
 import leaderboard from './leaderboard';
+import pool from './pool/index';
 const router: Router = express.Router();
 
 router.use('/auth', auth);
@@ -27,5 +28,6 @@ router.use('/academy', academy);
 router.use('/gpt', gpt);
 router.use('/careers', careers);
 router.use('/leaderboard', leaderboard);
+router.use('/carpool', pool);
 
 export default router;
