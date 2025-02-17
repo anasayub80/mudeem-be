@@ -3,7 +3,7 @@ import ErrorHandler from '../../utils/errorHandler';
 import SuccessHandler from '../../utils/successHandler';
 import Company from '../../models/waste/company.model';
 import Waste from '../../models/waste/request.model';
-import User from 'models/User/user.model';
+import User from '../../models/User/user.model';
 
 const createCompany: RequestHandler = async (req, res) => {
   // #swagger.tags = ['company']
@@ -73,7 +73,9 @@ const createRequest: RequestHandler = async (req, res) => {
       description,
       address1,
       address2,
-      pickupDateTime
+      pickupDateTime,
+      user,
+      company
     } = req.body;
     const request = await Waste.create({
       wasteType,
@@ -81,7 +83,9 @@ const createRequest: RequestHandler = async (req, res) => {
       description,
       address1,
       address2,
-      pickupDateTime
+      pickupDateTime,
+      user,
+      company
     });
     return SuccessHandler({
       res,

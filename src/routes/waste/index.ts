@@ -38,7 +38,7 @@ router
 
 router
   .route('/request/:id')
-  .get(isAuthenticated, wasteController.getRequestById)
+  .get(isAuthenticated, wasteController.getRequestById);
 
 router
   .route('/request/approve-reject/:id')
