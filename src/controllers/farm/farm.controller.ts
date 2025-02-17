@@ -19,6 +19,7 @@ const createFarm: RequestHandler = async (req, res) => {
       electricGeneration
     } = req.body;
 
+    console.log("fdffd");
     if (!req?.files?.length) {
       return ErrorHandler({
         message: 'Please upload images',

@@ -34,7 +34,7 @@ router
   .route('/')
   .post(
     isAuthenticated,
-    validate(schema.createFarm),
+    // validate(schema.createFarm),
     multerMiddleware.array('images', 5),
     farmController.createFarm
   )

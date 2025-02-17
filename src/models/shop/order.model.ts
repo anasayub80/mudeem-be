@@ -11,13 +11,13 @@ const order = new mongoose.Schema<IOrder>(
     items: [
       {
         product: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: 'Product',
+          type: Object,
+          // ref: 'Product',
           required: true
         },
         variant: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: 'Variant',
+          type: Object,
+          // ref: 'Variant',
           required: true
         },
         color: {

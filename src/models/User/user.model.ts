@@ -68,6 +68,12 @@ const userSchema = new mongoose.Schema<IUser>({
     type: Boolean,
     default: false
   },
+  myBooks: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Book'
+    }
+  ],
 }, { timestamps: true });
 
 // Hash password before saving

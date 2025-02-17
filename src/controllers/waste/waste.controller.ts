@@ -6,7 +6,7 @@ import Waste from '../../models/waste/request.model';
 import User from '../../models/User/user.model';
 
 const createCompany: RequestHandler = async (req, res) => {
-  // #swagger.tags = ['company']
+  // #swagger.tags = ['waste']
   try {
     const { name, description, location, contact, email, website } = req.body;
     const company = await Company.create({
@@ -32,7 +32,7 @@ const createCompany: RequestHandler = async (req, res) => {
   }
 };
 const getAllCompanies: RequestHandler = async (req, res) => {
-  // #swagger.tags = ['company']
+  // #swagger.tags = ['waste']
   try {
     const companies = await Company.find({
       isActive: true
@@ -49,7 +49,7 @@ const getAllCompanies: RequestHandler = async (req, res) => {
 };
 
 const deleteCompany: RequestHandler = async (req, res) => {
-  // #swagger.tags = ['company']
+  // #swagger.tags = ['waste']
   try {
     const { id } = req.params;
     const company = await Company.findByIdAndUpdate(id, { isActive: false });
@@ -65,7 +65,7 @@ const deleteCompany: RequestHandler = async (req, res) => {
 };
 
 const createRequest: RequestHandler = async (req, res) => {
-  // #swagger.tags = ['request']
+  // #swagger.tags = ['waste']
   try {
     const {
       wasteType,
@@ -103,7 +103,7 @@ const createRequest: RequestHandler = async (req, res) => {
 };
 
 const getAllRequests: RequestHandler = async (req, res) => {
-  // #swagger.tags = ['request']
+  // #swagger.tags = ['waste']
   try {
     interface IFilters {
       status?: string;
@@ -148,7 +148,7 @@ const getAllRequests: RequestHandler = async (req, res) => {
 };
 
 const getRequestById: RequestHandler = async (req, res) => {
-  // #swagger.tags = ['request']
+  // #swagger.tags = ['waste']
   try {
     const { id } = req.params;
     const request = await Waste.findById(id)
@@ -174,7 +174,7 @@ const getRequestById: RequestHandler = async (req, res) => {
 };
 
 const approveRejectRequest: RequestHandler = async (req, res) => {
-  // #swagger.tags = ['request']
+  // #swagger.tags = ['waste']
   try {
     const { id } = req.params;
     const { status } = req.body;

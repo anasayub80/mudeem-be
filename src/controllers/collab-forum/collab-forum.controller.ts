@@ -147,35 +147,118 @@ const getPost: RequestHandler = async (req, res) => {
 
   try {
     const { id } = req.params;
-    const post = await Post.findById(id)
-      .populate('user', 'name email')
-      .populate({
-        path: 'comments',
-        populate: [
-          {
-            path: 'user',
-            select: 'name email'
-          },
-          {
-            path: 'likes',
-            select: 'name email'
-          },
-          {
-            path: 'replies',
-            populate: [
-              {
-                path: 'user',
-                select: 'name email'
-              },
-              {
-                path: 'likes',
-                select: 'name email'
-              }
-            ]
-          }
-        ]
-      })
-      .populate('likes', 'name email');
+    // const post = await Post.findById(id)
+    //   .populate('user', 'name email')
+    //   .populate({
+    //     path: 'comments',
+    //     populate: [
+    //       {
+    //         path: 'user',
+    //         select: 'name email'
+    //       },
+    //       {
+    //         path: 'likes',
+    //         select: 'name email'
+    //       },
+    //       {
+    //         path: 'replies',
+    //         populate: [
+    //           {
+    //             path: 'user',
+    //             select: 'name email'
+    //           },
+    //           {
+    //             path: 'likes',
+    //             select: 'name email'
+    //           }
+    //         ]
+    //       }
+    //     ]
+    //   })
+    //   .populate('likes', 'name email');
+
+    const post = await Post.aggregate([
+      {
+        $match: { _id: new mongoose.Types.ObjectId(id) }
+      },
+      {
+        $lookup: {
+          from: 'users',
+          localField: 'user',
+          foreignField: '_id',
+          as: 'user'
+        }
+      },
+      {
+        $unwind: { path: '$user' }
+      },
+      {
+        $lookup: {
+          from: 'comments',
+          localField: 'comments',
+          foreignField: '_id',
+          as: 'comments'
+        }
+      },
+      {
+        $unwind: { path: '$comments', preserveNullAndEmptyArrays: true }
+      },
+      {
+        $lookup: {
+          from: 'users',
+          localField: 'comments.user',
+          foreignField: '_id',
+          as: 'comments.user'
+        }
+      },
+      {
+        $unwind: { path: '$comments.user', preserveNullAndEmptyArrays: true }
+      },
+      {
+        $lookup: {
+          from: 'comments',
+          localField: 'comments.replies',
+          foreignField: '_id',
+          as: 'comments.replies'
+        }
+      },
+      {
+        $unwind: { path: '$comments.replies', preserveNullAndEmptyArrays: true }
+      },
+      {
+        $lookup: {
+          from: 'users',
+          localField: 'comments.replies.user',
+          foreignField: '_id',
+          as: 'comments.replies.user'
+        }
+      },
+      {
+        $unwind: {
+          path: '$comments.replies.user',
+          preserveNullAndEmptyArrays: true
+        }
+      },
+      {
+        $group: {
+          _id: '$_id',
+          user: { $first: '$user' },
+          content: { $first: '$content' },
+          status: { $first: '$status' },
+          images: { $first: '$images' },
+          likes: { $first: '$likes' },
+          comments: { $push: '$comments' }
+        }
+      },
+      {
+        $lookup: {
+          from: 'users',
+          localField: 'likes',
+          foreignField: '_id',
+          as: 'likes'
+        }
+      }
+    ]);
     if (!post) {
       return ErrorHandler({
         message: 'Post not found',
@@ -259,17 +342,15 @@ const likeUnlikePost: RequestHandler = async (req, res) => {
       });
     }
     const isLiked = post.likes.includes(user?._id);
-    if (isLiked) {
-      post.likes = post.likes.filter(
-        (like) => like.toString() !== user?._id.toString()
-      );
-    } else {
-      post.likes.push(user?._id);
-    }
-    post.save();
+    const update = isLiked
+      ? { $pull: { likes: user?._id } } // Remove user ID from likes
+      : { $push: { likes: user?._id } }; // Add user ID to likes
+
+    const updatedPost = await Post.findByIdAndUpdate(id, update, { new: true });
+
     return SuccessHandler({
       res,
-      data: post,
+      data: updatedPost,
       statusCode: 200
     });
   } catch (error) {
