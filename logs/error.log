@@ -269,3 +269,18 @@
 {"date":"2025-02-13T13:54:53.475Z","level":"error","message":"Incorrect password.","method":"POST","service":"user-service","url":"/login"}
 {"date":"2025-02-13T13:56:54.717Z","level":"error","message":"Incorrect password.","method":"POST","service":"user-service","url":"/login"}
 {"date":"2025-02-13T13:57:11.779Z","level":"error","message":"Invalid token","method":"PUT","service":"user-service","url":"/resetPassword"}
+{"date":"2025-02-17T13:23:38.998Z","level":"error","message":"Pool validation failed: pickupLocation: Path `pickupLocation` is required., whereTo: Path `whereTo` is required., availableSeats: Path `availableSeats` is required., user: Path `user` is required.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-17T13:28:39.450Z","level":"error","message":"Pool validation failed: availableSeats: Path `availableSeats` is required., user: Path `user` is required.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-17T13:29:00.273Z","level":"error","message":"Pool validation failed: user: Path `user` is required.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-17T14:59:07.583Z","level":"error","message":"Cannot populate path `User` because it is not in your schema. Set the `strictPopulate` option to false to override.","method":"GET","service":"user-service","url":"/"}
+{"date":"2025-02-17T15:00:54.538Z","level":"error","message":"Cannot populate path `User` because it is not in your schema. Set the `strictPopulate` option to false to override.","method":"GET","service":"user-service","url":"/"}
+{"date":"2025-02-17T15:00:56.255Z","level":"error","message":"Cannot populate path `User` because it is not in your schema. Set the `strictPopulate` option to false to override.","method":"GET","service":"user-service","url":"/"}
+{"date":"2025-02-17T15:01:05.914Z","level":"error","message":"Cannot populate path `Users` because it is not in your schema. Set the `strictPopulate` option to false to override.","method":"GET","service":"user-service","url":"/"}
+{"date":"2025-02-17T15:01:08.745Z","level":"error","message":"Cannot populate path `Users` because it is not in your schema. Set the `strictPopulate` option to false to override.","method":"GET","service":"user-service","url":"/"}
+{"date":"2025-02-17T15:01:49.773Z","level":"error","message":"Cannot populate path `User` because it is not in your schema. Set the `strictPopulate` option to false to override.","method":"GET","service":"user-service","url":"/"}
+{"date":"2025-02-17T15:02:51.838Z","level":"error","message":"Cannot populate path `User` because it is not in your schema. Set the `strictPopulate` option to false to override.","method":"GET","service":"user-service","url":"/"}
+{"date":"2025-02-17T16:39:32.076Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/findUsers"}
+{"date":"2025-02-17T17:04:16.948Z","level":"error","message":"Id can't be empty.","method":"DELETE","service":"user-service","url":"/67b34eb0961a2adf135509f1"}
+{"date":"2025-02-17T17:11:38.830Z","level":"error","message":"Pool validation failed: availableSeats: Cast to Number failed for value \"HOPE ITS DELETED\" (type string) at path \"availableSeats\"","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-17T17:14:18.005Z","level":"error","message":"Cast to ObjectId failed for value \"{ rideEnded: true }\" (type Object) at path \"_id\" for model \"Pool\"","method":"GET","service":"user-service","url":"/?hasEnded=true"}
+{"date":"2025-02-17T17:14:30.137Z","level":"error","message":"Cast to ObjectId failed for value \"{ rideEnded: true }\" (type Object) at path \"_id\" for model \"Pool\"","method":"GET","service":"user-service","url":"/?hasEnded=true"}

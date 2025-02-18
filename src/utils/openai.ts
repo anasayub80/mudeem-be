@@ -5,7 +5,7 @@ dotenv.config({ path: '../config/config.env' });
 
 // Initialize OpenAI API
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY as string // This is also the default, can be omitted
+  apiKey: process.env.OPENAI_API_KEY as string
 });
 
 export const createThread = async (): Promise<string> => {

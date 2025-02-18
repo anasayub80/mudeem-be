@@ -9,6 +9,37 @@ import { captureUserAgent } from '../middleware/userAgent.middleware';
 import mongoose from 'mongoose';
 import SendMail from '../utils/sendMail';
 import uploadFile from '../utils/upload';
+
+
+
+const findUsers: RequestHandler = async (req, res) => {
+  // #swagger.tags = ['auth']
+  try {
+
+    if (!req.query.name) {
+      return ErrorHandler({
+        message: "Name can't be empty.",
+        statusCode: 500,
+        req,
+        res
+      });
+    }
+    const filters = { name: req.query.name };
+    const users = await User.find(filters);
+    return SuccessHandler({
+      data: users,
+      statusCode: 200,
+      res
+    });
+  } catch (error) {
+    return ErrorHandler({
+      message: (error as Error).message,
+      statusCode: 500,
+      req,
+      res
+    });
+  }
+}
 //register
 const register: RequestHandler = async (req, res) => {
   // #swagger.tags = ['auth']
@@ -567,5 +598,6 @@ export {
   updatePassword,
   removeSessions,
   updateProfile,
-  changeSubscriptionStatus
+  changeSubscriptionStatus,
+  findUsers,
 };

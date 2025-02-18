@@ -1,8 +1,11 @@
 import { RequestHandler } from 'express';
 
 export const isAuthenticated: RequestHandler = async (req, res, next) => {
+  // return next();
   try {
-    if(req.isAuthenticated()) {
+    console.log(req.user?.role);
+
+    if (req.isAuthenticated()) {
       return next();
     }
     return res.status(401).json({ success: false, message: 'Not logged in' });

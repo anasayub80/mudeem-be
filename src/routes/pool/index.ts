@@ -18,4 +18,5 @@ router
 
 router.route('/endRide/:id').put(isAuthenticated, poolController.endRide);
 
+router.route('/myPools').get(isAuthenticated, poolController.myPool);
 export default router;

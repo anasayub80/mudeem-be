@@ -24,6 +24,17 @@ const poolSchema = new mongoose.Schema<IPool>(
       ref: 'User',
       required: true
     },
+    rideEnded: {
+      type: Boolean,
+      default: false
+      
+    },
+    existingUsers: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+      }
+    ],
     droppedOffUsers: [
       {
         type: mongoose.Schema.Types.ObjectId,
