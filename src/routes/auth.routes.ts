@@ -3,6 +3,7 @@ import * as auth from '../controllers/auth.controller';
 import { isAdmin, isAuthenticated } from '../middleware/auth.middleware';
 import { validate } from '../middleware/validate.middleware';
 import * as schema from '../validations/auth.schema';
+import multerMiddleware from '../middleware/multer.middleware';
 
 const router: Router = express.Router();
 
@@ -32,11 +33,17 @@ router
   .route('/updatePassword')
   .put(isAuthenticated, validate(schema.updatePassword), auth.updatePassword);
 
-router.route('/updateProfile').put(isAuthenticated, auth.updateProfile);
+router.route('/updateProfile').put(isAuthenticated,
+  multerMiddleware.single('profilePicture'),
+   auth.updateProfile);
 
 router
   .route('/changeSubscription')
   .put(isAuthenticated, isAdmin, auth.changeSubscriptionStatus);
+
+router
+  .route('/push-notfications')
+  .put(isAuthenticated, auth.pushNotification);
 
 // DELETE routes
 router

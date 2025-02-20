@@ -9,8 +9,28 @@ import { captureUserAgent } from '../middleware/userAgent.middleware';
 import mongoose from 'mongoose';
 import SendMail from '../utils/sendMail';
 import uploadFile from '../utils/upload';
+import { sentPushNotification } from '../utils/firebase';
 
-
+const pushNotification: RequestHandler = async (req, res) => {
+  try {
+    const { title, body } = req.body;
+    const user = req.user as IUser;
+    const token = user.firebaseToken || '';
+    sentPushNotification(token, title, body);
+    return SuccessHandler({
+      data: 'Push notification sent successfully',
+      statusCode: 200,
+      res
+    });
+  } catch (error) {
+    return ErrorHandler({
+      message: (error as Error).message,
+      statusCode: 500,
+      req,
+      res
+    });
+  }
+};
 
 const findUsers: RequestHandler = async (req, res) => {
   // #swagger.tags = ['auth']
@@ -218,10 +238,10 @@ const verifyEmail: RequestHandler = async (req, res) => {
 const login: RequestHandler = async (req, res) => {
   // #swagger.tags = ['auth']
   try {
-    const { email, password } = req.body as authTypes.LoginBody;
+    const { email, password, firebaseToken } = req.body as authTypes.LoginBody;
     console.log(email, password);
     //@ts-expect-error passport.authenticate has no return type
-    passport.authenticate('local', (err, user, info) => {
+    passport.authenticate('local', async (err, user, info) => {
       if (err) {
         return ErrorHandler({
           message: err.message,
@@ -262,6 +282,17 @@ const login: RequestHandler = async (req, res) => {
           res
         });
       }
+
+      if (firebaseToken) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: user._id }, // Find by ID
+          { firebaseToken }, // Update the field
+          { new: true, runValidators: true } // Return updated user & validate
+        );
+      }
+      // Send push notification (optional)
+      await sentPushNotification(firebaseToken, "test", "Login body");
+
       req.logIn(user, (err) => {
         if (err) {
           return ErrorHandler({
@@ -272,6 +303,7 @@ const login: RequestHandler = async (req, res) => {
           });
         }
         captureUserAgent(req, res, () => {
+
           return res.status(200).json({
             message: 'Login successful'
           });
@@ -557,6 +589,12 @@ const updateProfile: RequestHandler = async (req, res) => {
     if (phone) user.phone = phone;
     if (username) user.username = username;
     if (link) user.profilePicture = link.secure_url;
+    user.save();
+    return SuccessHandler({
+      data: { user: user, message: 'User successfully updated' },
+      statusCode: 200,
+      res
+    });
   } catch (error) {
     return ErrorHandler({
       message: (error as Error).message,
@@ -609,4 +647,5 @@ export {
   updateProfile,
   changeSubscriptionStatus,
   findUsers,
+  pushNotification
 };

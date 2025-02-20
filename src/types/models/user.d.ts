@@ -12,6 +12,7 @@ export interface IUser extends Document {
   emailVerificationTokenExpires?: Date | null;
   passwordResetToken?: number | null;
   passwordResetTokenExpires?: Date | null;
+  firebaseToken?: string | null;
   greenPoints: number;
   greenPointsHistory: {
     points: number;

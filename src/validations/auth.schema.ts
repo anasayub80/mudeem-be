@@ -74,7 +74,11 @@ const login = Joi.object({
     'string.empty': 'Password cannot be empty',
     'string.min': 'Password should have a minimum length of {#limit}',
     'any.required': 'Password is required'
+  }),
+  firebaseToken: Joi.string().messages({
+    'string.base': 'Firebase token must be a string'
   })
+
 });
 
 const resetPassword = Joi.object({

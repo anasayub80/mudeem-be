@@ -84,8 +84,7 @@ const myPool: RequestHandler = async (req, res) => {
   // done.
   try {
 
-    const userId = req.user?._id;
-    console.log("Reached here ", userId);
+    const userId = req.user?._id; 
     if (req.query.rideEnded !== undefined) {
       let filters: { user?: ObjectId; rideEnded?: boolean; } = {};
 
@@ -213,11 +212,8 @@ const updatePool: RequestHandler = async (req, res) => {
       userIdToDropOff,
       rideStarted,
     } = req.body;
-
-
-    const poolId = req.params.id;
-
-
+    
+    const poolId = req.params.id;  
     const foundPool = await Pool.findById(poolId);
 
     if (!foundPool) {

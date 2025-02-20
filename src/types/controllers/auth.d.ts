@@ -19,6 +19,7 @@ interface VerifyEmailTokenBody {
 interface LoginBody {
   email: string;
   password: string;
+  firebaseToken: string;
 }
 
 interface ResetPasswordBody {

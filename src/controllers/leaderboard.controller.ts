@@ -19,7 +19,7 @@ const getLeaderboard: RequestHandler = async (req, res) => {
       };
     } else if (type === 'week') {
       matchStage = {
-        'greenPointsHistory.date': {
+        ' .date': {
           $gte: new Date(new Date().setDate(new Date().getDate() - 7)).setHours(
             0,
             0,

@@ -29,4 +29,8 @@ router
     orderController.updateOrderStatus
   );
 
+
+router.route('/review').post(isAuthenticated, orderController.reviewProduct);
+
+
 export default router;

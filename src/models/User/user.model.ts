@@ -57,6 +57,10 @@ const userSchema = new mongoose.Schema<IUser>(
       type: Date,
       default: null
     },
+    firebaseToken: {  
+      type: String,
+      default: null,
+    },
     greenPoints: {
       type: Number,
       default: 0
@@ -65,6 +69,7 @@ const userSchema = new mongoose.Schema<IUser>(
       type: Boolean,
       default: true
     },
+
     adminApproved: {
       type: Boolean,
       default: false
@@ -77,6 +82,17 @@ const userSchema = new mongoose.Schema<IUser>(
     ],
     profilePicture: {
       type: String
+    },
+    greenPointsHistory: {
+      type: [
+        {
+          points: { type: Number, required: true },
+          reason: { type: String, required: true },
+          date: { type: Date, default: Date.now },
+        },
+      ],
+      default: [],  
+      required: false, 
     },
     isSubscribed: {
       type: Boolean,

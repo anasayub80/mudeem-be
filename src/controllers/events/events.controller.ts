@@ -40,7 +40,7 @@ const getAllEvents: RequestHandler = async (req, res) => {
     const filter: IFilter = {};
 
     req.query.search &&
-      (filter['name'] = { $regex: String(req.query.search), $options: 'i' });
+      (filter['name'] = {$regex: String(req.query.search), $options: 'i'});
 
     req.query.dateTime &&
       (filter['dateTime'] = {
@@ -62,6 +62,7 @@ const getAllEvents: RequestHandler = async (req, res) => {
     });
   }
 };
+
 const getEvent: RequestHandler = async (req, res) => {
   // #swagger.tags = ['events']
   try {

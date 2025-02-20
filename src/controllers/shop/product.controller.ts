@@ -23,10 +23,7 @@ const createProduct: RequestHandler = async (req, res) => {
       brand
     } = req.body;
 
-    const jsonVariants = JSON.parse(variants);
-
-    console.log(req.files);
-
+    const jsonVariants = JSON.parse(variants); 
     if (!req.files || req.files?.length === 0) {
       return ErrorHandler({
         message: 'Image is required',
@@ -34,8 +31,7 @@ const createProduct: RequestHandler = async (req, res) => {
         req,
         res
       });
-    }
-    console.log(req.files);
+    } 
     // const urls: string[] = await uploadFile([req.file as Express.Multer.File]);
 
     const variantsArray: IVariant[] = await Variant.insertMany(jsonVariants, {
