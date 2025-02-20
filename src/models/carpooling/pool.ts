@@ -27,12 +27,16 @@ const poolSchema = new mongoose.Schema<IPool>(
     rideEnded: {
       type: Boolean,
       default: false
-      
+    },
+    rideStarted: {
+      type: Boolean,
+      default: false
     },
     existingUsers: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
+
       }
     ],
     droppedOffUsers: [
@@ -46,6 +50,7 @@ const poolSchema = new mongoose.Schema<IPool>(
     timestamps: true
   }
 );
+
 
 const Pool = mongoose.model<IPool>('Pool', poolSchema);
 export default Pool;

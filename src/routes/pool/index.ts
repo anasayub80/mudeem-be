@@ -10,13 +10,15 @@ router
   .post(isAuthenticated, poolController.createPool)
   .get(poolController.getPools);
 
+router.route('/get-my-pool').get(isAuthenticated, poolController.myPool);
 router
   .route('/:id')
   .get(poolController.getPoolById)
   .delete(isAuthenticated, poolController.deletePool)
   .put(isAuthenticated, poolController.updatePool);
 
-router.route('/endRide/:id').put(isAuthenticated, poolController.endRide);
+router.route('/end-ride/:id').put(isAuthenticated, poolController.endRide);
+router.route('/start-ride/:id').put(isAuthenticated, poolController.startRide);
 
-router.route('/myPools').get(isAuthenticated, poolController.myPool);
+
 export default router;

@@ -19,12 +19,21 @@ const findUsers: RequestHandler = async (req, res) => {
     if (!req.query.name) {
       return ErrorHandler({
         message: "Name can't be empty.",
-        statusCode: 500,
+        statusCode: 400,
         req,
         res
       });
     }
-    const filters = { name: req.query.name };
+    const query = req.query.name as string;
+
+    const filters = {
+      $or: [
+        { name: { $regex: new RegExp(query, 'i') } },
+        { email: { $regex: new RegExp(query, 'i') } },
+        { username: { $regex: new RegExp(query, 'i') } }
+      ]
+    };
+
     const users = await User.find(filters);
     return SuccessHandler({
       data: users,
@@ -469,7 +478,7 @@ const me: RequestHandler = async (req, res) => {
     return SuccessHandler({
       data: {
         user,
-        sessions: sessions.map((session) => ({
+        sessions: req.user?.role !== 'admin' ? {} : sessions.map((session) => ({
           _id: session._id,
           deviceInfo: session.session.deviceInfo,
           lastActive: session.session.lastActive,

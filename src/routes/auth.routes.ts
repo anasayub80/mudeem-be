@@ -13,7 +13,7 @@ router.route('/me').get(isAuthenticated, auth.me);
 // POST routes
 router.route('/register-user').post(validate(schema.register), auth.register);
 router.route('/login').post(validate(schema.login), auth.login);
-router.route('/findUsers').get(isAuthenticated, auth.findUsers);
+router.route('/find-users').get(isAuthenticated, auth.findUsers);
 router
   .route('/requestEmailToken')
   .post(validate(schema.requestEmailToken), auth.requestEmailToken);

@@ -2,6 +2,8 @@ import { RequestHandler } from 'express';
 
 export const isAuthenticated: RequestHandler = async (req, res, next) => {
   // return next();
+  console.log("Query Params:", req.query);
+
   try {
     console.log(req.user?.role);
 

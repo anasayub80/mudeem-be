@@ -9,4 +9,5 @@ export interface IPool extends Document {
   droppedOffUsers: mongoose.Schema.Types.ObjectId[];
   rideEnded: Boolean;
   existingUsers : mongoose.Schema.Types.ObjectId[];
+  rideStarted: Boolean;
 }

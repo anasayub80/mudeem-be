@@ -284,3 +284,67 @@
 {"date":"2025-02-17T17:11:38.830Z","level":"error","message":"Pool validation failed: availableSeats: Cast to Number failed for value \"HOPE ITS DELETED\" (type string) at path \"availableSeats\"","method":"POST","service":"user-service","url":"/"}
 {"date":"2025-02-17T17:14:18.005Z","level":"error","message":"Cast to ObjectId failed for value \"{ rideEnded: true }\" (type Object) at path \"_id\" for model \"Pool\"","method":"GET","service":"user-service","url":"/?hasEnded=true"}
 {"date":"2025-02-17T17:14:30.137Z","level":"error","message":"Cast to ObjectId failed for value \"{ rideEnded: true }\" (type Object) at path \"_id\" for model \"Pool\"","method":"GET","service":"user-service","url":"/?hasEnded=true"}
+{"date":"2025-02-18T13:53:03.079Z","level":"error","message":"Incorrect password.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-18T13:53:10.328Z","level":"error","message":"Incorrect password.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-18T14:25:28.384Z","level":"error","message":"Cast to ObjectId failed for value \"myPools\" (type string) at path \"_id\" for model \"Pool\"","method":"GET","service":"user-service","url":"/myPools/?rideEnded=true"}
+{"date":"2025-02-18T14:27:16.149Z","level":"error","message":"Cast to ObjectId failed for value \"myPools\" (type string) at path \"_id\" for model \"Pool\"","method":"GET","service":"user-service","url":"/myPools/?rideEnded=true"}
+{"date":"2025-02-18T14:27:19.346Z","level":"error","message":"Cast to ObjectId failed for value \"myPools\" (type string) at path \"_id\" for model \"Pool\"","method":"GET","service":"user-service","url":"/myPools/"}
+{"date":"2025-02-18T14:28:58.100Z","level":"error","message":"Cast to ObjectId failed for value \"myPools\" (type string) at path \"_id\" for model \"Pool\"","method":"GET","service":"user-service","url":"/myPools/"}
+{"date":"2025-02-18T14:29:43.564Z","level":"error","message":"Cast to ObjectId failed for value \"myPools\" (type string) at path \"_id\" for model \"Pool\"","method":"GET","service":"user-service","url":"/myPools"}
+{"date":"2025-02-18T14:30:23.914Z","level":"error","message":"Cast to ObjectId failed for value \"myPools\" (type string) at path \"_id\" for model \"Pool\"","method":"GET","service":"user-service","url":"/myPools"}
+{"date":"2025-02-18T14:30:46.090Z","level":"error","message":"Cast to ObjectId failed for value \"myPools\" (type string) at path \"_id\" for model \"Pool\"","method":"GET","service":"user-service","url":"/myPools"}
+{"date":"2025-02-18T14:33:41.948Z","level":"error","message":"Cast to ObjectId failed for value \"myPools\" (type string) at path \"_id\" for model \"Pool\"","method":"GET","service":"user-service","url":"/myPools"}
+{"date":"2025-02-18T14:33:58.733Z","level":"error","message":"Cast to ObjectId failed for value \"myPools\" (type string) at path \"_id\" for model \"Pool\"","method":"GET","service":"user-service","url":"/myPools"}
+{"date":"2025-02-18T14:34:58.655Z","level":"error","message":"Cast to ObjectId failed for value \"myPools\" (type string) at path \"_id\" for model \"Pool\"","method":"GET","service":"user-service","url":"/myPools"}
+{"date":"2025-02-18T14:35:43.504Z","level":"error","message":"Cast to ObjectId failed for value \"myPools\" (type string) at path \"_id\" for model \"Pool\"","method":"GET","service":"user-service","url":"/myPools"}
+{"date":"2025-02-18T14:39:29.932Z","level":"error","message":"Cast to ObjectId failed for value \"myPools\" (type string) at path \"_id\" for model \"Pool\"","method":"GET","service":"user-service","url":"/myPools"}
+{"date":"2025-02-18T14:39:38.189Z","level":"error","message":"Cast to ObjectId failed for value \"myPools\" (type string) at path \"_id\" for model \"Pool\"","method":"GET","service":"user-service","url":"/myPools"}
+{"date":"2025-02-18T14:40:29.594Z","level":"error","message":"Cast to ObjectId failed for value \"myPools\" (type string) at path \"_id\" for model \"Pool\"","method":"GET","service":"user-service","url":"/myPools"}
+{"date":"2025-02-18T14:40:33.160Z","level":"error","message":"Cast to ObjectId failed for value \"getMyPool\" (type string) at path \"_id\" for model \"Pool\"","method":"GET","service":"user-service","url":"/getMyPool"}
+{"date":"2025-02-18T15:08:05.836Z","level":"error","message":"Incorrect password.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-19T04:38:28.944Z","level":"error","message":"Incorrect password.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-19T04:38:44.226Z","level":"error","message":"Incorrect password.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-19T04:38:50.662Z","level":"error","message":"Incorrect password.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-19T04:38:55.592Z","level":"error","message":"Incorrect password.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-19T04:45:17.763Z","level":"error","message":"Incorrect password.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-19T04:45:25.229Z","level":"error","message":"Incorrect password.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-19T04:45:52.502Z","level":"error","message":"Incorrect email.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-19T13:28:25.623Z","level":"error","message":"Can't create more than one pool.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-19T13:52:06.852Z","level":"error","message":"Can't create more than one pool.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-19T13:56:48.448Z","level":"error","message":"Can't create more than one pool.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-19T13:56:55.655Z","level":"error","message":"Can't create more than one pool.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-19T13:57:23.514Z","level":"error","message":"Can't create more than one pool.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-19T13:57:26.621Z","level":"error","message":"Can't create more than one pool.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-19T15:13:03.458Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users"}
+{"date":"2025-02-19T17:04:47.382Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-19T17:04:47.664Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-19T17:04:47.765Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-19T17:04:47.789Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-19T17:04:47.821Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-19T17:07:42.749Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-20T04:58:34.094Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-20T04:58:34.345Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-20T04:58:34.654Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-20T04:58:34.921Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-20T04:58:35.074Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-20T04:58:35.222Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-20T05:19:51.554Z","level":"error","message":"Can't create more than one pool.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-20T05:21:33.661Z","level":"error","message":"Incorrect password.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-20T05:21:42.998Z","level":"error","message":"Incorrect password.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-20T05:22:12.537Z","level":"error","message":"Incorrect email.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-20T05:24:43.357Z","level":"error","message":"Can't create more than one pool.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-20T05:25:57.740Z","level":"error","message":"Can't create more than one pool.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-20T05:26:12.999Z","level":"error","message":"Can't create more than one pool.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-20T05:58:36.118Z","level":"error","message":"Can't create more than one pool.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-20T05:58:53.320Z","level":"error","message":"Can't create more than one pool.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-20T06:43:56.818Z","level":"error","message":"Incorrect email.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-20T06:44:04.458Z","level":"error","message":"Incorrect email.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-20T06:44:12.451Z","level":"error","message":"Incorrect email.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-20T06:45:12.848Z","level":"error","message":"Incorrect email.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-20T06:45:24.270Z","level":"error","message":"Incorrect email.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-20T06:46:01.654Z","level":"error","message":"Incorrect email.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-20T06:46:55.426Z","level":"error","message":"Incorrect email.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-20T06:47:03.841Z","level":"error","message":"Incorrect email.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-20T06:47:36.577Z","level":"error","message":"Incorrect email.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-20T06:51:28.428Z","level":"error","message":"Incorrect email.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-20T06:52:40.358Z","level":"error","message":"Incorrect email.","method":"POST","service":"user-service","url":"/login"}
