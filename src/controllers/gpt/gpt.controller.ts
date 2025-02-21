@@ -75,6 +75,14 @@ const getChat: RequestHandler = async (req, res) => {
     const chat = await Chat.findOne({
       user: req.user?._id
     });
+    if (!req.user?.isSubscribed) {
+      return ErrorHandler({
+        message: 'You need to subscribe to access this feature',
+        statusCode: 403,
+        req,
+        res
+      });
+    }
     if (!chat) {
       return ErrorHandler({
         message: 'Chat not found',

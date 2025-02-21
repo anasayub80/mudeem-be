@@ -348,3 +348,14 @@
 {"date":"2025-02-20T06:47:36.577Z","level":"error","message":"Incorrect email.","method":"POST","service":"user-service","url":"/login"}
 {"date":"2025-02-20T06:51:28.428Z","level":"error","message":"Incorrect email.","method":"POST","service":"user-service","url":"/login"}
 {"date":"2025-02-20T06:52:40.358Z","level":"error","message":"Incorrect email.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-21T06:09:13.686Z","level":"error","message":"You need to subscribe to access this feature","method":"GET","service":"user-service","url":"/get/my/reels"}
+{"date":"2025-02-21T06:09:45.237Z","level":"error","message":"You need to subscribe to access this feature","method":"GET","service":"user-service","url":"/get/my/reels"}
+{"date":"2025-02-21T06:10:17.562Z","level":"error","message":"You need to subscribe to access this feature","method":"GET","service":"user-service","url":"/get/my/reels"}
+{"date":"2025-02-21T06:11:49.659Z","level":"error","message":"You need to subscribe to access this feature","method":"GET","service":"user-service","url":"/"}
+{"date":"2025-02-21T06:12:43.830Z","level":"error","message":"You need to subscribe to access this feature","method":"GET","service":"user-service","url":"/"}
+{"date":"2025-02-21T06:17:17.030Z","level":"error","message":"You need to subscribe to access this feature","method":"GET","service":"user-service","url":"/"}
+{"date":"2025-02-21T06:17:38.923Z","level":"error","message":"You need to subscribe to access this feature","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-21T06:19:55.509Z","level":"error","message":"You need to subscribe to access this feature","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-21T07:55:40.816Z","level":"error","message":"You need to subscribe to access this feature","method":"GET","service":"user-service","url":"/get/my/reels"}
+{"date":"2025-02-21T09:58:14.643Z","level":"error","message":"Incorrect password.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-21T10:17:39.529Z","level":"error","message":"You need to subscribe to access this feature","method":"GET","service":"user-service","url":"/"}
