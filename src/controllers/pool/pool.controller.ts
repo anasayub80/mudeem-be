@@ -4,7 +4,6 @@ import SuccessHandler from '../../utils/successHandler';
 import Pool from '../../models/carpooling/pool';
 import mongoose from 'mongoose';
 import { ObjectId } from 'mongodb';
-import { bool } from 'aws-sdk/clients/signer';
 
 // done.
 const createPool: RequestHandler = async (req, res) => {
@@ -19,8 +18,8 @@ const createPool: RequestHandler = async (req, res) => {
 
 
     const isPoolCreated = await Pool.find({ user: req.user?.id });
-
-    if (isPoolCreated) {
+    console.log("Selceted pool", isPoolCreated);
+    if (isPoolCreated.length > 0) {
       return ErrorHandler({
         message: "Can't create more than one pool.",
         statusCode: 500,
@@ -53,6 +52,7 @@ const createPool: RequestHandler = async (req, res) => {
 };
 
 
+
 // done.
 const getPools: RequestHandler = async (req, res) => {
   // #swagger.tags = ['carpooling']
@@ -83,8 +83,8 @@ const getPools: RequestHandler = async (req, res) => {
 const myPool: RequestHandler = async (req, res) => {
   // done.
   try {
-
-    const userId = req.user?._id; 
+    const userId = req.user?._id;
+    console.log("Selceted pool", req.query.rideEnded);
     if (req.query.rideEnded !== undefined) {
       let filters: { user?: ObjectId; rideEnded?: boolean; } = {};
 
@@ -93,6 +93,7 @@ const myPool: RequestHandler = async (req, res) => {
       // filters.rideStarted = false;
 
       const selectedPools = await Pool.find(filters);
+      console.log("Selceted pool", selectedPools);
       if (!selectedPools) {
         return ErrorHandler({
           message: "Pool not found.",
@@ -212,9 +213,9 @@ const updatePool: RequestHandler = async (req, res) => {
       userIdToDropOff,
       rideStarted,
     } = req.body;
-    
-    const poolId = req.params.id;  
-    const foundPool = await Pool.findById(poolId);
+
+    const poolId = req.params.id;
+    var foundPool = await Pool.findById(poolId);
 
     if (!foundPool) {
       return ErrorHandler({
@@ -305,7 +306,7 @@ const updatePool: RequestHandler = async (req, res) => {
       res,
       data: newUpdatedPool,
       statusCode: 201
-    })
+    });
   } catch (error) {
     return ErrorHandler({
       message: (error as Error).message,
