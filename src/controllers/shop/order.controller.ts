@@ -128,7 +128,8 @@ const createOrder: RequestHandler = async (req, res) => {
   // #swagger.tags = ['order']
   try {
     const { items, deliveryCharge, totalAmount, totalGreenPoints } = req.body;
-    if (req.user?.greenPoints && req.user?.greenPoints < totalAmount) {
+    console.log('req.user?.greenPoints ',req.user?.greenPoints ,' < ',parseInt(totalAmount), ' totalGreenPoints ',totalGreenPoints)
+    if ((req.user?.greenPoints ?? 0) < parseInt(totalGreenPoints)) {
       return ErrorHandler({
         message: 'Insufficient green points',
         statusCode: 400,

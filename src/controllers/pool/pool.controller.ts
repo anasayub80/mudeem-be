@@ -4,6 +4,7 @@ import SuccessHandler from '../../utils/successHandler';
 import Pool from '../../models/carpooling/pool';
 import mongoose from 'mongoose';
 import { ObjectId } from 'mongodb';
+import User from 'models/User/user.model';
 
 // done.
 const createPool: RequestHandler = async (req, res) => {
@@ -199,9 +200,7 @@ const deletePool: RequestHandler = async (req, res) => {
   }
 };
 
-
 const updatePool: RequestHandler = async (req, res) => {
-
   try {
     // #swagger.tags = ['carpooling']
     const {
@@ -213,10 +212,8 @@ const updatePool: RequestHandler = async (req, res) => {
       userIdToDropOff,
       rideStarted,
     } = req.body;
-
     const poolId = req.params.id;
     var foundPool = await Pool.findById(poolId);
-
     if (!foundPool) {
       return ErrorHandler({
         message: 'Pool not found.',
@@ -225,13 +222,7 @@ const updatePool: RequestHandler = async (req, res) => {
         res
       });
     }
-
-
     const newUpdatedPool = foundPool;
-
-
-
-
     // drop
     if (userIdToDropOff) {
       const doesDroppingOffUserExist = foundPool.droppedOffUsers.find(
@@ -243,14 +234,11 @@ const updatePool: RequestHandler = async (req, res) => {
           statusCode: 400,
           req,
           res
-        })
-
+        });
       } else {
-        // newUpdatedPool.droppedOffUsers.push(userIdToDropOff);
         const userIndexInExisting = foundPool.existingUsers.findIndex(
           (element) => element.toString() === userIdToDropOff.toString()
         );
-
         if (userIndexInExisting === -1) {
           return ErrorHandler({
             message: 'User is not in the ride.',
@@ -259,12 +247,12 @@ const updatePool: RequestHandler = async (req, res) => {
             res
           });
         }
-
         newUpdatedPool.existingUsers.splice(userIndexInExisting, 1);
         newUpdatedPool.droppedOffUsers.push(userIdToDropOff);
+        // Increase  seats when a user is dropped off
+        newUpdatedPool.availableSeats += 1;
       }
     }
-
     // add
     if (userIdToAdd) {
       const doesDroppingOffUserExist = foundPool.existingUsers.find(
@@ -276,31 +264,30 @@ const updatePool: RequestHandler = async (req, res) => {
           statusCode: 400,
           req,
           res
-        })
+        });
       } else {
-        var isExistingUsersGreaterThanAvailableSeats: Boolean = foundPool.existingUsers.length >= foundPool.availableSeats;
+        var isExistingUsersGreaterThanAvailableSeats: Boolean =
+          foundPool.existingUsers.length >= foundPool.availableSeats;
         if (isExistingUsersGreaterThanAvailableSeats) {
           return ErrorHandler({
             message: 'Pool is full.',
             statusCode: 400,
             req,
             res
-          })
+          });
         }
         newUpdatedPool.existingUsers.push(userIdToAdd);
+        // Decrease seats when a user is added
+        newUpdatedPool.availableSeats -= 1;
       }
     }
-
     if (foundPool.rideStarted === false) {
       if (availableSeats) newUpdatedPool.availableSeats = availableSeats;
       if (pickupLocation) newUpdatedPool.pickupLocation = pickupLocation;
       if (whereTo) newUpdatedPool.whereTo = whereTo;
       if (time) newUpdatedPool.time = time;
     }
-
     if (rideStarted) newUpdatedPool.rideStarted = true;
-
-
     await newUpdatedPool.save();
     return SuccessHandler({
       res,
@@ -316,6 +303,7 @@ const updatePool: RequestHandler = async (req, res) => {
     });
   }
 };
+
 const endRide: RequestHandler = async (req, res) => {
   // #swagger.tags = ['carpooling']
   try {
@@ -344,7 +332,25 @@ const endRide: RequestHandler = async (req, res) => {
     // Mark the ride as ended
     pool.rideEnded = true;
     await pool.save();
-
+    // pool.droppedOffUsers.forEach(async (user) => {
+    // await User.updateOne(
+    //     {
+    //       _id: req.user?._id
+    //     },
+    //     {
+    //       $set: {
+    //         greenPoints: 
+    //       },
+    //       $push: {
+    //         greenPointsHistory: {
+    //           points: totalGreenPoints,
+    //           type: 'debit',
+    //           orderId: order._id
+    //         }
+    //       }
+    //     }
+    //   );
+    // }
     return SuccessHandler({
       res,
       data: pool,
