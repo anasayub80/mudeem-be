@@ -35,11 +35,11 @@ router
 
 router.route('/updateProfile').put(isAuthenticated,
   multerMiddleware.single('profilePicture'),
-   auth.updateProfile);
+  auth.updateProfile);
 
 router
   .route('/changeSubscription')
-  .put(isAuthenticated, isAdmin, auth.changeSubscriptionStatus);
+  .put(isAuthenticated, auth.changeSubscriptionStatus);
 
 router
   .route('/push-notfications')
