@@ -163,6 +163,7 @@ const changeProjectStatus: RequestHandler = async (req, res) => {
     if (status === 'accepted') {
       user.greenPointsHistory.push({
         points: Number(points),
+        type: 'credit',
         reason: 'Project accepted',
         date: new Date()
       });

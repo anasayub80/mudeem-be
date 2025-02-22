@@ -180,6 +180,7 @@ const createOrder: RequestHandler = async (req, res) => {
           $push: {
             greenPointsHistory: {
               points: totalGreenPoints,
+              reason: 'Order placed',
               type: 'debit',
               orderId: order._id
             }

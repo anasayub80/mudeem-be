@@ -167,6 +167,13 @@ const rewardGreenMap: RequestHandler = async (req, res) => {
       });
     }
     user.greenPoints += greenMap.greenPointsPerTime;
+    user.greenPointsHistory.push({ 
+      points: greenMap.greenPointsPerTime || 0,
+      type: 'credit',
+      reason: 'Green map reward',
+      date: new Date() 
+    });
+
     await user.save();
 
     return SuccessHandler({

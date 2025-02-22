@@ -306,6 +306,7 @@ const purchaseBook: RequestHandler = async (req, res) => {
         greenPointsHistory: {
           points: book.greenPoints,
           reason: 'Book Purchase',
+          type: 'credit',
           date: Date.now()
         }
       },

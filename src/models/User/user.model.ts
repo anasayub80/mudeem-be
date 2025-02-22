@@ -88,16 +88,21 @@ const userSchema = new mongoose.Schema<IUser>(
         {
           points: { type: Number, required: true },
           reason: { type: String, required: false },
-          type: { type: String, required: false },
+          type: { type: String, required: false, default: 'credit' },
           date: { type: Date, default: Date.now },
         },
       ],
-      default: [],  
+      default: [],
       required: false, 
     },
     isSubscribed: {
       type: Boolean,
       default: false
+    },
+    allowNotifications: {
+      type: Boolean,
+      default: true,
+      required: false
     }
   },
   { timestamps: true }

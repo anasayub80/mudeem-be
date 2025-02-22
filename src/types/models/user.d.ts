@@ -25,6 +25,7 @@ export interface IUser extends Document {
   myBooks: mongoose.Types.ObjectId[];
   profilePicture: string;
   isSubscribed: boolean;
+  allowNotifications: boolean;
   getJWTToken(): string;
   comparePassword(enteredPassword: string): Promise<boolean>;
 }

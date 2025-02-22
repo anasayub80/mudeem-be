@@ -634,7 +634,7 @@ const changeSubscriptionStatus: RequestHandler = async (req, res) => {
 const greenPoints: RequestHandler = async (req, res) => { 
   // #swagger.tags = ['auth']
   try {
-    const { userId, reason, points } = req.body as authTypes.GreenPointsBody;
+    const { userId, reason, points ,type} = req.body as authTypes.GreenPointsBody;
     if (!userId) {
       return ErrorHandler({
         message: 'User ID is required',
@@ -655,7 +655,8 @@ const greenPoints: RequestHandler = async (req, res) => {
         $push: {
           greenPointsHistory: {
             points: points || 0, 
-            reason: reason
+            reason: reason,
+            type: type,
           }
         }
       }
@@ -675,8 +676,40 @@ const greenPoints: RequestHandler = async (req, res) => {
     });
   }
 };
-
+ 
+const toggleNotifications: RequestHandler = async (req, res) => { 
+  // #swagger.tags = ['auth']
+  try {
+   
+    const user = req.user as IUser;
+    const findUser = await User.findById(user._id);
+    if (!findUser) {
+      return ErrorHandler({
+        message: 'User not found',
+        statusCode: 404,
+        req,
+        res
+      });
+    }
+    findUser.allowNotifications = !findUser.allowNotifications;
+    await findUser.save();
+    return SuccessHandler({
+      data: 'Notification successfully updated',
+      statusCode: 200,
+      res
+    });
+  } catch (error) {
+    return ErrorHandler({
+      message: (error as Error).message,
+      statusCode: 500,
+      req,
+      res
+    });
+  }
+};
+ 
 export {
+  toggleNotifications,
   greenPoints,
   register,
   requestEmailToken,

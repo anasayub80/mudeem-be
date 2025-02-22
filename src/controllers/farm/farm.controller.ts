@@ -162,6 +162,7 @@ const approveRejectFarm: RequestHandler = async (req, res) => {
         $push: {
           greenPointsHistory: {
             points: req.body.greenPoints,
+            type: 'credit',
             reason: 'Farm approved',
             createdAt: new Date()
           }

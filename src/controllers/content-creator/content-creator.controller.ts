@@ -63,6 +63,7 @@ const createContent: RequestHandler = async (req, res) => {
           greenPointsHistory: {
             points: 30,
             reason: 'content',
+            type: 'credit',
             date: Date.now()
           }
         }

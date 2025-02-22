@@ -600,6 +600,7 @@ const changePostStatus: RequestHandler = async (req, res) => {
       user.greenPointsHistory.push({
         points: Number(points),
         reason: 'Post Approval',
+        type: 'credit',
         date: new Date()
       });
     }

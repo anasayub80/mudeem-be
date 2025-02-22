@@ -58,4 +58,12 @@ router
     auth.removeSessions
   );
 
+// Toggle Notifications  routes
+router
+  .route('/toggle-notifications')
+  .get(
+    isAuthenticated, 
+    auth.toggleNotifications
+  );
+
 export default router;

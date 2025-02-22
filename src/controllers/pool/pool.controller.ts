@@ -7,6 +7,7 @@ import { ObjectId } from 'mongodb';
 import User from '../../models/User/user.model';
 import { Setting } from '../../models/settings';
 import { sentPushNotification } from '../../utils/firebase';
+import { IUser } from '../../types/models/user';
 
 // done.
 const createPool: RequestHandler = async (req, res) => {
@@ -20,7 +21,7 @@ const createPool: RequestHandler = async (req, res) => {
     } = req.body;
 
 
-    const isPoolCreated = await Pool.find({ user: req.user?.id ,rideEnded :false});
+    const isPoolCreated = await Pool.find({ user: req.user?.id, rideEnded: false });
     console.log("Selceted pool", isPoolCreated);
     if (isPoolCreated.length > 0) {
       return ErrorHandler({
@@ -95,8 +96,8 @@ const myPool: RequestHandler = async (req, res) => {
       filters.user = userId;
       // filters.rideStarted = false;
 
-      const selectedPools = await Pool.find(filters);
-      console.log("Selceted pool", selectedPools);
+      const selectedPools = await Pool.find(filters).populate('existingUsers', false).exec();
+
       if (!selectedPools) {
         return ErrorHandler({
           message: "Pool not found.",
@@ -354,12 +355,15 @@ const endRide: RequestHandler = async (req, res) => {
           }
         }
       });
-      const token = req.user?.firebaseToken || '';
-      await sentPushNotification(token, `Lift Update`, `Congratulations! You have earned ${carPoolingGreenPoints} green points for Lift.`);
+      const user = req.user as IUser;
+      const token = user?.firebaseToken || '';
+      if (user.allowNotifications) {
+        await sentPushNotification(token, `Lift Update`, `Congratulations! You have earned ${carPoolingGreenPoints} green points for Lift.`);
+      }
     }
     pool.droppedOffUsers.forEach(async (user) => {
 
-      const findUser = await User.findById(user);
+      const findUser = await User.findById(user) as IUser;
       if (!findUser) return; // Handle missing user case 
       const points = (carPoolingGreenPoints / 4);
       const userPoints = Math.max(1, Math.trunc(points));
@@ -370,8 +374,7 @@ const endRide: RequestHandler = async (req, res) => {
           _id: user
         },
         {
-          $inc: {
-
+          $set: {
             greenPoints: greenPoints
           },
           $push: {
@@ -383,8 +386,10 @@ const endRide: RequestHandler = async (req, res) => {
           }
         }
       );
-      const token = findUser.firebaseToken || '';
-      await sentPushNotification(token, `Lift Update`, `Congratulations! You have earned ${userPoints} green points for Lift.`);
+      if (findUser.allowNotifications) {
+        const token = findUser.firebaseToken || '';
+        await sentPushNotification(token, `Lift Update`, `Congratulations! You have earned ${userPoints} green points for Lift.`);
+      }
     });
 
     return SuccessHandler({
