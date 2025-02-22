@@ -253,8 +253,9 @@ const likeUnlikeReel: RequestHandler = async (req, res) => {
   // #swagger.tags = ['content-creator']
 
   try {
-    const { id } = req.params; 
+    const { id } = req.params;
     const reel = await Reel.findById(id);
+    let greenPoints = 0 as Number;
     if (!reel) {
       return ErrorHandler({
         message: 'Reel not found',
@@ -268,23 +269,25 @@ const likeUnlikeReel: RequestHandler = async (req, res) => {
       reel.likes = reel.likes.filter(
         (like) => like.toString() !== userId.toString()
       );
+      greenPoints = -50
     } else {
       reel.likes.push(userId);
+      greenPoints = 50
     }
     await reel.save();
-    const greenPoints = 50 as Number;
+
     await User.updateOne(
       {
         _id: userId
       },
       {
-        $inc: { 
-          greenPoints:-greenPoints 
-        }, 
+        $inc: {
+          greenPoints: -greenPoints
+        },
         $push: {
           greenPointsHistory: {
             points: greenPoints || 0,
-            type: 'debit',
+            type: greenPoints ? 'debit' : 'cradit',
             reason: 'conent-creator'
           }
         }
@@ -424,9 +427,8 @@ const likeUnlikeComment: RequestHandler = async (req, res) => {
     return SuccessHandler({
       res,
       data: {
-        message: `Comment ${
-          comment.likes.includes(userId) ? 'liked' : 'unliked'
-        }`
+        message: `Comment ${comment.likes.includes(userId) ? 'liked' : 'unliked'
+          }`
       },
       statusCode: 200
     });
