@@ -87,7 +87,8 @@ const userSchema = new mongoose.Schema<IUser>(
       type: [
         {
           points: { type: Number, required: true },
-          reason: { type: String, required: true },
+          reason: { type: String, required: false },
+          type: { type: String, required: false },
           date: { type: Date, default: Date.now },
         },
       ],

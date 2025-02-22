@@ -16,7 +16,8 @@ export interface IUser extends Document {
   greenPoints: number;
   greenPointsHistory: {
     points: number;
-    reason: string;
+    reason?: string | null;
+    type?: string | null;
     date: Date;
   }[];
   isActive: boolean;

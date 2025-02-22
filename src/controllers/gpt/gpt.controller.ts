@@ -93,7 +93,7 @@ const getChat: RequestHandler = async (req, res) => {
     }
     return SuccessHandler({
       res,
-      data: { chat },
+      data: { chat: chat },
       statusCode: 200
     });
   } catch (error) {

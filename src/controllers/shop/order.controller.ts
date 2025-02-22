@@ -14,7 +14,7 @@ const checkout: RequestHandler = async (req, res) => {
   try {
     const { cart } = req.body;
     // Logic to checkout the cart
-    console.log(cart);
+
     Promise.all(
       cart.map(async (item: any) => {
         // Validate product availability
@@ -93,16 +93,16 @@ const checkout: RequestHandler = async (req, res) => {
             );
           }
         }
-
+        const respData =  {
+          items,
+          orderAmount,
+          deliveryCharge,
+          totalAmount,
+          totalGreenPoints
+        } 
         return SuccessHandler({
           res,
-          data: {
-            items,
-            orderAmount,
-            deliveryCharge,
-            totalAmount,
-            totalGreenPoints
-          },
+          data: respData,
           statusCode: 200
         });
       })

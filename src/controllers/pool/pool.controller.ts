@@ -349,7 +349,7 @@ const endRide: RequestHandler = async (req, res) => {
         $push: {
           greenPointsHistory: {
             points: carPoolingGreenPoints || 0,
-            type: 'debit',
+            type: 'credit',
             reason: 'carpooling'
           }
         }
@@ -377,7 +377,7 @@ const endRide: RequestHandler = async (req, res) => {
           $push: {
             greenPointsHistory: {
               points: userPoints || 0,
-              type: 'debit',
+              type: 'credit',
               reason: 'carpooling'
             }
           }

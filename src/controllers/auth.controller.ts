@@ -290,7 +290,7 @@ const login: RequestHandler = async (req, res) => {
           { new: true, runValidators: true } // Return updated user & validate
         );
       }
-     
+
       req.logIn(user, (err) => {
         if (err) {
           return ErrorHandler({
@@ -631,7 +631,53 @@ const changeSubscriptionStatus: RequestHandler = async (req, res) => {
   }
 };
 
+const greenPoints: RequestHandler = async (req, res) => { 
+  // #swagger.tags = ['auth']
+  try {
+    const { userId, reason, points } = req.body as authTypes.GreenPointsBody;
+    if (!userId) {
+      return ErrorHandler({
+        message: 'User ID is required',
+        statusCode: 400,
+        req,
+        res
+      });
+    }
+    await User.updateOne(
+      {
+        _id: userId
+      },
+      {
+        $inc: {
+
+          greenPoints: points || 0
+        },
+        $push: {
+          greenPointsHistory: {
+            points: points || 0, 
+            reason: reason
+          }
+        }
+      }
+    );
+    
+    return SuccessHandler({
+      data: 'Points successfully updated',
+      statusCode: 200,
+      res
+    });
+  } catch (error) {
+    return ErrorHandler({
+      message: (error as Error).message,
+      statusCode: 500,
+      req,
+      res
+    });
+  }
+};
+
 export {
+  greenPoints,
   register,
   requestEmailToken,
   verifyEmail,

@@ -287,7 +287,7 @@ const likeUnlikeReel: RequestHandler = async (req, res) => {
         $push: {
           greenPointsHistory: {
             points: greenPoints || 0,
-            type: greenPoints ? 'debit' : 'cradit',
+            type: greenPoints ? 'credit' : 'debit',
             reason: 'conent-creator'
           }
         }

@@ -6,6 +6,12 @@ interface RegisterBody {
   password: string;
   role: 'user' | 'vendor' | 'admin';
 }
+interface GreenPointsBody {
+  type: string;
+  reason: string;
+  points: number;
+  userId: string;  
+}
 
 interface RequestEmailTokenBody {
   email: string;
@@ -38,6 +44,7 @@ interface RemoveSessionsBody {
 }
 
 export {
+  GreenPointsBody,
   RegisterBody,
   RequestEmailTokenBody,
   VerifyEmailTokenBody,

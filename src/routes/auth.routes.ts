@@ -45,6 +45,10 @@ router
   .route('/push-notfications')
   .put(isAuthenticated, auth.pushNotification);
 
+router
+  .route('/green-points')
+  .put(isAuthenticated, auth.greenPoints);
+
 // DELETE routes
 router
   .route('/removeSessions')
