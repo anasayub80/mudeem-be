@@ -128,7 +128,7 @@ const createOrder: RequestHandler = async (req, res) => {
   // #swagger.tags = ['order']
   try {
     const { items, deliveryCharge, totalAmount, totalGreenPoints } = req.body;
-    console.log('req.user?.greenPoints ',req.user?.greenPoints ,' < ',parseInt(totalAmount), ' totalGreenPoints ',totalGreenPoints)
+    console.log('req.user?.greenPoints ', req.user?.greenPoints, ' < ', parseInt(totalAmount), ' totalGreenPoints ', totalGreenPoints)
     if ((req.user?.greenPoints ?? 0) < parseInt(totalGreenPoints)) {
       return ErrorHandler({
         message: 'Insufficient green points',
@@ -231,7 +231,7 @@ const getOrders: RequestHandler = async (req, res) => {
       })
         .populate('items.product')
         .populate('items.variant')
-        .populate('vendor');
+        .populate('vendor').sort({ createdAt: -1 });
     }
     return SuccessHandler({
       res,
