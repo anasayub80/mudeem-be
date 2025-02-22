@@ -359,3 +359,33 @@
 {"date":"2025-02-21T07:55:40.816Z","level":"error","message":"You need to subscribe to access this feature","method":"GET","service":"user-service","url":"/get/my/reels"}
 {"date":"2025-02-21T09:58:14.643Z","level":"error","message":"Incorrect password.","method":"POST","service":"user-service","url":"/login"}
 {"date":"2025-02-21T10:17:39.529Z","level":"error","message":"You need to subscribe to access this feature","method":"GET","service":"user-service","url":"/"}
+{"date":"2025-02-22T06:15:23.165Z","level":"error","message":"Incorrect password.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-22T06:15:37.121Z","level":"error","message":"Incorrect password.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-22T07:06:56.481Z","level":"error","message":"Reel validation failed: thumbnail: Path `thumbnail` is required.","method":"PUT","service":"user-service","url":"/67ab6c79bdc8624594f46999/like-unlike"}
+{"date":"2025-02-22T07:08:02.342Z","level":"error","message":"You need to subscribe to access this feature","method":"GET","service":"user-service","url":"/get/my/reels"}
+{"date":"2025-02-22T07:12:17.606Z","level":"error","message":"Reel validation failed: thumbnail: Path `thumbnail` is required.","method":"PUT","service":"user-service","url":"/67af3db1dcf11c782663a4f9/like-unlike"}
+{"date":"2025-02-22T07:12:38.624Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67af3db1dcf11c782663a4f9,67ab6c79bdc8624594f46999,67aef05edcf11c782663a10c,67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab4a98d44fbf03ad6ab622,67aeebfddcf11c782663a056"}
+{"date":"2025-02-22T07:12:39.887Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67af3db1dcf11c782663a4f9,67ab6c79bdc8624594f46999,67aef05edcf11c782663a10c,67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab4a98d44fbf03ad6ab622,67aeebfddcf11c782663a056"}
+{"date":"2025-02-22T07:12:40.593Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67af3db1dcf11c782663a4f9,67ab6c79bdc8624594f46999,67aef05edcf11c782663a10c,67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab4a98d44fbf03ad6ab622,67aeebfddcf11c782663a056"}
+{"date":"2025-02-22T07:12:57.860Z","level":"error","message":"Reel validation failed: thumbnail: Path `thumbnail` is required.","method":"PUT","service":"user-service","url":"/67af3db1dcf11c782663a4f9/like-unlike"}
+{"date":"2025-02-22T07:12:58.314Z","level":"error","message":"Reel validation failed: thumbnail: Path `thumbnail` is required.","method":"PUT","service":"user-service","url":"/67af3db1dcf11c782663a4f9/like-unlike"}
+{"date":"2025-02-22T07:14:10.405Z","level":"error","message":"You need to subscribe to access this feature","method":"GET","service":"user-service","url":"/get/my/reels"}
+{"date":"2025-02-22T07:15:27.788Z","level":"error","message":"You need to subscribe to access this feature","method":"GET","service":"user-service","url":"/get/my/reels"}
+{"date":"2025-02-22T07:16:03.053Z","level":"error","message":"You need to subscribe to access this feature","method":"GET","service":"user-service","url":"/get/my/reels"}
+{"date":"2025-02-22T07:36:39.750Z","level":"error","message":"Can't create more than one pool.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-22T07:37:03.018Z","level":"error","message":"Can't create more than one pool.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-22T07:39:03.554Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-22T07:39:04.785Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-22T07:39:04.825Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-22T07:39:04.872Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-22T07:39:06.312Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-22T07:39:24.686Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-22T07:39:25.042Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-22T07:40:36.303Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-22T07:40:52.454Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-22T07:40:52.484Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-22T07:40:52.534Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-22T07:40:52.537Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-22T07:40:52.712Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-22T07:40:52.715Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-22T07:40:52.719Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}

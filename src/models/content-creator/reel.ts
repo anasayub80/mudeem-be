@@ -13,7 +13,7 @@ const reelSchema = new mongoose.Schema<IReel>({
   },
   thumbnail: {
     type: String,
-    required: true
+    required: false
   },
   description: {
     type: String

@@ -5657,3 +5657,284 @@
 {"date":"2025-02-21T10:16:08.460Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/get-my-pool"}
 {"date":"2025-02-21T10:17:39.264Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
 {"date":"2025-02-21T10:17:39.529Z","level":"error","message":"You need to subscribe to access this feature","method":"GET","service":"user-service","url":"/"}
+{"date":"2025-02-22T06:15:22.456Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2025-02-22T06:15:23.165Z","level":"error","message":"Incorrect password.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-22T06:15:36.467Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2025-02-22T06:15:37.121Z","level":"error","message":"Incorrect password.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-02-22T06:17:23.476Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2025-02-22T06:19:47.236Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-02-22T06:19:57.499Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/setting/"}
+{"date":"2025-02-22T06:20:06.431Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/category"}
+{"date":"2025-02-22T06:20:06.553Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?limit=10&page=1&featured=true"}
+{"date":"2025-02-22T06:20:06.562Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/banner/"}
+{"date":"2025-02-22T06:20:06.592Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?page=1&limit=5"}
+{"date":"2025-02-22T06:20:22.155Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/academy/book?type2=new"}
+{"date":"2025-02-22T06:20:22.164Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/academy/book?type2=popular"}
+{"date":"2025-02-22T06:20:24.024Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/academy/book/67b8bcc150120fa7817d5e85"}
+{"date":"2025-02-22T06:20:27.006Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/academy/book/purchase/67b8bcc150120fa7817d5e85"}
+{"date":"2025-02-22T06:20:36.101Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/category"}
+{"date":"2025-02-22T06:20:36.218Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?limit=10&page=1&featured=true"}
+{"date":"2025-02-22T06:20:36.225Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/banner/"}
+{"date":"2025-02-22T06:20:36.270Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?page=1&limit=5"}
+{"date":"2025-02-22T06:20:36.281Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-02-22T06:20:43.728Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/academy/book?type2=new"}
+{"date":"2025-02-22T06:20:43.732Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/academy/book?type2=popular"}
+{"date":"2025-02-22T06:20:45.241Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/academy/book/mine/purchased"}
+{"date":"2025-02-22T06:20:47.379Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/academy/book/67b8bcc150120fa7817d5e85"}
+{"date":"2025-02-22T06:20:53.458Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/academy/book?type2=new"}
+{"date":"2025-02-22T06:20:53.463Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/academy/book?type2=popular"}
+{"date":"2025-02-22T06:22:05.543Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-02-22T06:32:57.856Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/leaderboard/?type=today"}
+{"date":"2025-02-22T06:32:57.924Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-02-22T06:33:20.344Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/leaderboard/?type=today"}
+{"date":"2025-02-22T06:33:20.389Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-02-22T06:33:27.626Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/category"}
+{"date":"2025-02-22T06:33:27.645Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?limit=10&page=1&featured=true"}
+{"date":"2025-02-22T06:33:27.663Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/banner/"}
+{"date":"2025-02-22T06:33:27.697Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?page=1&limit=5"}
+{"date":"2025-02-22T06:34:08.415Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/leaderboard/?type=today"}
+{"date":"2025-02-22T06:34:17.740Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/leaderboard/?type=today"}
+{"date":"2025-02-22T06:34:17.745Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-02-22T06:34:59.900Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/leaderboard/?type=today"}
+{"date":"2025-02-22T06:35:02.318Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-02-22T06:35:35.542Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-02-22T06:35:35.556Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/leaderboard/?type=today"}
+{"date":"2025-02-22T06:35:46.073Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/green-map/?category="}
+{"date":"2025-02-22T06:36:10.377Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/leaderboard/?type=today"}
+{"date":"2025-02-22T06:36:10.401Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-02-22T06:37:10.551Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/banner/"}
+{"date":"2025-02-22T06:37:10.577Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?limit=10&page=1&featured=true"}
+{"date":"2025-02-22T06:37:10.585Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/category"}
+{"date":"2025-02-22T06:37:10.652Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?page=1&limit=5"}
+{"date":"2025-02-22T06:37:15.179Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/leaderboard/?type=today"}
+{"date":"2025-02-22T06:37:52.848Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/leaderboard/?type=today"}
+{"date":"2025-02-22T06:37:52.870Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-02-22T06:38:54.342Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/category"}
+{"date":"2025-02-22T06:38:54.352Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?page=1&limit=5"}
+{"date":"2025-02-22T06:38:54.356Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/banner/"}
+{"date":"2025-02-22T06:38:54.360Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?limit=10&page=1&featured=true"}
+{"date":"2025-02-22T06:38:56.010Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/leaderboard/?type=today"}
+{"date":"2025-02-22T07:04:07.041Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2025-02-22T07:04:07.855Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-02-22T07:04:09.001Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-02-22T07:04:19.972Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/category"}
+{"date":"2025-02-22T07:04:19.988Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?limit=10&page=1&featured=true"}
+{"date":"2025-02-22T07:04:20.003Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/banner/"}
+{"date":"2025-02-22T07:04:20.013Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?page=1&limit=5"}
+{"date":"2025-02-22T07:06:21.800Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/category"}
+{"date":"2025-02-22T07:06:21.820Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?limit=10&page=1&featured=true"}
+{"date":"2025-02-22T07:06:21.823Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/banner/"}
+{"date":"2025-02-22T07:06:21.827Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?page=1&limit=5"}
+{"date":"2025-02-22T07:06:42.026Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/careers/"}
+{"date":"2025-02-22T07:06:48.261Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds="}
+{"date":"2025-02-22T07:06:48.964Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab6c79bdc8624594f46999"}
+{"date":"2025-02-22T07:06:49.567Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab6c79bdc8624594f46999,67aeebfddcf11c782663a056"}
+{"date":"2025-02-22T07:06:50.110Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab6c79bdc8624594f46999,67aeebfddcf11c782663a056,67ab4d4ce0f1ab1362900f73"}
+{"date":"2025-02-22T07:06:50.606Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab6c79bdc8624594f46999,67aeebfddcf11c782663a056,67ab4d4ce0f1ab1362900f73,67af3db1dcf11c782663a4f9"}
+{"date":"2025-02-22T07:06:56.272Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/content-creator/67ab6c79bdc8624594f46999/like-unlike"}
+{"date":"2025-02-22T07:06:56.481Z","level":"error","message":"Reel validation failed: thumbnail: Path `thumbnail` is required.","method":"PUT","service":"user-service","url":"/67ab6c79bdc8624594f46999/like-unlike"}
+{"date":"2025-02-22T07:07:14.104Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds="}
+{"date":"2025-02-22T07:07:14.535Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4d4ce0f1ab1362900f73"}
+{"date":"2025-02-22T07:07:14.948Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4d4ce0f1ab1362900f73,67aeebfddcf11c782663a056"}
+{"date":"2025-02-22T07:07:15.321Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4d4ce0f1ab1362900f73,67aeebfddcf11c782663a056,67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-22T07:07:16.000Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4d4ce0f1ab1362900f73,67aeebfddcf11c782663a056,67ab4a98d44fbf03ad6ab622,67aef05edcf11c782663a10c"}
+{"date":"2025-02-22T07:07:59.491Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds="}
+{"date":"2025-02-22T07:07:59.894Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67aeebfddcf11c782663a056"}
+{"date":"2025-02-22T07:08:00.462Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67aeebfddcf11c782663a056,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-22T07:08:00.913Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67aeebfddcf11c782663a056,67ab6c79bdc8624594f46999,67ab4d4ce0f1ab1362900f73"}
+{"date":"2025-02-22T07:08:01.276Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67aeebfddcf11c782663a056,67ab6c79bdc8624594f46999,67ab4d4ce0f1ab1362900f73,67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-22T07:08:02.232Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/get/my/reels"}
+{"date":"2025-02-22T07:08:02.342Z","level":"error","message":"You need to subscribe to access this feature","method":"GET","service":"user-service","url":"/get/my/reels"}
+{"date":"2025-02-22T07:08:16.647Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds="}
+{"date":"2025-02-22T07:08:16.980Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67aeebfddcf11c782663a056"}
+{"date":"2025-02-22T07:08:17.507Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67aeebfddcf11c782663a056,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-22T07:08:17.889Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67aeebfddcf11c782663a056,67ab6c79bdc8624594f46999,67af3db1dcf11c782663a4f9"}
+{"date":"2025-02-22T07:08:18.336Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67aeebfddcf11c782663a056,67ab6c79bdc8624594f46999,67af3db1dcf11c782663a4f9,67ab4d4ce0f1ab1362900f73"}
+{"date":"2025-02-22T07:11:36.985Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds="}
+{"date":"2025-02-22T07:11:57.364Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds="}
+{"date":"2025-02-22T07:12:02.680Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67af3db1dcf11c782663a4f9"}
+{"date":"2025-02-22T07:12:10.276Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67af3db1dcf11c782663a4f9,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-22T07:12:10.912Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67af3db1dcf11c782663a4f9,67ab6c79bdc8624594f46999,67aef05edcf11c782663a10c"}
+{"date":"2025-02-22T07:12:12.905Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67af3db1dcf11c782663a4f9,67ab6c79bdc8624594f46999,67aef05edcf11c782663a10c,67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-22T07:12:17.373Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/content-creator/67af3db1dcf11c782663a4f9/like-unlike"}
+{"date":"2025-02-22T07:12:17.606Z","level":"error","message":"Reel validation failed: thumbnail: Path `thumbnail` is required.","method":"PUT","service":"user-service","url":"/67af3db1dcf11c782663a4f9/like-unlike"}
+{"date":"2025-02-22T07:12:30.025Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67af3db1dcf11c782663a4f9,67ab6c79bdc8624594f46999,67aef05edcf11c782663a10c,67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-22T07:12:37.667Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67af3db1dcf11c782663a4f9,67ab6c79bdc8624594f46999,67aef05edcf11c782663a10c,67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab4a98d44fbf03ad6ab622,67aeebfddcf11c782663a056"}
+{"date":"2025-02-22T07:12:38.624Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67af3db1dcf11c782663a4f9,67ab6c79bdc8624594f46999,67aef05edcf11c782663a10c,67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab4a98d44fbf03ad6ab622,67aeebfddcf11c782663a056"}
+{"date":"2025-02-22T07:12:38.938Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67af3db1dcf11c782663a4f9,67ab6c79bdc8624594f46999,67aef05edcf11c782663a10c,67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab4a98d44fbf03ad6ab622,67aeebfddcf11c782663a056"}
+{"date":"2025-02-22T07:12:39.887Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67af3db1dcf11c782663a4f9,67ab6c79bdc8624594f46999,67aef05edcf11c782663a10c,67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab4a98d44fbf03ad6ab622,67aeebfddcf11c782663a056"}
+{"date":"2025-02-22T07:12:40.311Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67af3db1dcf11c782663a4f9,67ab6c79bdc8624594f46999,67aef05edcf11c782663a10c,67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab4a98d44fbf03ad6ab622,67aeebfddcf11c782663a056"}
+{"date":"2025-02-22T07:12:40.593Z","level":"error","message":"No reel found","method":"GET","service":"user-service","url":"/?excludedIds=67af3db1dcf11c782663a4f9,67ab6c79bdc8624594f46999,67aef05edcf11c782663a10c,67ab4a98d44fbf03ad6ab622,67ab4d4ce0f1ab1362900f73,67ab4a98d44fbf03ad6ab622,67aeebfddcf11c782663a056"}
+{"date":"2025-02-22T07:12:57.507Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/content-creator/67af3db1dcf11c782663a4f9/like-unlike"}
+{"date":"2025-02-22T07:12:57.860Z","level":"error","message":"Reel validation failed: thumbnail: Path `thumbnail` is required.","method":"PUT","service":"user-service","url":"/67af3db1dcf11c782663a4f9/like-unlike"}
+{"date":"2025-02-22T07:12:58.113Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/content-creator/67af3db1dcf11c782663a4f9/like-unlike"}
+{"date":"2025-02-22T07:12:58.314Z","level":"error","message":"Reel validation failed: thumbnail: Path `thumbnail` is required.","method":"PUT","service":"user-service","url":"/67af3db1dcf11c782663a4f9/like-unlike"}
+{"date":"2025-02-22T07:13:46.587Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/leaderboard/?type=today"}
+{"date":"2025-02-22T07:13:46.619Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-02-22T07:13:55.636Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/content-creator/67af3db1dcf11c782663a4f9/like-unlike"}
+{"date":"2025-02-22T07:14:06.469Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds="}
+{"date":"2025-02-22T07:14:07.271Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-22T07:14:07.754Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622,67aeebfddcf11c782663a056"}
+{"date":"2025-02-22T07:14:08.434Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622,67aeebfddcf11c782663a056,67af3db1dcf11c782663a4f9"}
+{"date":"2025-02-22T07:14:09.014Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4a98d44fbf03ad6ab622,67aeebfddcf11c782663a056,67af3db1dcf11c782663a4f9,67ab4d4ce0f1ab1362900f73"}
+{"date":"2025-02-22T07:14:10.180Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/get/my/reels"}
+{"date":"2025-02-22T07:14:10.405Z","level":"error","message":"You need to subscribe to access this feature","method":"GET","service":"user-service","url":"/get/my/reels"}
+{"date":"2025-02-22T07:14:34.241Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds="}
+{"date":"2025-02-22T07:14:34.715Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67af3db1dcf11c782663a4f9"}
+{"date":"2025-02-22T07:14:35.537Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67af3db1dcf11c782663a4f9,67ab4d4ce0f1ab1362900f73"}
+{"date":"2025-02-22T07:14:36.598Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67af3db1dcf11c782663a4f9,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-22T07:14:37.786Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67af3db1dcf11c782663a4f9,67ab4d4ce0f1ab1362900f73,67ab6c79bdc8624594f46999,67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-22T07:15:19.272Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/content-creator/67ab6c79bdc8624594f46999/like-unlike"}
+{"date":"2025-02-22T07:15:27.597Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/get/my/reels"}
+{"date":"2025-02-22T07:15:27.788Z","level":"error","message":"You need to subscribe to access this feature","method":"GET","service":"user-service","url":"/get/my/reels"}
+{"date":"2025-02-22T07:15:54.649Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds="}
+{"date":"2025-02-22T07:15:55.561Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4d4ce0f1ab1362900f73"}
+{"date":"2025-02-22T07:15:56.032Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4d4ce0f1ab1362900f73,67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-22T07:15:57.014Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4d4ce0f1ab1362900f73,67ab4a98d44fbf03ad6ab622,67aef05edcf11c782663a10c"}
+{"date":"2025-02-22T07:15:58.407Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67ab4d4ce0f1ab1362900f73,67ab4a98d44fbf03ad6ab622,67aef05edcf11c782663a10c,67af3db1dcf11c782663a4f9"}
+{"date":"2025-02-22T07:16:02.880Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/get/my/reels"}
+{"date":"2025-02-22T07:16:03.053Z","level":"error","message":"You need to subscribe to access this feature","method":"GET","service":"user-service","url":"/get/my/reels"}
+{"date":"2025-02-22T07:16:07.366Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds="}
+{"date":"2025-02-22T07:16:09.908Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67aef05edcf11c782663a10c"}
+{"date":"2025-02-22T07:16:14.333Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67aef05edcf11c782663a10c,67ab4a98d44fbf03ad6ab622"}
+{"date":"2025-02-22T07:16:15.795Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67aef05edcf11c782663a10c,67ab4a98d44fbf03ad6ab622,67aeebfddcf11c782663a056"}
+{"date":"2025-02-22T07:16:17.125Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67aef05edcf11c782663a10c,67ab4a98d44fbf03ad6ab622,67aeebfddcf11c782663a056,67af3db1dcf11c782663a4f9"}
+{"date":"2025-02-22T07:16:35.102Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds="}
+{"date":"2025-02-22T07:16:38.875Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67aeebfddcf11c782663a056"}
+{"date":"2025-02-22T07:17:07.706Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67aeebfddcf11c782663a056"}
+{"date":"2025-02-22T07:17:22.919Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67aeebfddcf11c782663a056,67ab6c79bdc8624594f46999"}
+{"date":"2025-02-22T07:17:26.046Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/content-creator/?excludedIds=67aeebfddcf11c782663a056,67ab6c79bdc8624594f46999,67aef05edcf11c782663a10c"}
+{"date":"2025-02-22T07:17:37.390Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/content-creator/67af3db1dcf11c782663a4f9/like-unlike"}
+{"date":"2025-02-22T07:19:08.104Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/get-my-pool?rideEnded=false"}
+{"date":"2025-02-22T07:19:19.779Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/carpool/"}
+{"date":"2025-02-22T07:19:23.078Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/get-my-pool?rideEnded=false"}
+{"date":"2025-02-22T07:19:27.327Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/carpool/start-ride/67b97a7716d99d6dd246cc21"}
+{"date":"2025-02-22T07:19:27.960Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/get-my-pool?rideEnded=false"}
+{"date":"2025-02-22T07:19:56.535Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/get-my-pool"}
+{"date":"2025-02-22T07:19:58.143Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/"}
+{"date":"2025-02-22T07:20:08.670Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/get-my-pool?rideEnded=false"}
+{"date":"2025-02-22T07:20:10.819Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/"}
+{"date":"2025-02-22T07:20:33.890Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/get-my-pool"}
+{"date":"2025-02-22T07:21:52.115Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/get-my-pool?rideEnded=false"}
+{"date":"2025-02-22T07:23:10.626Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/"}
+{"date":"2025-02-22T07:23:11.962Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/get-my-pool"}
+{"date":"2025-02-22T07:23:12.433Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/get-my-pool"}
+{"date":"2025-02-22T07:23:14.243Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/get-my-pool"}
+{"date":"2025-02-22T07:23:15.639Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/get-my-pool"}
+{"date":"2025-02-22T07:23:16.850Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/"}
+{"date":"2025-02-22T07:23:17.814Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/get-my-pool?rideEnded=false"}
+{"date":"2025-02-22T07:23:41.793Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/get-my-pool"}
+{"date":"2025-02-22T07:23:50.029Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/get-my-pool"}
+{"date":"2025-02-22T07:23:58.379Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/"}
+{"date":"2025-02-22T07:24:14.228Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/"}
+{"date":"2025-02-22T07:24:16.865Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/get-my-pool"}
+{"date":"2025-02-22T07:24:40.958Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/category"}
+{"date":"2025-02-22T07:24:40.981Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?limit=10&page=1&featured=true"}
+{"date":"2025-02-22T07:24:40.988Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/banner/"}
+{"date":"2025-02-22T07:24:40.999Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?page=1&limit=5"}
+{"date":"2025-02-22T07:33:37.879Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/get-my-pool?rideEnded=false"}
+{"date":"2025-02-22T07:34:08.042Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/"}
+{"date":"2025-02-22T07:34:15.852Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/get-my-pool?rideEnded=false"}
+{"date":"2025-02-22T07:34:17.149Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/"}
+{"date":"2025-02-22T07:34:29.987Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/get-my-pool?rideEnded=false"}
+{"date":"2025-02-22T07:34:51.532Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/carpool/end-ride/67b97a7716d99d6dd246cc21"}
+{"date":"2025-02-22T07:34:55.103Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/get-my-pool?rideEnded=false"}
+{"date":"2025-02-22T07:34:59.564Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/get-my-pool?rideEnded=false"}
+{"date":"2025-02-22T07:35:23.344Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/category"}
+{"date":"2025-02-22T07:35:23.351Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?limit=10&page=1&featured=true"}
+{"date":"2025-02-22T07:35:23.508Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/banner/"}
+{"date":"2025-02-22T07:35:23.626Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?page=1&limit=5"}
+{"date":"2025-02-22T07:36:18.553Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/get-my-pool?rideEnded=false"}
+{"date":"2025-02-22T07:36:39.343Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/carpool/"}
+{"date":"2025-02-22T07:36:39.750Z","level":"error","message":"Can't create more than one pool.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-22T07:37:02.717Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/carpool/"}
+{"date":"2025-02-22T07:37:03.018Z","level":"error","message":"Can't create more than one pool.","method":"POST","service":"user-service","url":"/"}
+{"date":"2025-02-22T07:37:54.763Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/carpool/"}
+{"date":"2025-02-22T07:37:58.024Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/get-my-pool?rideEnded=false"}
+{"date":"2025-02-22T07:38:20.490Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/get-my-pool"}
+{"date":"2025-02-22T07:38:21.802Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/"}
+{"date":"2025-02-22T07:38:38.585Z","level":"info","message":"Request received","method":"PUT","service":"user-service","url":"/carpool/start-ride/67b97ed3673c84e9419ea945"}
+{"date":"2025-02-22T07:38:39.943Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/carpool/get-my-pool?rideEnded=false"}
+{"date":"2025-02-22T07:38:49.791Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=must"}
+{"date":"2025-02-22T07:38:50.357Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustuf"}
+{"date":"2025-02-22T07:38:50.382Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa"}
+{"date":"2025-02-22T07:38:51.856Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa"}
+{"date":"2025-02-22T07:38:52.140Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa"}
+{"date":"2025-02-22T07:38:52.420Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa"}
+{"date":"2025-02-22T07:38:52.652Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa"}
+{"date":"2025-02-22T07:38:56.880Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustuf"}
+{"date":"2025-02-22T07:39:01.992Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mus"}
+{"date":"2025-02-22T07:39:03.408Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name="}
+{"date":"2025-02-22T07:39:03.554Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-22T07:39:04.228Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name="}
+{"date":"2025-02-22T07:39:04.420Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name="}
+{"date":"2025-02-22T07:39:04.437Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name="}
+{"date":"2025-02-22T07:39:04.440Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name="}
+{"date":"2025-02-22T07:39:04.785Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-22T07:39:04.825Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-22T07:39:04.872Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-22T07:39:06.312Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-22T07:39:09.138Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mu"}
+{"date":"2025-02-22T07:39:09.374Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mu"}
+{"date":"2025-02-22T07:39:18.135Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=must"}
+{"date":"2025-02-22T07:39:18.676Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=must"}
+{"date":"2025-02-22T07:39:18.826Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=must"}
+{"date":"2025-02-22T07:39:18.910Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=must"}
+{"date":"2025-02-22T07:39:24.210Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name="}
+{"date":"2025-02-22T07:39:24.686Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-22T07:39:24.829Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name="}
+{"date":"2025-02-22T07:39:25.042Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-22T07:39:25.397Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=m"}
+{"date":"2025-02-22T07:39:25.499Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=m"}
+{"date":"2025-02-22T07:39:33.464Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa"}
+{"date":"2025-02-22T07:39:33.482Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa"}
+{"date":"2025-02-22T07:39:33.592Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa"}
+{"date":"2025-02-22T07:39:33.749Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa"}
+{"date":"2025-02-22T07:39:33.778Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa"}
+{"date":"2025-02-22T07:39:33.900Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa"}
+{"date":"2025-02-22T07:39:33.972Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa"}
+{"date":"2025-02-22T07:39:33.974Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa"}
+{"date":"2025-02-22T07:39:33.986Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa"}
+{"date":"2025-02-22T07:39:34.373Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa+ghouri"}
+{"date":"2025-02-22T07:39:34.398Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa+ghouri"}
+{"date":"2025-02-22T07:39:34.453Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa+ghouri"}
+{"date":"2025-02-22T07:39:34.488Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa+ghouri"}
+{"date":"2025-02-22T07:39:34.588Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa+ghouri"}
+{"date":"2025-02-22T07:39:34.592Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa+ghouri"}
+{"date":"2025-02-22T07:39:34.594Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa+ghouri"}
+{"date":"2025-02-22T07:40:10.169Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa"}
+{"date":"2025-02-22T07:40:10.493Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa"}
+{"date":"2025-02-22T07:40:10.553Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa"}
+{"date":"2025-02-22T07:40:10.661Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa"}
+{"date":"2025-02-22T07:40:10.774Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa"}
+{"date":"2025-02-22T07:40:11.248Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa"}
+{"date":"2025-02-22T07:40:19.527Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa"}
+{"date":"2025-02-22T07:40:36.184Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name="}
+{"date":"2025-02-22T07:40:36.303Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-22T07:40:38.496Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=m"}
+{"date":"2025-02-22T07:40:39.096Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mu"}
+{"date":"2025-02-22T07:40:39.099Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mu"}
+{"date":"2025-02-22T07:40:39.104Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mu"}
+{"date":"2025-02-22T07:40:39.368Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mu"}
+{"date":"2025-02-22T07:40:39.559Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mu"}
+{"date":"2025-02-22T07:40:47.238Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa"}
+{"date":"2025-02-22T07:40:49.712Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa"}
+{"date":"2025-02-22T07:40:50.678Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa"}
+{"date":"2025-02-22T07:40:51.151Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa"}
+{"date":"2025-02-22T07:40:51.298Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa"}
+{"date":"2025-02-22T07:40:51.710Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa"}
+{"date":"2025-02-22T07:40:51.713Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name=mustufa"}
+{"date":"2025-02-22T07:40:52.299Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name="}
+{"date":"2025-02-22T07:40:52.370Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name="}
+{"date":"2025-02-22T07:40:52.375Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name="}
+{"date":"2025-02-22T07:40:52.395Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name="}
+{"date":"2025-02-22T07:40:52.445Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name="}
+{"date":"2025-02-22T07:40:52.448Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name="}
+{"date":"2025-02-22T07:40:52.450Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/find-users?name="}
+{"date":"2025-02-22T07:40:52.454Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-22T07:40:52.484Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-22T07:40:52.534Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-22T07:40:52.537Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-22T07:40:52.712Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-22T07:40:52.715Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}
+{"date":"2025-02-22T07:40:52.719Z","level":"error","message":"Name can't be empty.","method":"GET","service":"user-service","url":"/find-users?name="}

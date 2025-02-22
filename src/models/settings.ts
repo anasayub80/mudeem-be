@@ -1,11 +1,8 @@
-
-
-// import { ISettings } from "../../models/settings";
 import { ISettings } from "../types/models/settings";
-import mongoose from "mongoose";
+import mongoose, { Model } from "mongoose";
 
 
-const settingSchema = new mongoose.Schema({
+const settingSchema = new mongoose.Schema<ISettings>({
     logo: { type: String },
     favIcon: { type: String },
     websiteName: { type: String, default: "Mudeem" },
@@ -16,4 +13,4 @@ const settingSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 
-const SettingSchema = mongoose.model<ISettings>("Setting", settingSchema);
+export const Setting: Model<ISettings> = mongoose.model<ISettings>("Setting", settingSchema);

@@ -290,9 +290,7 @@ const login: RequestHandler = async (req, res) => {
           { new: true, runValidators: true } // Return updated user & validate
         );
       }
-      // Send push notification (optional)
-      await sentPushNotification(firebaseToken, "test", "Login body");
-
+     
       req.logIn(user, (err) => {
         if (err) {
           return ErrorHandler({

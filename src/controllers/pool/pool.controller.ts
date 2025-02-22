@@ -4,7 +4,9 @@ import SuccessHandler from '../../utils/successHandler';
 import Pool from '../../models/carpooling/pool';
 import mongoose from 'mongoose';
 import { ObjectId } from 'mongodb';
-import User from 'models/User/user.model';
+import User from '../../models/User/user.model';
+import { Setting } from '../../models/settings';
+import { sentPushNotification } from '../../utils/firebase';
 
 // done.
 const createPool: RequestHandler = async (req, res) => {
@@ -18,7 +20,7 @@ const createPool: RequestHandler = async (req, res) => {
     } = req.body;
 
 
-    const isPoolCreated = await Pool.find({ user: req.user?.id });
+    const isPoolCreated = await Pool.find({ user: req.user?.id ,rideEnded :false});
     console.log("Selceted pool", isPoolCreated);
     if (isPoolCreated.length > 0) {
       return ErrorHandler({
@@ -304,11 +306,12 @@ const updatePool: RequestHandler = async (req, res) => {
   }
 };
 
+
 const endRide: RequestHandler = async (req, res) => {
   // #swagger.tags = ['carpooling']
   try {
     const id = req.params.id;
-    const pool = await Pool.findById(id);
+    const pool = await Pool.findById(id).populate('user', false);
 
     if (!pool) {
       return ErrorHandler({
@@ -332,25 +335,58 @@ const endRide: RequestHandler = async (req, res) => {
     // Mark the ride as ended
     pool.rideEnded = true;
     await pool.save();
-    // pool.droppedOffUsers.forEach(async (user) => {
-    // await User.updateOne(
-    //     {
-    //       _id: req.user?._id
-    //     },
-    //     {
-    //       $set: {
-    //         greenPoints: 
-    //       },
-    //       $push: {
-    //         greenPointsHistory: {
-    //           points: totalGreenPoints,
-    //           type: 'debit',
-    //           orderId: order._id
-    //         }
-    //       }
-    //     }
-    //   );
-    // }
+
+    const setting = await Setting.findOne().sort({ createdAt: -1 });
+    if (!setting) {
+      throw new Error("Settings not found");
+    }
+    const carPoolingGreenPoints = Number(setting.carPoolingGreenPoints || 0);
+    if (pool.droppedOffUsers.length > 0) {
+      await User.findByIdAndUpdate(pool.user, {
+        $set: {
+          greenPoints: carPoolingGreenPoints
+        },
+        $push: {
+          greenPointsHistory: {
+            points: carPoolingGreenPoints || 0,
+            type: 'debit',
+            reason: 'carpooling'
+          }
+        }
+      });
+      const token = req.user?.firebaseToken || '';
+      await sentPushNotification(token, `Lift Update`, `Congratulations! You have earned ${carPoolingGreenPoints} green points for Lift.`);
+    }
+    pool.droppedOffUsers.forEach(async (user) => {
+
+      const findUser = await User.findById(user);
+      if (!findUser) return; // Handle missing user case 
+      const points = (carPoolingGreenPoints / 4);
+      const userPoints = Math.max(1, Math.trunc(points));
+      const greenPoints = (findUser.greenPoints || 0) + userPoints;
+
+      await User.updateOne(
+        {
+          _id: user
+        },
+        {
+          $inc: {
+
+            greenPoints: greenPoints
+          },
+          $push: {
+            greenPointsHistory: {
+              points: userPoints || 0,
+              type: 'debit',
+              reason: 'carpooling'
+            }
+          }
+        }
+      );
+      const token = findUser.firebaseToken || '';
+      await sentPushNotification(token, `Lift Update`, `Congratulations! You have earned ${userPoints} green points for Lift.`);
+    });
+
     return SuccessHandler({
       res,
       data: pool,

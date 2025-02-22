@@ -253,8 +253,7 @@ const likeUnlikeReel: RequestHandler = async (req, res) => {
   // #swagger.tags = ['content-creator']
 
   try {
-    const { id } = req.params;
-    console.log(id);
+    const { id } = req.params; 
     const reel = await Reel.findById(id);
     if (!reel) {
       return ErrorHandler({
@@ -273,10 +272,29 @@ const likeUnlikeReel: RequestHandler = async (req, res) => {
       reel.likes.push(userId);
     }
     await reel.save();
+    const greenPoints = 50 as Number;
+    await User.updateOne(
+      {
+        _id: userId
+      },
+      {
+        $inc: { 
+          greenPoints:-greenPoints 
+        }, 
+        $push: {
+          greenPointsHistory: {
+            points: greenPoints || 0,
+            type: 'debit',
+            reason: 'conent-creator'
+          }
+        }
+      }
+    );
     return SuccessHandler({
       res,
       data: {
-        message: `Reel ${reel.likes.includes(userId) ? 'liked' : 'unliked'}`
+        message: `Reel ${reel.likes.includes(userId) ? 'liked' : 'unliked'}`,
+        greenPoints: 50
       },
       statusCode: 200
     });
