@@ -46,13 +46,23 @@ const findUsers: RequestHandler = async (req, res) => {
     }
     const query = req.query.name as string;
 
+    // const filters = {
+    //   $or: [
+    //     { name: { $regex: new RegExp(query, 'i') } },
+    //     { email: { $regex: new RegExp(query, 'i') } },
+    //     { username: { $regex: new RegExp(query, 'i') } }
+    //   ]
+    // };
+
+    // the below one is more restrictive
     const filters = {
       $or: [
-        { name: { $regex: new RegExp(query, 'i') } },
-        { email: { $regex: new RegExp(query, 'i') } },
-        { username: { $regex: new RegExp(query, 'i') } }
+        { name: { $regex: `^${query}`, $options: 'i' } },
+        { email: { $regex: `^${query}`, $options: 'i' } },
+        { username: { $regex: `^${query}`, $options: 'i' } }
       ]
     };
+
 
     const users = await User.find(filters);
     return SuccessHandler({
@@ -631,10 +641,10 @@ const changeSubscriptionStatus: RequestHandler = async (req, res) => {
   }
 };
 
-const greenPoints: RequestHandler = async (req, res) => { 
+const greenPoints: RequestHandler = async (req, res) => {
   // #swagger.tags = ['auth']
   try {
-    const { userId, reason, points ,type} = req.body as authTypes.GreenPointsBody;
+    const { userId, reason, points, type } = req.body as authTypes.GreenPointsBody;
     if (!userId) {
       return ErrorHandler({
         message: 'User ID is required',
@@ -654,14 +664,14 @@ const greenPoints: RequestHandler = async (req, res) => {
         },
         $push: {
           greenPointsHistory: {
-            points: points || 0, 
+            points: points || 0,
             reason: reason,
             type: type,
           }
         }
       }
     );
-    
+
     return SuccessHandler({
       data: 'Points successfully updated',
       statusCode: 200,
@@ -676,11 +686,11 @@ const greenPoints: RequestHandler = async (req, res) => {
     });
   }
 };
- 
-const toggleNotifications: RequestHandler = async (req, res) => { 
+
+const toggleNotifications: RequestHandler = async (req, res) => {
   // #swagger.tags = ['auth']
   try {
-   
+
     const user = req.user as IUser;
     const findUser = await User.findById(user._id);
     if (!findUser) {
@@ -707,7 +717,7 @@ const toggleNotifications: RequestHandler = async (req, res) => {
     });
   }
 };
- 
+
 export {
   toggleNotifications,
   greenPoints,

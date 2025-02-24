@@ -8,6 +8,7 @@ import User from '../../models/User/user.model';
 import { Setting } from '../../models/settings';
 import { sentPushNotification } from '../../utils/firebase';
 import { IUser } from '../../types/models/user';
+import { greenPoints } from 'controllers/auth.controller';
 
 // done.
 const createPool: RequestHandler = async (req, res) => {
@@ -269,9 +270,8 @@ const updatePool: RequestHandler = async (req, res) => {
           res
         });
       } else {
-        var isExistingUsersGreaterThanAvailableSeats: Boolean =
-          foundPool.existingUsers.length >= foundPool.availableSeats;
-        if (isExistingUsersGreaterThanAvailableSeats) {
+        var isPoolFull = foundPool.availableSeats === 0;
+        if (isPoolFull) {
           return ErrorHandler({
             message: 'Pool is full.',
             statusCode: 400,
@@ -279,9 +279,10 @@ const updatePool: RequestHandler = async (req, res) => {
             res
           });
         }
+
+        // Allow the user to join
         newUpdatedPool.existingUsers.push(userIdToAdd);
-        // Decrease seats when a user is added
-        newUpdatedPool.availableSeats -= 1;
+        newUpdatedPool.availableSeats -= 1; // Decrease seat count
       }
     }
     if (foundPool.rideStarted === false) {
@@ -341,7 +342,18 @@ const endRide: RequestHandler = async (req, res) => {
     if (!setting) {
       throw new Error("Settings not found");
     }
+
+
+    let userRideOwnerPoints: Number = 0;
+    let userName: String = '';
+    var greenPointsHistoryForResponse = {
+      points: userRideOwnerPoints,
+      type: 'credit',
+      reason: 'carpooling'
+    }
+
     const carPoolingGreenPoints = Number(setting.carPoolingGreenPoints || 0);
+    greenPointsHistoryForResponse.points = carPoolingGreenPoints;
     if (pool.droppedOffUsers.length > 0) {
       await User.findByIdAndUpdate(pool.user, {
         $set: {
@@ -361,14 +373,19 @@ const endRide: RequestHandler = async (req, res) => {
         await sentPushNotification(token, `Lift Update`, `Congratulations! You have earned ${carPoolingGreenPoints} green points for Lift.`);
       }
     }
+
+
+
+
     pool.droppedOffUsers.forEach(async (user) => {
 
       const findUser = await User.findById(user) as IUser;
       if (!findUser) return; // Handle missing user case 
       const points = (carPoolingGreenPoints / 4);
       const userPoints = Math.max(1, Math.trunc(points));
+      userRideOwnerPoints = userPoints;
+      greenPointsHistoryForResponse.points = userRideOwnerPoints;
       const greenPoints = (findUser.greenPoints || 0) + userPoints;
-
       await User.updateOne(
         {
           _id: user
@@ -386,15 +403,17 @@ const endRide: RequestHandler = async (req, res) => {
           }
         }
       );
+
       if (findUser.allowNotifications) {
         const token = findUser.firebaseToken || '';
         await sentPushNotification(token, `Lift Update`, `Congratulations! You have earned ${userPoints} green points for Lift.`);
       }
     });
 
+
     return SuccessHandler({
       res,
-      data: pool,
+      data: greenPointsHistoryForResponse,
       statusCode: 200
     });
   } catch (error) {
