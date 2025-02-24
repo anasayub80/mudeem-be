@@ -93,13 +93,13 @@ const checkout: RequestHandler = async (req, res) => {
             );
           }
         }
-        const respData =  {
+        const respData = {
           items,
           orderAmount,
           deliveryCharge,
           totalAmount,
           totalGreenPoints
-        } 
+        }
         return SuccessHandler({
           res,
           data: respData,
@@ -170,28 +170,42 @@ const createOrder: RequestHandler = async (req, res) => {
 
     req.user?.greenPoints &&
       (await User.updateOne(
-        {
-          _id: req.user?._id
-        },
+        { _id: req.user?._id },
         {
           $set: {
             greenPoints: req.user.greenPoints - totalAmount + totalGreenPoints
           },
           $push: {
             greenPointsHistory: {
-              points: totalGreenPoints,
-              reason: 'Order placed',
-              type: 'debit',
-              orderId: order._id
+              $each: [
+                {
+                  points: totalGreenPoints,
+                  reason: "Order placed",
+                  type: "debit",
+                  orderId: order._id
+                },
+                {
+                  points: 40,
+                  reason: "Order placed",
+                  type: "credit",
+                  orderId: order._id
+                }
+              ]
             }
           }
         }
       ));
+
+    var greenPointsHistoryForResponse = {
+      points: 40,
+      type: 'credit',
+      reason: 'Order placed'
+    }
     return SuccessHandler({
       res,
       data: {
         message: 'Order created successfully',
-        order
+        greenPointsHistoryForResponse
       },
       statusCode: 200
     });
@@ -233,6 +247,8 @@ const getOrders: RequestHandler = async (req, res) => {
         .populate('items.variant')
         .populate('vendor').sort({ createdAt: -1 });
     }
+
+
     return SuccessHandler({
       res,
       data: orders,
