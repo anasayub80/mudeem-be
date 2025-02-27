@@ -315,6 +315,22 @@ const reviewProduct: RequestHandler = async (req, res) => {
     if (!product) {
       throw new Error(`Product with id ${productId} not found`);
     }
+
+
+    const checkIfReviewExists = await Review.findOne({
+      user: req.user?._id,
+      product: productId,
+      order: orderId
+    });
+
+    if (checkIfReviewExists) {
+      return ErrorHandler({
+        message: "You've already reviewed this product",
+        statusCode: 400,
+        req,
+        res
+      });
+    }
     const createdReview = await Review.create({
       rating,
       review,
@@ -322,10 +338,14 @@ const reviewProduct: RequestHandler = async (req, res) => {
       product: productId,
       order: orderId
     });
+
+
     product.reviews.push(createdReview._id);
     const totalRating = product.rating.stars * product.rating.total;
     product.rating.total += 1;
-    product.rating.stars = (totalRating + rating) / product.rating.total;
+
+    product.rating.stars = (totalRating + parseInt(rating)) / product.rating.total;
+    console.log(typeof rating, typeof totalRating);
     await product.save();
     return SuccessHandler({
       res,
