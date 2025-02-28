@@ -14,6 +14,7 @@ import careers from './careers/index';
 import leaderboard from './leaderboard';
 import setting from './settings/settings';
 import pool from './pool/index';
+import notification from './notifications/notification';
 const router: Router = express.Router();
 
 router.use('/auth', auth);
@@ -31,5 +32,6 @@ router.use('/careers', careers);
 router.use('/leaderboard', leaderboard);
 router.use('/carpool', pool);
 router.use('/setting', setting);
+router.use('/notification', notification)
 
 export default router;

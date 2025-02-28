@@ -345,7 +345,7 @@ const endRide: RequestHandler = async (req, res) => {
 
 
     let userRideOwnerPoints: Number = 0;
-    let userName: String = '';
+
     var greenPointsHistoryForResponse = {
       points: userRideOwnerPoints,
       type: 'credit',
@@ -354,6 +354,7 @@ const endRide: RequestHandler = async (req, res) => {
 
     const carPoolingGreenPoints = Number(setting.carPoolingGreenPoints || 0);
     greenPointsHistoryForResponse.points = carPoolingGreenPoints;
+    console.log("Supposed to send not here", pool.droppedOffUsers.length);
     if (pool.droppedOffUsers.length > 0) {
       await User.findByIdAndUpdate(pool.user, {
         $set: {
@@ -367,10 +368,13 @@ const endRide: RequestHandler = async (req, res) => {
           }
         }
       });
+
       const user = req.user as IUser;
       const token = user?.firebaseToken || '';
+      console.log("Ride Ending, sending PS to userA");
       if (user.allowNotifications) {
-        await sentPushNotification(token, `Lift Update`, `Congratulations! You have earned ${carPoolingGreenPoints} green points for Lift.`);
+        console.log("Ride Ending, sending PS to user");
+        await sentPushNotification(token, `Lift Update`, `Congratulations! You have earned ${carPoolingGreenPoints} green points for Lift.`, user._id.toString());
       }
     }
 
@@ -378,7 +382,6 @@ const endRide: RequestHandler = async (req, res) => {
 
 
     pool.droppedOffUsers.forEach(async (user) => {
-
       const findUser = await User.findById(user) as IUser;
       if (!findUser) return; // Handle missing user case 
       const points = (carPoolingGreenPoints / 4);
@@ -403,10 +406,10 @@ const endRide: RequestHandler = async (req, res) => {
           }
         }
       );
-
+      console.log("why sendsx");
       if (findUser.allowNotifications) {
         const token = findUser.firebaseToken || '';
-        await sentPushNotification(token, `Lift Update`, `Congratulations! You have earned ${userPoints} green points for Lift.`);
+        await sentPushNotification(token, `Lift Update`, `Congratulations! You have earned ${userPoints} green points for Lift.`, findUser._id.toString());
       }
     });
 
