@@ -4,6 +4,7 @@ import SuccessHandler from '../../utils/successHandler';
 import Company from '../../models/waste/company.model';
 import Waste from '../../models/waste/request.model';
 import User from '../../models/User/user.model';
+import { sentPushNotification } from 'utils/firebase';
 
 const createCompany: RequestHandler = async (req, res) => {
   // #swagger.tags = ['waste']
@@ -120,10 +121,10 @@ const getAllRequests: RequestHandler = async (req, res) => {
     req.query.company ? (filters.company = req.query.company as string) : null;
     req.query.pickupDateTime
       ? JSON.parse(req.query.pickupDateTime as string).length > 1 &&
-        (filters.pickupDateTime = {
-          $gte: new Date(JSON.parse(req.query.pickupDateTime as string)[0]),
-          $lte: new Date(JSON.parse(req.query.pickupDateTime as string)[1])
-        })
+      (filters.pickupDateTime = {
+        $gte: new Date(JSON.parse(req.query.pickupDateTime as string)[0]),
+        $lte: new Date(JSON.parse(req.query.pickupDateTime as string)[1])
+      })
       : null;
     let page = Number(req.query.page) || 0;
     let limit = Number(req.query.limit) || 10;
@@ -179,6 +180,7 @@ const approveRejectRequest: RequestHandler = async (req, res) => {
     const { id } = req.params;
     const { status } = req.body;
     const request = await Waste.findByIdAndUpdate(id, { status });
+    const user = await User.findById(request?.user);
     if (request && status === 'accepted') {
       await User.findByIdAndUpdate(request.user, {
         $inc: { greenPoints: req.body.greenPoints },
@@ -190,6 +192,8 @@ const approveRejectRequest: RequestHandler = async (req, res) => {
           }
         }
       });
+      const token = user?.firebaseToken || '';
+      await sentPushNotification(token, `Waste accepted`, `Congratulations! You have earned ${req.body.greenPoints} green points for your waste collection.`, user?._id.toString());
     }
     return SuccessHandler({ res, data: request, statusCode: 200 });
   } catch (error) {
