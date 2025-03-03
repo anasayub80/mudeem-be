@@ -339,13 +339,21 @@ const reviewProduct: RequestHandler = async (req, res) => {
       order: orderId
     });
 
+    console.log("Before update:", {
+      stars: product.rating.stars,
+      total: product.rating.total,
+    });
 
-    product.reviews.push(createdReview._id);
     const totalRating = product.rating.stars * product.rating.total;
     product.rating.total += 1;
+    product.rating.stars = (totalRating + parseFloat(rating)) / product.rating.total;
 
-    product.rating.stars = (totalRating + parseInt(rating)) / product.rating.total;
-    console.log(typeof rating, typeof totalRating);
+    console.log("After update:", {
+      totalRating,
+      stars: product.rating.stars,
+      total: product.rating.total,
+    });
+
     await product.save();
     return SuccessHandler({
       res,

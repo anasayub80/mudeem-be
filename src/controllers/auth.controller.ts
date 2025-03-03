@@ -659,7 +659,6 @@ const greenPoints: RequestHandler = async (req, res) => {
       },
       {
         $inc: {
-
           greenPoints: points || 0
         },
         $push: {
@@ -702,7 +701,9 @@ const toggleNotifications: RequestHandler = async (req, res) => {
       });
     }
     findUser.allowNotifications = !findUser.allowNotifications;
-    await findUser.save();
+    const resss = await findUser.save();
+    console.log(resss);
+
     return SuccessHandler({
       data: 'Notification successfully updated',
       statusCode: 200,
