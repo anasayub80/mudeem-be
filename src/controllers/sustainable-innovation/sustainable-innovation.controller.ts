@@ -4,6 +4,7 @@ import uploadFile from '../../utils/upload';
 import SuccessHandler from '../../utils/successHandler';
 import Project from '../../models/sustainable-innovation/project';
 import User from '../../models/User/user.model';
+import { sentPushNotification } from 'utils/firebase';
 
 const createProject: RequestHandler = async (req, res) => {
   // #swagger.tags = ['sustainble-innovation']
@@ -167,8 +168,9 @@ const changeProjectStatus: RequestHandler = async (req, res) => {
         reason: 'Project accepted',
         date: new Date()
       });
+      const token = user?.firebaseToken || '';
+      await sentPushNotification(token, `Project accepted`, `Congratulations! You have earned ${points} green points for your project approval.`, user._id.toString());
     }
-
     await user.save();
     return SuccessHandler({
       res,
