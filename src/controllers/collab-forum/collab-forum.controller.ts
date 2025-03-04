@@ -7,6 +7,7 @@ import uploadFile from '../../utils/upload';
 import Comment from '../../models/collab-forum/comment';
 import path from 'path';
 import User from '../../models/User/user.model';
+import { sentPushNotification } from 'utils/firebase';
 
 const createPost: RequestHandler = async (req, res) => {
   // #swagger.tags = ['collab-forum']
@@ -597,12 +598,16 @@ const changePostStatus: RequestHandler = async (req, res) => {
         ? user.greenPoints + Number(points)
         : user.greenPoints;
     if (status === 'accepted') {
+
       user.greenPointsHistory.push({
         points: Number(points),
         reason: 'Post Approval',
         type: 'credit',
         date: new Date()
       });
+      const token = user?.firebaseToken || '';
+      await sentPushNotification(token, `Post Approved`, `Congratulations! You have earned ${points} green points for your Collaboration form approval.`, user._id.toString());
+
     }
     await user.save();
     return SuccessHandler({
