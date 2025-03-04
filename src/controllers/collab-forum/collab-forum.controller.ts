@@ -7,7 +7,7 @@ import uploadFile from '../../utils/upload';
 import Comment from '../../models/collab-forum/comment';
 import path from 'path';
 import User from '../../models/User/user.model';
-import { sentPushNotification } from 'utils/firebase';
+import { sentPushNotification } from '../../utils/firebase';
 
 const createPost: RequestHandler = async (req, res) => {
   // #swagger.tags = ['collab-forum']
