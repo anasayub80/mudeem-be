@@ -20,7 +20,7 @@ router
     // validate(schema.createAcademy),
     academyController.createBook
   )
-  .get(isAuthenticated, academyController.getAllBooks);
+  .get(academyController.getAllBooks);
 
 router
   .route('/book/:id')

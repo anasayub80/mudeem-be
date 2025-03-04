@@ -12,8 +12,10 @@ import academy from './academy/index';
 import gpt from './gpt/index';
 import careers from './careers/index';
 import leaderboard from './leaderboard';
+import dashboard from './dashboard';
 import setting from './settings/settings';
 import pool from './pool/index';
+import user from './users/index';
 const router: Router = express.Router();
 
 router.use('/auth', auth);
@@ -31,5 +33,7 @@ router.use('/careers', careers);
 router.use('/leaderboard', leaderboard);
 router.use('/carpool', pool);
 router.use('/setting', setting);
+router.use('/dashboard', dashboard);
+router.use('/user', user);
 
 export default router;

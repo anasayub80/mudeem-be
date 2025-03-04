@@ -9,7 +9,8 @@ const jobSchema = new mongoose.Schema<IJob>(
     },
     image: {
       type: String,
-      required: true
+      required: true,
+      default: 'false'
     },
     location: {
       type: String,

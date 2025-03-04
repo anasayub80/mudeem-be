@@ -9,11 +9,10 @@ const router: Router = express.Router();
 router
   .route('/')
   .get(careersController.getAllJobs)
-  .post(
-    isAuthenticated,
-    isAdmin,
-    multerMiddleware.single('image'),
-    careersController.createJob
-  );
+  .post(isAuthenticated, isAdmin, careersController.createJob);
+router
+  .route('/:id')
+  .put(careersController.updateJob)
+  .delete(careersController.deleteJob);
 
 export default router;

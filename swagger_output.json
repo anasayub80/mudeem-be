@@ -104,6 +104,9 @@
                 },
                 "password": {
                   "example": "any"
+                },
+                "firebaseToken": {
+                  "example": "any"
                 }
               }
             }
@@ -115,6 +118,29 @@
           },
           "400": {
             "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/auth/find-users": {
+      "get": {
+        "tags": [
+          "auth"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
@@ -316,8 +342,74 @@
           "401": {
             "description": "Unauthorized"
           },
-          "403": {
-            "description": "Forbidden"
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/auth/push-notfications": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "example": "any"
+                },
+                "body": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/auth/green-points": {
+      "put": {
+        "tags": [
+          "auth"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userId": {
+                  "example": "any"
+                },
+                "reason": {
+                  "example": "any"
+                },
+                "points": {
+                  "example": "any"
+                },
+                "type": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"
@@ -349,6 +441,23 @@
           "400": {
             "description": "Bad Request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/auth/toggle-notifications": {
+      "get": {
+        "tags": [
+          "auth"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {
           "401": {
             "description": "Unauthorized"
           },
@@ -944,6 +1053,45 @@
           "400": {
             "description": "Bad Request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/shop/order/review": {
+      "post": {
+        "tags": [
+          "order"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "orderId": {
+                  "example": "any"
+                },
+                "productId": {
+                  "example": "any"
+                },
+                "rating": {
+                  "example": "any"
+                },
+                "review": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
           "401": {
             "description": "Unauthorized"
           },
@@ -2961,6 +3109,59 @@
         }
       }
     },
+    "/careers/{id}": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "example": "any"
+                },
+                "location": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "salary": {
+                  "example": "any"
+                },
+                "company": {
+                  "example": "any"
+                },
+                "linkedInUrl": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {}
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
     "/leaderboard/": {
       "get": {
         "tags": [
@@ -3008,7 +3209,49 @@
           "carpooling"
         ],
         "description": "",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "pickupLocation": {
+                  "example": "any"
+                },
+                "whereTo": {
+                  "example": "any"
+                },
+                "time": {
+                  "example": "any"
+                },
+                "availableSeats": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/carpool/get-my-pool": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "rideEnded",
+            "in": "query",
+            "type": "string"
+          }
+        ],
         "responses": {
           "401": {
             "description": "Unauthorized"
@@ -3046,6 +3289,36 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "pickupLocation": {
+                  "example": "any"
+                },
+                "whereTo": {
+                  "example": "any"
+                },
+                "time": {
+                  "example": "any"
+                },
+                "availableSeats": {
+                  "example": "any"
+                },
+                "userIdToAdd": {
+                  "example": "any"
+                },
+                "userIdToDropOff": {
+                  "example": "any"
+                },
+                "rideStarted": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
         "responses": {
@@ -3080,7 +3353,7 @@
         }
       }
     },
-    "/carpool/endRide/{id}": {
+    "/carpool/end-ride/{id}": {
       "put": {
         "tags": [
           "carpooling"
@@ -3102,6 +3375,133 @@
             "description": "Internal Server Error"
           }
         }
+      }
+    },
+    "/carpool/start-ride/{id}": {
+      "put": {
+        "tags": [
+          "carpooling"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/setting/": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "logo": {
+                  "example": "any"
+                },
+                "favIcon": {
+                  "example": "any"
+                },
+                "websiteName": {
+                  "example": "any"
+                },
+                "websiteDescription": {
+                  "example": "any"
+                },
+                "carPoolingGreenPoints": {
+                  "example": "any"
+                },
+                "greenMapGreenPoints": {
+                  "example": "any"
+                },
+                "gptMessageGreenPoints": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/user/": {
+      "get": {
+        "tags": [
+          "collab-forum"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/user/{id}": {
+      "patch": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
       }
     }
   }

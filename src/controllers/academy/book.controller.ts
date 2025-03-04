@@ -91,8 +91,7 @@ const getAllBooks: RequestHandler = async (req, res) => {
     const books = await Book.find(filters)
       .skip(skip)
       .limit(Number(limit))
-      .sort({ createdAt: -1 })
-      .select('-content');
+      .sort({ createdAt: -1 });
 
     return SuccessHandler({ res, data: books, statusCode: 200 });
   } catch (error) {

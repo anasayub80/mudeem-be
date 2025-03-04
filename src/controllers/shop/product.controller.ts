@@ -23,7 +23,7 @@ const createProduct: RequestHandler = async (req, res) => {
       brand
     } = req.body;
 
-    const jsonVariants = JSON.parse(variants); 
+    const jsonVariants = JSON.parse(variants);
     if (!req.files || req.files?.length === 0) {
       return ErrorHandler({
         message: 'Image is required',
@@ -31,7 +31,7 @@ const createProduct: RequestHandler = async (req, res) => {
         req,
         res
       });
-    } 
+    }
     // const urls: string[] = await uploadFile([req.file as Express.Multer.File]);
 
     const variantsArray: IVariant[] = await Variant.insertMany(jsonVariants, {
@@ -318,7 +318,7 @@ const updateProduct: RequestHandler = async (req, res) => {
     // handling updated variants
     if (jsonVariants.length > 0) {
       console.log(jsonVariants, 'jsonVariants');
-      Promise.all(
+      await Promise.all(
         jsonVariants.map(async (variant: IVariant) => {
           if (variant._id) {
             const updatedVariant: IVariant | null =
@@ -392,6 +392,7 @@ const updateProduct: RequestHandler = async (req, res) => {
     });
   } catch (error) {
     await session.abortTransaction();
+    await session.endSession();
     console.log('here2');
     return ErrorHandler({
       message: (error as Error).message,
