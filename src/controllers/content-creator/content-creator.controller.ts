@@ -10,6 +10,9 @@ import User from '../../models/User/user.model';
 const createContent: RequestHandler = async (req, res) => {
   // #swagger.tags = ['content-creator']
   try {
+    console.log("FILES:", req.files);
+    console.log("BODY:", req.body);
+
     if (!req.user?.isSubscribed) {
       return ErrorHandler({
         message: 'You need to subscribe to access this feature',

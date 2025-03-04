@@ -4,7 +4,7 @@ import uploadFile from '../../utils/upload';
 import SuccessHandler from '../../utils/successHandler';
 import Project from '../../models/sustainable-innovation/project';
 import User from '../../models/User/user.model';
-import { sentPushNotification } from 'utils/firebase';
+import { sentPushNotification } from '../../utils/firebase';
 
 const createProject: RequestHandler = async (req, res) => {
   // #swagger.tags = ['sustainble-innovation']
