@@ -12,11 +12,24 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "./src",
     "paths": {
-      "@types/*": ["types/*"]
+      "@types/*": [
+        "types/*"
+      ]
     },
-    "types": ["node", "express"], // This includes Node.js types
-    "typeRoots": ["./node_modules/@types", "./src/types"] // Ensure this path is correct
+    "types": [
+      "node",
+      "express"
+    ], // This includes Node.js types
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/types"
+    ] // Ensure this path is correct
   },
-  "include": ["src/**/*.ts", "src/types/**/*.d.ts"], // Make sure type definitions are included
-  "exclude": ["node_modules"]
+  "include": [
+    "src/**/*.ts",
+    "src/types/**/*.d.ts"
+  ], // Make sure type definitions are included
+  "exclude": [
+    "node_modules"
+  ]
 }

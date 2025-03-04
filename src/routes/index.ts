@@ -15,7 +15,10 @@ import leaderboard from './leaderboard';
 import dashboard from './dashboard';
 import setting from './settings/settings';
 import pool from './pool/index';
+
 import user from './users/index';
+
+import notification from './notifications/notification';
 const router: Router = express.Router();
 
 router.use('/auth', auth);
@@ -35,5 +38,6 @@ router.use('/carpool', pool);
 router.use('/setting', setting);
 router.use('/dashboard', dashboard);
 router.use('/user', user);
+router.use('/notification', notification);
 
 export default router;

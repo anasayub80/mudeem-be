@@ -1,25 +1,46 @@
-import admin from "firebase-admin";  
-import serviceAccount from "../config/firebase-admin.json"; 
+import admin from "firebase-admin";
+import serviceAccount from "../config/firebase-admin.json";
+import Notification from "../models/notifications/notifications_model";
+import mongoose from "mongoose";
+import { log } from "console";
 
 // Firebase Initialize 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount as admin.ServiceAccount),
 });
 
-const sentPushNotification = async (token: string, title: string, body: string) => {
+const sentPushNotification = async (token: string, title: string, body: string, userId: string) => {
+    console.log("Supposed to send not here", token);
+
     const message = {
         token: token,
         notification: {
             title: title,
             body: body,
-            
+
         },
     };
 
     try {
-        await admin.messaging().send(message);
+        console.log("Storing push notification",);
+        const response = await admin.messaging().send(message);
+        if (response) {
+            //   Notification.create({
+            //     title: title,
+            //     content: body,
+            //     user: token
+            // })
+            Notification.create({
+                user: new mongoose.Types.ObjectId(userId),
+                title: title,
+                content: body,
+            });
+
+        }
         return true;
     } catch (error) {
+        console.log("Error sending push notification:", error);
+
         return false;
     }
 };
