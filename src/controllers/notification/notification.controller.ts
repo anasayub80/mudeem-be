@@ -8,13 +8,14 @@ import mongoose, { Error } from 'mongoose';
 
 const fetchNotification: RequestHandler = async (req, res) => {
   try {
-    console.log('reached here');
-
+    console.log('fetchNotification');
     const userId = req.user?._id;
-    const notification = await Notification.find({
-      user: new mongoose.Types.ObjectId(userId)
-    });
-    if (!notification) {
+    const notifications = await Notification.find({
+      user: new mongoose.Types.ObjectId(userId),
+    })
+      .sort({ createdAt: -1 }); // Sort by createdAt in descending order (newest first)
+
+    if (!notifications || notifications.length === 0) {
       return ErrorHandler({
         message: 'Notification not found',
         statusCode: 400,
@@ -23,7 +24,7 @@ const fetchNotification: RequestHandler = async (req, res) => {
       });
     } else {
       return SuccessHandler({
-        data: notification,
+        data: notifications,
         statusCode: 200,
         res
       });
