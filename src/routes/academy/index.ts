@@ -44,6 +44,10 @@ router
   .route('/book/purchase/:id')
   .put(isAuthenticated, academyController.purchaseBook);
 
+router
+  .route('/book/findIfAlreadyPurchased/:id')
+  .get(isAuthenticated, academyController.findIfAlreadyPurchased);
+
 router.route('/book/download/:id');
 //   .get(isAuthenticated, academyController.downloadBook);
 

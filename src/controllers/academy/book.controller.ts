@@ -245,6 +245,74 @@ const getMyBooks: RequestHandler = async (req, res) => {
     });
   }
 };
+const findIfAlreadyPurchased: RequestHandler = async (req, res) => {
+  // #swagger.tags = ['academy']
+  try {
+    const { id } = req.params;
+
+    // Validate book ID
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return ErrorHandler({
+        message: 'Invalid book id',
+        statusCode: 400,
+        req,
+        res
+      });
+    }
+
+    const user = req.user;
+
+    // Check if user is authenticated
+    if (!user) {
+      return ErrorHandler({
+        message: 'Unauthorized',
+        statusCode: 401,
+        req,
+        res
+      });
+    }
+
+    // Find the book
+    const book = await Book.findById(id);
+
+    // If the book is not found
+    if (!book) {
+      return ErrorHandler({
+        message: 'Book not found in db',
+        statusCode: 404,
+        req,
+        res
+      });
+    }
+
+    // Check if the user has already purchased the book
+    if (user.myBooks.includes(book._id)) {
+      console.log("Book already purchased");
+      return SuccessHandler({
+        res,
+        data: { message: 'Book already purchased' },
+        statusCode: 200
+      });
+    }
+    console.log("Book not purchased yet");
+    // Optional: handle the case if the book is not purchased yet
+    return ErrorHandler({
+      message: 'Book not purchased yet', // Or redirect, or add further logic
+      statusCode: 400,
+      req,
+      res,
+    });
+
+  } catch (error) {
+    return ErrorHandler({
+      message: (error as Error).message,
+      statusCode: 500,
+      req,
+      res
+    });
+  }
+};
+
 
 const purchaseBook: RequestHandler = async (req, res) => {
   // #swagger.tags = ['academy']
@@ -298,9 +366,6 @@ const purchaseBook: RequestHandler = async (req, res) => {
         res
       });
     }
-
-
-
 
     await User.findByIdAndUpdate(user._id, {
       $push: {
@@ -361,6 +426,7 @@ export {
   getBook,
   updateBook,
   deleteBook,
+  findIfAlreadyPurchased,
   getMyBooks,
   purchaseBook,
   downloadBook
