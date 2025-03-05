@@ -169,7 +169,7 @@ const changeProjectStatus: RequestHandler = async (req, res) => {
         date: new Date()
       });
       const token = user?.firebaseToken || '';
-      await sentPushNotification(token, `Project accepted`, `Congratulations! You have earned ${points} green points for your project approval.`, user._id.toString());
+      await sentPushNotification(token, `Project accepted`, `Congratulations! You have earned ${points} green points for your project approval.`, user._id.toString(), points.toString());
     }
     await user.save();
     return SuccessHandler({

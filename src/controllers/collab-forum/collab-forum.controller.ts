@@ -606,7 +606,7 @@ const changePostStatus: RequestHandler = async (req, res) => {
         date: new Date()
       });
       const token = user?.firebaseToken || '';
-      await sentPushNotification(token, `Post Approved`, `Congratulations! You have earned ${points} green points for your Collaboration form approval.`, user._id.toString());
+      await sentPushNotification(token, `Post Approved`, `Congratulations! You have earned ${points} green points for your Collaboration form approval.`, user._id.toString(), points.toString());
 
     }
     await user.save();

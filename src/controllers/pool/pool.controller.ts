@@ -374,7 +374,7 @@ const endRide: RequestHandler = async (req, res) => {
       console.log("Ride Ending, sending PS to userA");
       if (user.allowNotifications) {
         console.log("Ride Ending, sending PS to user");
-        await sentPushNotification(token, `Lift Update`, `Congratulations! You have earned ${carPoolingGreenPoints} green points for Lift.`, user._id.toString());
+        await sentPushNotification(token, `Lift Update`, `Congratulations! You have earned ${carPoolingGreenPoints} green points for Lift.`, user._id.toString(), carPoolingGreenPoints.toString());
       }
     }
 
@@ -409,7 +409,7 @@ const endRide: RequestHandler = async (req, res) => {
       console.log("why sendsx");
       if (findUser.allowNotifications) {
         const token = findUser.firebaseToken || '';
-        await sentPushNotification(token, `Lift Update`, `Congratulations! You have earned ${userPoints} green points for Lift.`, findUser._id.toString());
+        await sentPushNotification(token, `Lift Update`, `Congratulations! You have earned ${userPoints} green points for Lift.`, findUser._id.toString(), userPoints.toString());
       }
     });
 

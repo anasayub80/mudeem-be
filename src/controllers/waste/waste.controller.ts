@@ -193,7 +193,7 @@ const approveRejectRequest: RequestHandler = async (req, res) => {
         }
       });
       const token = user?.firebaseToken || '';
-      await sentPushNotification(token, `Waste accepted`, `Congratulations! You have earned ${req.body.greenPoints} green points for your waste collection.`, user?._id.toString());
+      await sentPushNotification(token, `Waste accepted`, `Congratulations! You have earned ${req.body.greenPoints} green points for your waste collection.`, user?._id.toString(), req.body.greenPoints.toString());
     }
     return SuccessHandler({ res, data: request, statusCode: 200 });
   } catch (error) {

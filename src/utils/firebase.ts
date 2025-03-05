@@ -9,7 +9,7 @@ admin.initializeApp({
     credential: admin.credential.cert(serviceAccount as admin.ServiceAccount),
 });
 
-const sentPushNotification = async (token: string, title: string, body: string, userId: string) => {
+const sentPushNotification = async (token: string, title: string, body: string, userId: string, points: string) => {
     console.log("Supposed to send not here", token);
 
     const message = {
@@ -17,7 +17,6 @@ const sentPushNotification = async (token: string, title: string, body: string, 
         notification: {
             title: title,
             body: body,
-
         },
     };
 
@@ -25,7 +24,7 @@ const sentPushNotification = async (token: string, title: string, body: string, 
         console.log("Storing push notification",);
         const response = await admin.messaging().send(message);
         if (response) {
-            //   Notification.create({
+            //   Notification.create({ 
             //     title: title,
             //     content: body,
             //     user: token
@@ -34,6 +33,7 @@ const sentPushNotification = async (token: string, title: string, body: string, 
                 user: new mongoose.Types.ObjectId(userId),
                 title: title,
                 content: body,
+                points: points,
             });
 
         }

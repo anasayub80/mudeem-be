@@ -16,7 +16,7 @@ const pushNotification: RequestHandler = async (req, res) => {
     const { title, body } = req.body;
     const user = req.user as IUser;
     const token = user.firebaseToken || '';
-    sentPushNotification(token, title, body, req.user?._id.toString());
+    sentPushNotification(token, title, body, req.user?._id.toString(), '0');
     return SuccessHandler({
       data: 'Push notification sent successfully',
       statusCode: 200,

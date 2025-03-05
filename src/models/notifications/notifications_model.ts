@@ -15,6 +15,9 @@ const notificationSchema = new mongoose.Schema<INotification>({
         type: String,
         required: true
     },
+    points: {
+        type: String,
+    },
     content: {
         type: String,
         required: true
