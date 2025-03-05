@@ -299,6 +299,9 @@ const purchaseBook: RequestHandler = async (req, res) => {
       });
     }
 
+
+
+
     await User.findByIdAndUpdate(user._id, {
       $push: {
         myBooks: book._id,
@@ -307,14 +310,21 @@ const purchaseBook: RequestHandler = async (req, res) => {
           reason: 'Book Purchase',
           type: 'credit',
           date: Date.now()
-        }
+        },
+
       },
       $inc: { greenPoints: -book.price + book.greenPoints }
     });
 
+    var greenPointsHistory = {
+      points: book.greenPoints,
+      reason: 'Book Purchase',
+      type: 'credit',
+      date: Date.now()
+    }
     return SuccessHandler({
       res,
-      data: { message: 'Book purchased successfully', book },
+      data: { message: 'Book purchased successfully', greenPointsHistory },
       statusCode: 200
     });
   } catch (error) {

@@ -368,8 +368,14 @@ const updateProduct: RequestHandler = async (req, res) => {
     }
     // handling new images
     if (req.files) {
-      // const urls: string[] = await uploadFile(req.files as Express.Multer.File[]);
-      // product.images.push(...urls);
+      const images = await Promise.all(
+        req.files.map(async (item) => {
+          const result = await uploadFile(item.buffer);
+          return result.secure_url;
+        })
+      );
+
+      product.images.push(...images);
     }
     product.name = name;
     product.description = description;
