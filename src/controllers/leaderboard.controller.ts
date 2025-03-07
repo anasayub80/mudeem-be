@@ -43,6 +43,8 @@ const getLeaderboard: RequestHandler = async (req, res) => {
         $group: {
           _id: '$_id',
           name: { $first: '$name' },
+          email: { $first: '$email' },
+          phone: { $first: '$phone' },
           profilePicture: { $first: '$profilePicture' },
           points: { $sum: '$greenPointsHistory.points' }
         }

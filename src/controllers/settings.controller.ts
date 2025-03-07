@@ -46,13 +46,18 @@ const update: RequestHandler = async (req, res) => {
     const data = req.body;
     let favicon = { secure_url: '' };
     let logo = { secure_url: '' };
-    console.log(req?.files);
 
     if (req?.files) {
       // @ts-ignore
-      favicon = await uploadFile(req.files.favIcon[0].buffer);
+      if (req.files.favIcon[0].buffer) {
+        // @ts-ignore
+        favicon = await uploadFile(req.files.favIcon[0].buffer);
+      }
       // @ts-ignore
-      logo = await uploadFile(req.files.logo[0].buffer);
+      if (req.files.favIcon[0].buffer) {
+        // @ts-ignore
+        logo = await uploadFile(req.files.logo[0].buffer);
+      }
     }
 
     const setting = await Setting.findOne();
@@ -62,7 +67,6 @@ const update: RequestHandler = async (req, res) => {
         message: 'Setting not found'
       });
     }
-    console.log(data);
 
     setting.logo = logo.secure_url || data.logo;
     setting.favIcon = favicon.secure_url || data.favIcon;

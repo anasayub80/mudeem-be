@@ -18,7 +18,8 @@ const createBook: RequestHandler = async (req, res) => {
       year,
       price,
       type,
-      greenPoints
+      greenPoints,
+      isPremium
     } = req.body;
     console.log(req.files);
     if (!req?.files) {
@@ -45,7 +46,8 @@ const createBook: RequestHandler = async (req, res) => {
       year,
       price,
       type,
-      greenPoints
+      greenPoints,
+      isPremium
     });
 
     return SuccessHandler({
@@ -287,22 +289,21 @@ const findIfAlreadyPurchased: RequestHandler = async (req, res) => {
 
     // Check if the user has already purchased the book
     if (user.myBooks.includes(book._id)) {
-      console.log("Book already purchased");
+      console.log('Book already purchased');
       return SuccessHandler({
         res,
         data: { message: 'Book already purchased' },
         statusCode: 200
       });
     }
-    console.log("Book not purchased yet");
+    console.log('Book not purchased yet');
     // Optional: handle the case if the book is not purchased yet
     return ErrorHandler({
       message: 'Book not purchased yet', // Or redirect, or add further logic
       statusCode: 400,
       req,
-      res,
+      res
     });
-
   } catch (error) {
     return ErrorHandler({
       message: (error as Error).message,
@@ -312,7 +313,6 @@ const findIfAlreadyPurchased: RequestHandler = async (req, res) => {
     });
   }
 };
-
 
 const purchaseBook: RequestHandler = async (req, res) => {
   // #swagger.tags = ['academy']
@@ -375,8 +375,7 @@ const purchaseBook: RequestHandler = async (req, res) => {
           reason: 'Book Purchase',
           type: 'credit',
           date: Date.now()
-        },
-
+        }
       },
       $inc: { greenPoints: -book.price + book.greenPoints }
     });
@@ -386,7 +385,7 @@ const purchaseBook: RequestHandler = async (req, res) => {
       reason: 'Book Purchase',
       type: 'credit',
       date: Date.now()
-    }
+    };
     return SuccessHandler({
       res,
       data: { message: 'Book purchased successfully', greenPointsHistory },

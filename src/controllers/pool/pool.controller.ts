@@ -14,16 +14,13 @@ import { greenPoints } from 'controllers/auth.controller';
 const createPool: RequestHandler = async (req, res) => {
   // #swagger.tags = ['carpooling']
   try {
-    const {
-      pickupLocation,
-      whereTo,
-      time,
-      availableSeats,
-    } = req.body;
+    const { pickupLocation, whereTo, time, availableSeats } = req.body;
 
-
-    const isPoolCreated = await Pool.find({ user: req.user?.id, rideEnded: false });
-    console.log("Selceted pool", isPoolCreated);
+    const isPoolCreated = await Pool.find({
+      user: req.user?.id,
+      rideEnded: false
+    });
+    console.log('Selceted pool', isPoolCreated);
     if (isPoolCreated.length > 0) {
       return ErrorHandler({
         message: "Can't create more than one pool.",
@@ -40,7 +37,7 @@ const createPool: RequestHandler = async (req, res) => {
       availableSeats,
       user: req.user?.id,
       existingUsers: []
-    })
+    });
     return SuccessHandler({
       res,
       data: { pool },
@@ -56,8 +53,6 @@ const createPool: RequestHandler = async (req, res) => {
   }
 };
 
-
-
 // done.
 const getPools: RequestHandler = async (req, res) => {
   // #swagger.tags = ['carpooling']
@@ -65,16 +60,19 @@ const getPools: RequestHandler = async (req, res) => {
     const userId = req.user?.id;
     console.log(userId);
 
-    const allPools = await Pool.find(
-      { rideEnded: false, user: { $ne: new mongoose.Types.ObjectId(userId) }, rideStarted: false }
-    ).populate('user', false).exec();
+    const allPools = await Pool.find({
+      rideEnded: false,
+      user: { $ne: new mongoose.Types.ObjectId(userId) },
+      rideStarted: false
+    })
+      .populate('user', false)
+      .exec();
 
     return SuccessHandler({
       res,
       data: allPools,
       statusCode: 201
     });
-
   } catch (error) {
     return ErrorHandler({
       message: (error as Error).message,
@@ -83,25 +81,27 @@ const getPools: RequestHandler = async (req, res) => {
       res
     });
   }
-}
+};
 
 const myPool: RequestHandler = async (req, res) => {
   // done.
   try {
     const userId = req.user?._id;
-    console.log("Selceted pool", req.query.rideEnded);
+    console.log('Selceted pool', req.query.rideEnded);
     if (req.query.rideEnded !== undefined) {
-      let filters: { user?: ObjectId; rideEnded?: boolean; } = {};
+      let filters: { user?: ObjectId; rideEnded?: boolean } = {};
 
       filters.rideEnded = req.query.rideEnded === 'true';
       filters.user = userId;
       // filters.rideStarted = false;
 
-      const selectedPools = await Pool.find(filters).populate('existingUsers', false).exec();
+      const selectedPools = await Pool.find(filters)
+        .populate('existingUsers', false)
+        .exec();
 
       if (!selectedPools) {
         return ErrorHandler({
-          message: "Pool not found.",
+          message: 'Pool not found.',
           statusCode: 404,
           req,
           res
@@ -115,8 +115,9 @@ const myPool: RequestHandler = async (req, res) => {
       });
     }
 
-    const allPools = await Pool.find({ user: userId }).populate('existingUsers', false).exec();
-
+    const allPools = await Pool.find({ user: userId })
+      .populate('existingUsers', false)
+      .exec();
 
     return SuccessHandler({
       res,
@@ -138,24 +139,24 @@ const getPoolById: RequestHandler = async (req, res) => {
   try {
     const id = req.params.id;
 
-    const selectedPool = await Pool.findById(id).populate('existingUsers', false).exec();
+    const selectedPool = await Pool.findById(id)
+      .populate('existingUsers', false)
+      .exec();
 
     if (!selectedPool) {
       return ErrorHandler({
-        message: "Pool not found.",
+        message: 'Pool not found.',
         statusCode: 500,
         req,
         res
       });
     }
 
-
     return SuccessHandler({
       res,
       data: selectedPool,
       statusCode: 201
     });
-
   } catch (error) {
     return ErrorHandler({
       message: (error as Error).message,
@@ -183,15 +184,14 @@ const deletePool: RequestHandler = async (req, res) => {
     if (!alue) {
       return SuccessHandler({
         res,
-        data: "Pool already deleted successfully",
+        data: 'Pool already deleted successfully',
         statusCode: 201
       });
     }
 
-
     return SuccessHandler({
       res,
-      data: "Pool deleted successfully",
+      data: 'Pool deleted successfully',
       statusCode: 201
     });
   } catch (error) {
@@ -214,7 +214,7 @@ const updatePool: RequestHandler = async (req, res) => {
       availableSeats,
       userIdToAdd,
       userIdToDropOff,
-      rideStarted,
+      rideStarted
     } = req.body;
     const poolId = req.params.id;
     var foundPool = await Pool.findById(poolId);
@@ -308,7 +308,6 @@ const updatePool: RequestHandler = async (req, res) => {
   }
 };
 
-
 const endRide: RequestHandler = async (req, res) => {
   // #swagger.tags = ['carpooling']
   try {
@@ -317,7 +316,7 @@ const endRide: RequestHandler = async (req, res) => {
 
     if (!pool) {
       return ErrorHandler({
-        message: "Pool not found.",
+        message: 'Pool not found.',
         statusCode: 404,
         req,
         res
@@ -325,7 +324,7 @@ const endRide: RequestHandler = async (req, res) => {
     }
 
     // Move existing users to droppedOffUsers if they are not already there
-    pool.existingUsers.forEach(user => {
+    pool.existingUsers.forEach((user) => {
       if (!pool.droppedOffUsers.includes(user)) {
         pool.droppedOffUsers.push(user);
       }
@@ -340,9 +339,8 @@ const endRide: RequestHandler = async (req, res) => {
 
     const setting = await Setting.findOne().sort({ createdAt: -1 });
     if (!setting) {
-      throw new Error("Settings not found");
+      throw new Error('Settings not found');
     }
-
 
     let userRideOwnerPoints: Number = 0;
 
@@ -350,11 +348,11 @@ const endRide: RequestHandler = async (req, res) => {
       points: userRideOwnerPoints,
       type: 'credit',
       reason: 'carpooling'
-    }
+    };
 
     const carPoolingGreenPoints = Number(setting.carPoolingGreenPoints || 0);
     greenPointsHistoryForResponse.points = carPoolingGreenPoints;
-    console.log("Supposed to send not here", pool.droppedOffUsers.length);
+    console.log('Supposed to send not here', pool.droppedOffUsers.length);
     if (pool.droppedOffUsers.length > 0) {
       await User.findByIdAndUpdate(pool.user, {
         $set: {
@@ -371,20 +369,23 @@ const endRide: RequestHandler = async (req, res) => {
 
       const user = req.user as IUser;
       const token = user?.firebaseToken || '';
-      console.log("Ride Ending, sending PS to userA");
+      console.log('Ride Ending, sending PS to userA');
       if (user.allowNotifications) {
-        console.log("Ride Ending, sending PS to user");
-        await sentPushNotification(token, `Lift Update`, `Congratulations! You have earned ${carPoolingGreenPoints} green points for Lift.`, user._id.toString(), carPoolingGreenPoints.toString());
+        console.log('Ride Ending, sending PS to user');
+        await sentPushNotification(
+          token,
+          `Lift Update`,
+          `Congratulations! You have earned ${carPoolingGreenPoints} green points for Lift.`,
+          user._id.toString(),
+          carPoolingGreenPoints.toString()
+        );
       }
     }
 
-
-
-
     pool.droppedOffUsers.forEach(async (user) => {
-      const findUser = await User.findById(user) as IUser;
-      if (!findUser) return; // Handle missing user case 
-      const points = (carPoolingGreenPoints / 4);
+      const findUser = (await User.findById(user)) as IUser;
+      if (!findUser) return; // Handle missing user case
+      const points = carPoolingGreenPoints / 4;
       const userPoints = Math.max(1, Math.trunc(points));
       userRideOwnerPoints = userPoints;
       greenPointsHistoryForResponse.points = userRideOwnerPoints;
@@ -406,13 +407,18 @@ const endRide: RequestHandler = async (req, res) => {
           }
         }
       );
-      console.log("why sendsx");
+      console.log('why sendsx');
       if (findUser.allowNotifications) {
         const token = findUser.firebaseToken || '';
-        await sentPushNotification(token, `Lift Update`, `Congratulations! You have earned ${userPoints} green points for Lift.`, findUser._id.toString(), userPoints.toString());
+        await sentPushNotification(
+          token,
+          `Lift Update`,
+          `Congratulations! You have earned ${userPoints} green points for Lift.`,
+          findUser._id.toString(),
+          userPoints.toString()
+        );
       }
     });
-
 
     return SuccessHandler({
       res,
@@ -432,12 +438,11 @@ const endRide: RequestHandler = async (req, res) => {
 const startRide: RequestHandler = async (req, res) => {
   // #swagger.tags = ['carpooling']
   try {
-
     const id = req.params.id;
     const pool = await Pool.findById(id);
     if (!pool) {
       return ErrorHandler({
-        message: "Pool not found.",
+        message: 'Pool not found.',
         statusCode: 500,
         req,
         res
@@ -458,9 +463,36 @@ const startRide: RequestHandler = async (req, res) => {
       res
     });
   }
-
 };
 
+const getAllPools: RequestHandler = async (req, res) => {
+  // #swagger.tags = ['carpooling']
+  try {
+    const allPools = await Pool.find().populate('user', false).exec();
 
+    return SuccessHandler({
+      res,
+      data: allPools,
+      statusCode: 201
+    });
+  } catch (error) {
+    return ErrorHandler({
+      message: (error as Error).message,
+      statusCode: 500,
+      req,
+      res
+    });
+  }
+};
 
-export { createPool, getPools, getPoolById, deletePool, updatePool, endRide, myPool, startRide };
+export {
+  createPool,
+  getPools,
+  getPoolById,
+  deletePool,
+  updatePool,
+  endRide,
+  myPool,
+  startRide,
+  getAllPools
+};

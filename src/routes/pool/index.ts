@@ -1,7 +1,7 @@
 import express from 'express';
 import { Router } from 'express';
 import * as poolController from '../../controllers/pool/pool.controller';
-import { isAuthenticated } from '../../middleware/auth.middleware';
+import { isAdmin, isAuthenticated } from '../../middleware/auth.middleware';
 
 const router: Router = express.Router();
 
@@ -19,6 +19,8 @@ router
 
 router.route('/end-ride/:id').put(isAuthenticated, poolController.endRide);
 router.route('/start-ride/:id').put(isAuthenticated, poolController.startRide);
-
+router
+  .route('/get-all')
+  .get(isAuthenticated, isAdmin, poolController.getAllPools);
 
 export default router;

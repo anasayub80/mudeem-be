@@ -1069,3 +1069,14 @@
 {"date":"2025-03-04T10:08:13.080Z","level":"error","message":"Cast to ObjectId failed for value \"67c6d10ecdc9e8c712e\" (type string) at path \"_id\" for model \"Variant\"","method":"PUT","service":"user-service","url":"/6778eab8801e601b738f1046"}
 {"date":"2025-03-04T10:13:01.169Z","level":"error","message":"Cast to ObjectId failed for value \"45cb4127-7c2a-4af9-a00a-2b72e51c19d3\" (type string) at path \"_id\" for model \"Variant\"","method":"PUT","service":"user-service","url":"/6778eab8801e601b738f1046"}
 {"date":"2025-03-05T05:26:26.173Z","level":"error","message":"Given transaction number 2 does not match any in-progress transactions. The active transaction number is 1","method":"PUT","service":"user-service","url":"/677d176a17570076ec96d794"}
+{"date":"2025-03-05T09:17:47.554Z","level":"error","message":"Incorrect email.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-03-05T09:17:50.095Z","level":"error","message":"Incorrect email.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-03-05T09:32:58.050Z","level":"error","message":"Incorrect email.","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-03-07T09:54:02.823Z","level":"error","message":"Cannot read properties of undefined (reading '0')","method":"PUT","service":"user-service","url":"/"}
+{"date":"2025-03-07T09:54:58.812Z","level":"error","message":"Cannot read properties of undefined (reading '0')","method":"PUT","service":"user-service","url":"/"}
+{"date":"2025-03-07T10:10:55.030Z","level":"error","message":"Cannot read properties of undefined (reading '0')","method":"PUT","service":"user-service","url":"/"}
+{"date":"2025-03-07T10:10:56.693Z","level":"error","message":"Cannot read properties of undefined (reading '0')","method":"PUT","service":"user-service","url":"/"}
+{"date":"2025-03-07T10:46:38.322Z","level":"error","message":"Cannot read properties of undefined (reading '0')","method":"PUT","service":"user-service","url":"/"}
+{"date":"2025-03-07T10:48:57.469Z","level":"error","message":"Cannot read properties of undefined (reading '0')","method":"PUT","service":"user-service","url":"/"}
+{"date":"2025-03-07T10:50:16.341Z","level":"error","message":"Cannot read properties of undefined (reading '0')","method":"PUT","service":"user-service","url":"/"}
+{"date":"2025-03-07T10:56:29.233Z","level":"error","message":"Cannot read properties of undefined (reading '0')","method":"PUT","service":"user-service","url":"/"}

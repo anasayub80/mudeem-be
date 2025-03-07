@@ -11,9 +11,8 @@ const fetchNotification: RequestHandler = async (req, res) => {
     console.log('fetchNotification');
     const userId = req.user?._id;
     const notifications = await Notification.find({
-      user: new mongoose.Types.ObjectId(userId),
-    })
-      .sort({ createdAt: -1 }); // Sort by createdAt in descending order (newest first)
+      user: new mongoose.Types.ObjectId(userId)
+    }).sort({ createdAt: -1 }); // Sort by createdAt in descending order (newest first)
 
     if (!notifications || notifications.length === 0) {
       return ErrorHandler({
@@ -74,7 +73,7 @@ const fetchNotificationForAdmin: RequestHandler = async (req, res) => {
   try {
     const notification = await Notification.find().populate({
       path: 'user',
-      select: 'name email profilePic'
+      select: 'name email profilePicture'
     });
 
     if (!notification) {
