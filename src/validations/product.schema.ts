@@ -8,6 +8,7 @@ const variantSchema = Joi.object({
     'string.min': 'Variant name should have a minimum length of {#limit}',
     'any.required': 'Variant name is required'
   }),
+  
   price: Joi.number().required().messages({
     'number.base': 'Variant price must be a number',
     'any.required': 'Variant price is required'
@@ -115,7 +116,19 @@ const createProduct = Joi.object({
     'string.min': 'Name should have a minimum length of {#limit}',
     'any.required': 'Name is required'
   }),
+  name_ar: Joi.string().min(3).required().messages({
+    'string.base': 'Name must be a string',
+    'string.empty': 'Name cannot be empty',
+    'string.min': 'Name should have a minimum length of {#limit}',
+    'any.required': 'Name is required'
+  }),
   description: Joi.string().min(3).max(1000).required().messages({
+    'string.base': 'Description must be a string',
+    'string.empty': 'Description cannot be empty',
+    'string.min': 'Description should have a minimum length of {#limit}',
+    'any.required': 'Description is required'
+  }),
+  description_ar: Joi.string().min(3).max(1000).required().messages({
     'string.base': 'Description must be a string',
     'string.empty': 'Description cannot be empty',
     'string.min': 'Description should have a minimum length of {#limit}',
@@ -145,6 +158,11 @@ const createProduct = Joi.object({
     'string.empty': 'Brand cannot be empty',
     'any.required': 'Brand is required'
   }),
+  brand_ar: Joi.string().required().messages({
+    'string.base': 'Brand must be a string',
+    'string.empty': 'Brand cannot be empty',
+    'any.required': 'Brand is required'
+  }),
   featured: Joi.boolean().optional()
 });
 
@@ -154,7 +172,17 @@ const updateProduct = Joi.object({
     'string.empty': 'Name cannot be empty',
     'string.min': 'Name should have a minimum length of {#limit}'
   }),
+  name_ar: Joi.string().min(3).messages({
+    'string.base': 'Name must be a string',
+    'string.empty': 'Name cannot be empty',
+    'string.min': 'Name should have a minimum length of {#limit}'
+  }),
   description: Joi.string().min(3).max(1000).messages({
+    'string.base': 'Description must be a string',
+    'string.empty': 'Description cannot be empty',
+    'string.min': 'Description should have a minimum length of {#limit}'
+  }),
+  description_ar: Joi.string().min(3).max(1000).messages({
     'string.base': 'Description must be a string',
     'string.empty': 'Description cannot be empty',
     'string.min': 'Description should have a minimum length of {#limit}'
@@ -201,6 +229,10 @@ const updateProduct = Joi.object({
     'number.base': 'Green points per unit must be a number'
   }),
   brand: Joi.string().messages({
+    'string.base': 'Brand must be a string',
+    'string.empty': 'Brand cannot be empty'
+  }),
+  brand_ar: Joi.string().messages({
     'string.base': 'Brand must be a string',
     'string.empty': 'Brand cannot be empty'
   }),

@@ -8,7 +8,7 @@ import uploadFile from '../../utils/upload';
 const createCategory: RequestHandler = async (req, res) => {
   // #swagger.tags = ['category']
   try {
-    const { name } = req.body;
+    const { name, name_ar } = req.body;
     if (!req.file) {
       return ErrorHandler({
         message: 'Image is required',
@@ -22,6 +22,7 @@ const createCategory: RequestHandler = async (req, res) => {
 
     const category: ICategory = await Category.create({
       name,
+      name_ar,
       image: image.secure_url
     });
     return SuccessHandler({
@@ -100,8 +101,9 @@ const updateCategory: RequestHandler = async (req, res) => {
         res
       });
     }
-    const { name } = req.body;
+    const { name, name_ar } = req.body;
     category.name = name;
+    category.name_ar = name_ar;
     if (req.file) {
       let image = await uploadFile(req.file.buffer);
 

@@ -7,7 +7,15 @@ const productSchema = new mongoose.Schema<IProduct>(
       type: String,
       required: true
     },
+    name_ar: {
+      type: String,
+      required: true
+    },
     description: {
+      type: String,
+      required: true
+    },
+    description_ar: {
       type: String,
       required: true
     },
@@ -65,6 +73,10 @@ const productSchema = new mongoose.Schema<IProduct>(
       default: true
     },
     brand: {
+      type: String,
+      required: true
+    },
+    brand_ar: {
       type: String,
       required: true
     },

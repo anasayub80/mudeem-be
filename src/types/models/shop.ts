@@ -10,6 +10,7 @@ export interface IBanner extends Document {
 
 export interface ICategory extends Document {
   name: string;
+  name_ar: string;
   image: string;
   isActive: boolean;
 }
@@ -30,7 +31,9 @@ export interface IVariant extends Document {
 
 export interface IProduct extends Document {
   name: string;
+  name_ar: string;
   description: string;
+  description_ar: string;
   price: number;
   category: mongoose.Schema.Types.ObjectId;
   images: string[];
@@ -45,6 +48,7 @@ export interface IProduct extends Document {
   };
   stock: boolean;
   brand: string;
+  brand_ar: string;
   featured: boolean;
   sold: number;
   vendor: mongoose.Schema.Types.ObjectId;

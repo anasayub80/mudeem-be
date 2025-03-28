@@ -6,6 +6,10 @@ const categorySchema = new mongoose.Schema<ICategory>({
     type: String,
     required: true
   },
+  name_ar: {
+    type: String,
+    required: true
+  },
   image: {
     type: String,
     required: true

@@ -15,12 +15,15 @@ const createProduct: RequestHandler = async (req, res) => {
     session.startTransaction();
     const {
       name,
+      name_ar,
       description,
+      description_ar,
       price,
       category,
       variants,
       greenPointsPerUnit,
-      brand
+      brand,
+      brand_ar
     } = req.body;
 
     const jsonVariants = JSON.parse(variants);
@@ -51,7 +54,9 @@ const createProduct: RequestHandler = async (req, res) => {
       [
         {
           name,
+          name_ar,
           description,
+          description_ar,
           price,
           category,
           images: images,
@@ -59,6 +64,7 @@ const createProduct: RequestHandler = async (req, res) => {
           greenPointsPerUnit,
           user: req.user?._id,
           brand,
+          brand_ar,
           featured: req.body.featured || false,
           vendor: user?._id || '6763ed1956b22e551b58a262'
         }
@@ -292,7 +298,9 @@ const updateProduct: RequestHandler = async (req, res) => {
     session.startTransaction();
     const {
       name,
+      name_ar,
       description,
+      description_ar,
       price,
       category,
       updatedVariants = '[]',
@@ -300,6 +308,7 @@ const updateProduct: RequestHandler = async (req, res) => {
       newVariants = '[]',
       greenPointsPerUnit,
       brand,
+      brand_ar,
       deletedImages = '[]'
     } = req.body;
     const product: IProduct | null = await Product.findById(req.params.id);
@@ -378,11 +387,14 @@ const updateProduct: RequestHandler = async (req, res) => {
       product.images.push(...images);
     }
     product.name = name;
+    product.name_ar = name_ar;
     product.description = description;
+    product.description_ar = description_ar;
     product.price = price;
     product.category = category;
     product.greenPointsPerUnit = greenPointsPerUnit;
     product.brand = brand;
+    product.brand_ar = brand_ar;
     product.featured = req.body.featured
       ? JSON.parse(req.body.featured)
       : false;
