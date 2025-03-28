@@ -49,14 +49,14 @@ const update: RequestHandler = async (req, res) => {
 
     if (req?.files) {
       // @ts-ignore
-      if (req.files.favIcon[0].buffer) {
+      if (req?.files?.favIcon && req?.files?.favIcon[0]?.buffer) {
         // @ts-ignore
-        favicon = await uploadFile(req.files.favIcon[0].buffer);
+        favicon = await uploadFile(req?.files?.favIcon[0]?.buffer);
       }
       // @ts-ignore
-      if (req.files.favIcon[0].buffer) {
+      if (req?.files?.logo && req?.files?.logo[0]?.buffer) {
         // @ts-ignore
-        logo = await uploadFile(req.files.logo[0].buffer);
+        logo = await uploadFile(req?.files?.logo[0]?.buffer);
       }
     }
 
@@ -68,8 +68,8 @@ const update: RequestHandler = async (req, res) => {
       });
     }
 
-    setting.logo = logo.secure_url || data.logo;
-    setting.favIcon = favicon.secure_url || data.favIcon;
+    setting.logo = logo.secure_url || setting.logo;
+    setting.favIcon = favicon.secure_url || setting.favIcon;
     setting.websiteName = data.websiteName;
     setting.websiteDescription = data.websiteDescription;
     setting.carPoolingGreenPoints = data.carPoolingGreenPoints;

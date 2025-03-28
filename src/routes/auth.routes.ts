@@ -33,21 +33,23 @@ router
   .route('/updatePassword')
   .put(isAuthenticated, validate(schema.updatePassword), auth.updatePassword);
 
-router.route('/updateProfile').put(isAuthenticated,
-  multerMiddleware.single('profilePicture'),
-  auth.updateProfile);
+router.route('/deleteProfile/:id').delete(auth.deleteProfile);
+
+router
+  .route('/updateProfile')
+  .put(
+    isAuthenticated,
+    multerMiddleware.single('profilePicture'),
+    auth.updateProfile
+  );
 
 router
   .route('/changeSubscription')
   .put(isAuthenticated, auth.changeSubscriptionStatus);
 
-router
-  .route('/push-notfications')
-  .put(isAuthenticated, auth.pushNotification);
+router.route('/push-notfications').put(isAuthenticated, auth.pushNotification);
 
-router
-  .route('/green-points')
-  .put(isAuthenticated, auth.greenPoints);
+router.route('/green-points').put(isAuthenticated, auth.greenPoints);
 
 // DELETE routes
 router
@@ -61,9 +63,6 @@ router
 // Toggle Notifications  routes
 router
   .route('/toggle-notifications')
-  .get(
-    isAuthenticated, 
-    auth.toggleNotifications
-  );
+  .get(isAuthenticated, auth.toggleNotifications);
 
 export default router;

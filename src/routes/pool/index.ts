@@ -10,6 +10,9 @@ router
   .post(isAuthenticated, poolController.createPool)
   .get(poolController.getPools);
 
+router
+  .route('/get-all')
+  .get(isAuthenticated, isAdmin, poolController.getAllPools);
 router.route('/get-my-pool').get(isAuthenticated, poolController.myPool);
 router
   .route('/:id')
@@ -19,8 +22,5 @@ router
 
 router.route('/end-ride/:id').put(isAuthenticated, poolController.endRide);
 router.route('/start-ride/:id').put(isAuthenticated, poolController.startRide);
-router
-  .route('/get-all')
-  .get(isAuthenticated, isAdmin, poolController.getAllPools);
 
 export default router;

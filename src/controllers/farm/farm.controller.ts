@@ -4,7 +4,7 @@ import SuccessHandler from '../../utils/successHandler';
 import uploadFile from '../../utils/upload';
 import Farm from '../../models/farm/farm.model';
 import User from '../../models/User/user.model';
-import { sentPushNotification } from 'utils/firebase';
+import { sentPushNotification } from '../../utils/firebase';
 
 const createFarm: RequestHandler = async (req, res) => {
   // #swagger.tags = ['farm']
@@ -172,8 +172,13 @@ const approveRejectFarm: RequestHandler = async (req, res) => {
         }
       });
       const token = user?.firebaseToken || '';
-      await sentPushNotification(token, `Farm Approved`, `Congratulations! You have earned ${req.body.greenPoints} green points for your Farm approval.`, user?._id.toString(), req.body.greenPoints.toString());
-
+      await sentPushNotification(
+        token,
+        `Farm Approved`,
+        `Congratulations! You have earned ${req.body.greenPoints} green points for your Farm approval.`,
+        user?._id.toString(),
+        req.body.greenPoints.toString()
+      );
     } else if (status === 'rejected') {
       farm.status = 'rejected';
     }

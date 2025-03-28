@@ -35,7 +35,6 @@ const pushNotification: RequestHandler = async (req, res) => {
 const findUsers: RequestHandler = async (req, res) => {
   // #swagger.tags = ['auth']
   try {
-
     if (!req.query.name) {
       return ErrorHandler({
         message: "Name can't be empty.",
@@ -63,7 +62,6 @@ const findUsers: RequestHandler = async (req, res) => {
       ]
     };
 
-
     const users = await User.find(filters);
     return SuccessHandler({
       data: users,
@@ -78,7 +76,7 @@ const findUsers: RequestHandler = async (req, res) => {
       res
     });
   }
-}
+};
 //register
 const register: RequestHandler = async (req, res) => {
   // #swagger.tags = ['auth']
@@ -311,9 +309,9 @@ const login: RequestHandler = async (req, res) => {
           });
         }
         captureUserAgent(req, res, () => {
-
           return res.status(200).json({
-            message: 'Login successful'
+            message: 'Login successful',
+            user: user
           });
         });
       });
@@ -518,12 +516,15 @@ const me: RequestHandler = async (req, res) => {
     return SuccessHandler({
       data: {
         user,
-        sessions: req.user?.role !== 'admin' ? {} : sessions.map((session) => ({
-          _id: session._id,
-          deviceInfo: session.session.deviceInfo,
-          lastActive: session.session.lastActive,
-          current: session._id === req.sessionID
-        }))
+        sessions:
+          req.user?.role !== 'admin'
+            ? {}
+            : sessions.map((session) => ({
+                _id: session._id,
+                deviceInfo: session.session.deviceInfo,
+                lastActive: session.session.lastActive,
+                current: session._id === req.sessionID
+              }))
       },
       statusCode: 200,
       res
@@ -644,7 +645,8 @@ const changeSubscriptionStatus: RequestHandler = async (req, res) => {
 const greenPoints: RequestHandler = async (req, res) => {
   // #swagger.tags = ['auth']
   try {
-    const { userId, reason, points, type } = req.body as authTypes.GreenPointsBody;
+    const { userId, reason, points, type } =
+      req.body as authTypes.GreenPointsBody;
     if (!userId) {
       return ErrorHandler({
         message: 'User ID is required',
@@ -665,7 +667,7 @@ const greenPoints: RequestHandler = async (req, res) => {
           greenPointsHistory: {
             points: points || 0,
             reason: reason,
-            type: type,
+            type: type
           }
         }
       }
@@ -689,7 +691,6 @@ const greenPoints: RequestHandler = async (req, res) => {
 const toggleNotifications: RequestHandler = async (req, res) => {
   // #swagger.tags = ['auth']
   try {
-
     const user = req.user as IUser;
     const findUser = await User.findById(user._id);
     if (!findUser) {
@@ -719,6 +720,33 @@ const toggleNotifications: RequestHandler = async (req, res) => {
   }
 };
 
+const deleteProfile: RequestHandler = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await User.findOne({ _id: id, role: 'user' });
+    if (!user) {
+      return ErrorHandler({
+        message: 'User not found',
+        statusCode: 404,
+        req,
+        res
+      });
+    }
+    await user.delete();
+    return SuccessHandler({
+      data: { user: user, message: 'User successfully updated' },
+      statusCode: 200,
+      res
+    });
+  } catch (error) {
+    return ErrorHandler({
+      message: (error as Error).message,
+      statusCode: 500,
+      req,
+      res
+    });
+  }
+};
 export {
   toggleNotifications,
   greenPoints,
@@ -735,5 +763,6 @@ export {
   updateProfile,
   changeSubscriptionStatus,
   findUsers,
-  pushNotification
+  pushNotification,
+  deleteProfile
 };
