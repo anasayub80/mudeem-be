@@ -7,7 +7,15 @@ const bookSchema = new mongoose.Schema<IBook>(
       type: String,
       required: true
     },
+    title_ar: {
+      type: String,
+      required: true
+    },
     author: {
+      type: String,
+      required: true
+    },
+    author_ar: {
       type: String,
       required: true
     },
@@ -15,6 +23,11 @@ const bookSchema = new mongoose.Schema<IBook>(
       type: String,
       required: true
     },
+    description_ar: {
+      type: String,
+      required: true
+    },
+   
     pages: {
       type: Number,
       required: true

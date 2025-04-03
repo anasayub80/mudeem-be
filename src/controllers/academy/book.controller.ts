@@ -11,8 +11,11 @@ const createBook: RequestHandler = async (req, res) => {
   try {
     const {
       title,
+      title_ar,
       description,
+      description_ar,
       author,
+      author_ar,
       pages,
       language,
       year,
@@ -37,8 +40,11 @@ const createBook: RequestHandler = async (req, res) => {
 
     const book = await Book.create({
       title,
+      title_ar,
       description,
+      description_ar,
       author,
+      author_ar,
       pages,
       thumbnail: thumbnail.secure_url,
       content: bookpdf.secure_url,
