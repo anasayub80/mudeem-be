@@ -6,6 +6,10 @@ const variantSchema = new mongooose.Schema<IVariant>({
     type: String,
     required: true
   },
+  name_ar: {
+    type: String,
+    required: true
+  },
   price: {
     type: Number,
     required: true

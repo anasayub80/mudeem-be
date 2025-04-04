@@ -17,6 +17,7 @@ export interface ICategory extends Document {
 
 export interface IVariant extends Document {
   name: string;
+  name_ar: string;
   price: number;
   sizes: {
     size: string;
