@@ -168,8 +168,8 @@ const createOrder: RequestHandler = async (req, res) => {
     // @ts-ignore
     console.log(req.user?.greenPoints, totalAmount, totalGreenPoints);
 
-    req.user?.greenPoints &&
-      (await User.updateOne(
+    if (req.user?.greenPoints) {
+      await User.updateOne(
         { _id: req.user?._id },
         {
           $set: {
@@ -182,19 +182,20 @@ const createOrder: RequestHandler = async (req, res) => {
                   points: totalGreenPoints,
                   reason: "Order placed",
                   type: "debit",
-                  orderId: order._id
+                  date: new Date()
                 },
                 {
                   points: 40,
                   reason: "Order placed",
                   type: "credit",
-                  orderId: order._id
+                  date: new Date()
                 }
               ]
             }
           }
         }
-      ));
+      );
+    }
 
     var greenPointsHistoryForResponse = {
       points: 40,

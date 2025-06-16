@@ -8,9 +8,9 @@ import { generateAiResponse, createThread } from '../../utils/openai';
 const sendMessage: RequestHandler = async (req, res) => {
   // #swagger.tags = ['gpt']
   try {
-    if (!req.user?.isSubscribed) {
+    if (!req.user?.subscriptions.sustainbuddyGPT) {
       return ErrorHandler({
-        message: 'You need to subscribe to access this feature',
+        message: 'You need to subscribe to SustainBuddy GPT to access this feature',
         statusCode: 403,
         req,
         res
@@ -75,9 +75,9 @@ const getChat: RequestHandler = async (req, res) => {
     const chat = await Chat.findOne({
       user: req.user?._id
     });
-    if (!req.user?.isSubscribed) {
+    if (!req.user?.subscriptions.sustainbuddyGPT) {
       return ErrorHandler({
-        message: 'You need to subscribe to access this feature',
+        message: 'You need to subscribe to SustainBuddy GPT to access this feature',
         statusCode: 403,
         req,
         res

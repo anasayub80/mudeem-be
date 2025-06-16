@@ -222,8 +222,8 @@ const verifyEmail: RequestHandler = async (req, res) => {
       });
     }
     user.emailVerified = true;
-    user.emailVerificationToken = null;
-    user.emailVerificationTokenExpires = null;
+    user.emailVerificationToken = undefined;
+    user.emailVerificationTokenExpires = undefined;
     await user.save();
     return SuccessHandler({
       data: {
@@ -431,8 +431,8 @@ const resetPassword: RequestHandler = async (req, res) => {
       });
     }
     user.password = password;
-    user.passwordResetToken = null;
-    user.passwordResetTokenExpires = null;
+    user.passwordResetToken = undefined;
+    user.passwordResetTokenExpires = undefined;
     await user.save();
     return SuccessHandler({
       data: 'Password reset successfully',
@@ -520,11 +520,11 @@ const me: RequestHandler = async (req, res) => {
           req.user?.role !== 'admin'
             ? {}
             : sessions.map((session) => ({
-                _id: session._id,
-                deviceInfo: session.session.deviceInfo,
-                lastActive: session.session.lastActive,
-                current: session._id === req.sessionID
-              }))
+              _id: session._id,
+              deviceInfo: session.session.deviceInfo,
+              lastActive: session.session.lastActive,
+              current: session._id === req.sessionID
+            }))
       },
       statusCode: 200,
       res
@@ -601,34 +601,6 @@ const updateProfile: RequestHandler = async (req, res) => {
     user.save();
     return SuccessHandler({
       data: { user: user, message: 'User successfully updated' },
-      statusCode: 200,
-      res
-    });
-  } catch (error) {
-    return ErrorHandler({
-      message: (error as Error).message,
-      statusCode: 500,
-      req,
-      res
-    });
-  }
-};
-
-const changeSubscriptionStatus: RequestHandler = async (req, res) => {
-  try {
-    const user = await User.findById(req.user?._id);
-    if (!user) {
-      return ErrorHandler({
-        message: 'User not found',
-        statusCode: 404,
-        req,
-        res
-      });
-    }
-    user.isSubscribed = !user.isSubscribed;
-    await user.save();
-    return SuccessHandler({
-      data: 'Subscription status updated successfully',
       statusCode: 200,
       res
     });
@@ -761,7 +733,6 @@ export {
   updatePassword,
   removeSessions,
   updateProfile,
-  changeSubscriptionStatus,
   findUsers,
   pushNotification,
   deleteProfile

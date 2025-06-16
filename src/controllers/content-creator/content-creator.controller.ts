@@ -1,11 +1,13 @@
 import { RequestHandler } from 'express';
 import ErrorHandler from '../../utils/errorHandler';
-import SuccessHandler from '../../utils/successHandler';
 import uploadFile from '../../utils/upload';
 import Reel from '../../models/content-creator/reel';
 import ReelComment from '../../models/content-creator/reel-comment';
 import mongoose from 'mongoose';
 import User from '../../models/User/user.model';
+import SuccessHandler from '../../utils/successHandler';
+import { sentPushNotification } from '../../utils/firebase';
+import ContentCreator from '../../models/content-creator/reel';
 
 const createContent: RequestHandler = async (req, res) => {
   // #swagger.tags = ['content-creator']
@@ -13,15 +15,17 @@ const createContent: RequestHandler = async (req, res) => {
     console.log("FILES:", req.files);
     console.log("BODY:", req.body);
 
-    if (!req.user?.isSubscribed) {
+    if (!req.user?.subscriptions.contentCreator) {
       return ErrorHandler({
-        message: 'You need to subscribe to access this feature',
+        message: 'You need to subscribe to Content Creator to access this feature',
         statusCode: 403,
         req,
         res
       });
     }
-    const { description } = req.body;
+    const { title, description } = req.body;
+    const user = await User.findById(req.user?._id);
+    const userToken = user?.firebaseToken || '';
     if (!req?.files) {
       return ErrorHandler({
         message: 'Files are required',
@@ -52,25 +56,35 @@ const createContent: RequestHandler = async (req, res) => {
     let videoLink = await uploadFile(req.files.video[0].buffer);
     // @ts-ignore
     let thumbnailLink = await uploadFile(req.files.thumbnail[0].buffer);
-    const content = await Reel.create({
+    const content = await ContentCreator.create({
       user: req.user?._id,
+      title,
+      description,
       url: videoLink.secure_url,
-      thumbnail: thumbnailLink.secure_url,
-      description
+      thumbnail: thumbnailLink.secure_url
     });
+    const contentCreatorGreenPoints = 30;
     await User.updateOne(
       { _id: req.user?._id },
       {
-        $inc: { greenPoints: 30 },
+        $inc: { greenPoints: contentCreatorGreenPoints },
         $push: {
           greenPointsHistory: {
-            points: 30,
-            reason: 'content',
-            type: 'credit',
-            date: Date.now()
+            points: contentCreatorGreenPoints || 0,
+            reason: "Content Creator",
+            type: "credit",
+            date: new Date()
           }
         }
       }
+    );
+
+    await sentPushNotification(
+      userToken,
+      `Content Creator accepted`,
+      `Congratulations! You have earned ${contentCreatorGreenPoints} green points for Content Creator.`,
+      user?._id.toString(),
+      contentCreatorGreenPoints.toString()
     );
     return SuccessHandler({
       res,
@@ -91,9 +105,9 @@ const getReels: RequestHandler = async (req, res) => {
   // #swagger.tags = ['content-creator']
 
   try {
-    if (!req.user?.isSubscribed) {
+    if (!req.user?.subscriptions.contentCreator) {
       return ErrorHandler({
-        message: 'You need to subscribe to access this feature',
+        message: 'You need to subscribe to Content Creator to access this feature',
         statusCode: 403,
         req,
         res
@@ -259,7 +273,7 @@ const likeUnlikeReel: RequestHandler = async (req, res) => {
   try {
     const { id } = req.params;
     const reel = await Reel.findById(id);
-    let greenPoints = 0 as Number;
+    let points = 0;
     if (!reel) {
       return ErrorHandler({
         message: 'Reel not found',
@@ -268,31 +282,31 @@ const likeUnlikeReel: RequestHandler = async (req, res) => {
         res
       });
     }
+
     const userId = req.user?._id;
-    if (reel.likes.includes(userId)) {
+    const hasLiked = reel.likes.includes(userId);
+
+    if (hasLiked) {
       reel.likes = reel.likes.filter(
         (like) => like.toString() !== userId.toString()
       );
-      greenPoints = -50
+      points = -50;
     } else {
       reel.likes.push(userId);
-      greenPoints = 50
+      points = 50;
     }
     await reel.save();
 
     await User.updateOne(
+      { _id: userId },
       {
-        _id: userId
-      },
-      {
-        $inc: {
-          greenPoints: -greenPoints
-        },
+        $inc: { greenPoints: points },
         $push: {
           greenPointsHistory: {
-            points: greenPoints || 0,
-            type: greenPoints ? 'credit' : 'debit',
-            reason: 'conent-creator'
+            points: points || 0,
+            reason: "Content moderation",
+            type: "debit",
+            date: new Date()
           }
         }
       }

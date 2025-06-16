@@ -18740,3 +18740,52 @@
 {"date":"2025-03-07T11:18:26.705Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/notification/all"}
 {"date":"2025-03-07T11:41:40.493Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
 {"date":"2025-03-07T11:41:40.800Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/setting"}
+{"date":"2025-06-16T08:43:13.967Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/"}
+{"date":"2025-06-16T08:43:15.075Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/favicon.ico"}
+{"date":"2025-06-16T08:50:20.862Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-06-16T09:03:24.570Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/"}
+{"date":"2025-06-16T09:08:13.756Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2025-06-16T09:08:14.156Z","level":"error","message":"Cannot create property 'history' on number '255'","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-06-16T09:08:55.989Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2025-06-16T09:08:56.112Z","level":"error","message":"Cannot create property 'history' on number '15075'","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-06-16T09:30:04.488Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2025-06-16T09:30:50.470Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2025-06-16T09:30:51.354Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-06-16T09:30:54.228Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/leaderboard/?type=all"}
+{"date":"2025-06-16T09:30:54.237Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-06-16T09:32:23.459Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/banner/"}
+{"date":"2025-06-16T09:32:23.477Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/category"}
+{"date":"2025-06-16T09:32:23.487Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?limit=10&page=1&featured=true"}
+{"date":"2025-06-16T09:32:23.509Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/shop/product/?page=1&limit=5"}
+{"date":"2025-06-16T09:33:47.647Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/auth/login"}
+{"date":"2025-06-16T09:33:48.356Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-06-16T09:33:52.111Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/leaderboard/?type=all"}
+{"date":"2025-06-16T09:33:52.155Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-06-16T09:34:37.929Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/leaderboard/?type=all"}
+{"date":"2025-06-16T09:34:37.994Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-06-16T09:38:06.864Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/leaderboard/?type=all"}
+{"date":"2025-06-16T09:38:07.001Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-06-16T09:43:24.557Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/leaderboard/?type=all"}
+{"date":"2025-06-16T09:43:24.864Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-06-16T09:47:21.753Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/leaderboard/?type=all"}
+{"date":"2025-06-16T09:47:21.875Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-06-16T09:57:55.868Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/leaderboard/?type=all"}
+{"date":"2025-06-16T09:57:56.405Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-06-16T10:03:31.457Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-06-16T10:03:32.197Z","level":"error","message":"You need to subscribe to SustainBuddy GPT to access this feature","method":"GET","service":"user-service","url":"/"}
+{"date":"2025-06-16T10:05:28.070Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/leaderboard/?type=all"}
+{"date":"2025-06-16T10:05:28.592Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/auth/me"}
+{"date":"2025-06-16T10:07:21.840Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-06-16T10:07:23.404Z","level":"error","message":"You need to subscribe to SustainBuddy GPT to access this feature","method":"GET","service":"user-service","url":"/"}
+{"date":"2025-06-16T10:11:38.645Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/verify"}
+{"date":"2025-06-16T10:11:48.720Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/subscription/verify"}
+{"date":"2025-06-16T10:11:52.543Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/subscriptions/verify"}
+{"date":"2025-06-16T10:12:16.698Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/subscriptions/my-subscriptions"}
+{"date":"2025-06-16T10:12:21.641Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/my-subscriptions"}
+{"date":"2025-06-16T10:13:10.104Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/subscription/my-subscriptions"}
+{"date":"2025-06-16T10:13:39.695Z","level":"info","message":"Request received","method":"POST","service":"user-service","url":"/subscription/verify"}
+{"date":"2025-06-16T10:13:39.848Z","level":"error","message":"Invalid subscription type","method":"POST","service":"user-service","url":"/verify"}
+{"date":"2025-06-16T10:20:10.724Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-06-16T10:20:11.305Z","level":"error","message":"You need to subscribe to SustainBuddy GPT to access this feature","method":"GET","service":"user-service","url":"/"}
+{"date":"2025-06-16T10:22:04.113Z","level":"info","message":"Request received","method":"GET","service":"user-service","url":"/gpt/"}
+{"date":"2025-06-16T10:22:04.545Z","level":"error","message":"You need to subscribe to SustainBuddy GPT to access this feature","method":"GET","service":"user-service","url":"/"}

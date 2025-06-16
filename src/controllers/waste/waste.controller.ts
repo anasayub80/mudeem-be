@@ -182,18 +182,28 @@ const approveRejectRequest: RequestHandler = async (req, res) => {
     const request = await Waste.findByIdAndUpdate(id, { status });
     const user = await User.findById(request?.user);
     if (request && status === 'accepted') {
-      await User.findByIdAndUpdate(request.user, {
-        $inc: { greenPoints: req.body.greenPoints },
-        $push: {
-          greenPointsHistory: {
-            points: req.body.greenPoints,
-            reason: 'Waste Collection',
-            date: Date.now()
+      await User.updateOne(
+        { _id: req.user?._id },
+        {
+          $inc: { greenPoints: req.body.greenPoints },
+          $push: {
+            greenPointsHistory: {
+              points: req.body.greenPoints || 0,
+              reason: "Waste",
+              type: "credit",
+              date: new Date()
+            }
           }
         }
-      });
+      );
       const token = user?.firebaseToken || '';
-      await sentPushNotification(token, `Waste accepted`, `Congratulations! You have earned ${req.body.greenPoints} green points for your waste collection.`, user?._id.toString(), req.body.greenPoints.toString());
+      await sentPushNotification(
+        token,
+        `Waste accepted`,
+        `Congratulations! You have earned ${req.body.greenPoints} green points for Waste.`,
+        user?._id.toString(),
+        req.body.greenPoints.toString()
+      );
     }
     return SuccessHandler({ res, data: request, statusCode: 200 });
   } catch (error) {

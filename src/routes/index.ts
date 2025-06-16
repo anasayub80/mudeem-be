@@ -15,10 +15,10 @@ import leaderboard from './leaderboard';
 import dashboard from './dashboard';
 import setting from './settings/settings';
 import pool from './pool/index';
-
+import subscription from './subscription.routes';
 import user from './users/index';
-
 import notification from './notifications/notification';
+
 const router: Router = express.Router();
 
 router.use('/auth', auth);
@@ -39,5 +39,6 @@ router.use('/setting', setting);
 router.use('/dashboard', dashboard);
 router.use('/user', user);
 router.use('/notification', notification);
+router.use('/subscription', subscription);
 
 export default router;

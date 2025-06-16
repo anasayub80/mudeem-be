@@ -9,7 +9,11 @@ const router: Router = express.Router();
 
 // GET routes
 router.route('/logout').get(auth.logout);
-router.route('/me').get(isAuthenticated, auth.me);
+router
+  .route('/me')
+  .get(isAuthenticated, auth.me)
+  .put(isAuthenticated, auth.updateProfile)
+  .delete(isAuthenticated, auth.deleteProfile);
 
 // POST routes
 router.route('/register-user').post(validate(schema.register), auth.register);
@@ -42,10 +46,6 @@ router
     multerMiddleware.single('profilePicture'),
     auth.updateProfile
   );
-
-router
-  .route('/changeSubscription')
-  .put(isAuthenticated, auth.changeSubscriptionStatus);
 
 router.route('/push-notfications').put(isAuthenticated, auth.pushNotification);
 

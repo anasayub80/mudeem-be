@@ -1080,3 +1080,10 @@
 {"date":"2025-03-07T10:48:57.469Z","level":"error","message":"Cannot read properties of undefined (reading '0')","method":"PUT","service":"user-service","url":"/"}
 {"date":"2025-03-07T10:50:16.341Z","level":"error","message":"Cannot read properties of undefined (reading '0')","method":"PUT","service":"user-service","url":"/"}
 {"date":"2025-03-07T10:56:29.233Z","level":"error","message":"Cannot read properties of undefined (reading '0')","method":"PUT","service":"user-service","url":"/"}
+{"date":"2025-06-16T09:08:14.156Z","level":"error","message":"Cannot create property 'history' on number '255'","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-06-16T09:08:56.112Z","level":"error","message":"Cannot create property 'history' on number '15075'","method":"POST","service":"user-service","url":"/login"}
+{"date":"2025-06-16T10:03:32.197Z","level":"error","message":"You need to subscribe to SustainBuddy GPT to access this feature","method":"GET","service":"user-service","url":"/"}
+{"date":"2025-06-16T10:07:23.404Z","level":"error","message":"You need to subscribe to SustainBuddy GPT to access this feature","method":"GET","service":"user-service","url":"/"}
+{"date":"2025-06-16T10:13:39.848Z","level":"error","message":"Invalid subscription type","method":"POST","service":"user-service","url":"/verify"}
+{"date":"2025-06-16T10:20:11.305Z","level":"error","message":"You need to subscribe to SustainBuddy GPT to access this feature","method":"GET","service":"user-service","url":"/"}
+{"date":"2025-06-16T10:22:04.545Z","level":"error","message":"You need to subscribe to SustainBuddy GPT to access this feature","method":"GET","service":"user-service","url":"/"}

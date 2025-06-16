@@ -57,7 +57,7 @@ const userSchema = new mongoose.Schema<IUser>(
       type: Date,
       default: null
     },
-    firebaseToken: {  
+    firebaseToken: {
       type: String,
       default: null,
     },
@@ -65,11 +65,16 @@ const userSchema = new mongoose.Schema<IUser>(
       type: Number,
       default: 0
     },
+    greenPointsHistory: [{
+      points: { type: Number, required: true },
+      reason: { type: String },
+      type: { type: String },
+      date: { type: Date, default: Date.now }
+    }],
     isActive: {
       type: Boolean,
       default: true
     },
-
     adminApproved: {
       type: Boolean,
       default: false
@@ -83,26 +88,20 @@ const userSchema = new mongoose.Schema<IUser>(
     profilePicture: {
       type: String
     },
-    greenPointsHistory: {
-      type: [
-        {
-          points: { type: Number, required: true },
-          reason: { type: String, required: false },
-          type: { type: String, required: false, default: 'credit' },
-          date: { type: Date, default: Date.now },
-        },
-      ],
-      default: [],
-      required: false, 
-    },
-    isSubscribed: {
-      type: Boolean,
-      default: false
-    },
     allowNotifications: {
       type: Boolean,
       default: true,
       required: false
+    },
+    subscriptions: {
+      sustainbuddyGPT: {
+        type: Boolean,
+        default: false
+      },
+      contentCreator: {
+        type: Boolean,
+        default: false
+      }
     }
   },
   { timestamps: true }

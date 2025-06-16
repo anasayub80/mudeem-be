@@ -352,73 +352,56 @@ const endRide: RequestHandler = async (req, res) => {
 
     const carPoolingGreenPoints = Number(setting.carPoolingGreenPoints || 0);
     greenPointsHistoryForResponse.points = carPoolingGreenPoints;
-    console.log('Supposed to send not here', pool.droppedOffUsers.length);
-    if (pool.droppedOffUsers.length > 0) {
-      await User.findByIdAndUpdate(pool.user, {
-        $set: {
-          greenPoints: carPoolingGreenPoints
-        },
+
+    const user = req.user as IUser;
+    const userToken = user?.firebaseToken || '';
+
+    await User.updateOne(
+      { _id: req.user?._id },
+      {
+        $inc: { greenPoints: carPoolingGreenPoints },
         $push: {
           greenPointsHistory: {
             points: carPoolingGreenPoints || 0,
-            type: 'credit',
-            reason: 'carpooling'
+            reason: "Lift",
+            type: "credit",
+            date: new Date()
           }
         }
-      });
-
-      const user = req.user as IUser;
-      const token = user?.firebaseToken || '';
-      console.log('Ride Ending, sending PS to userA');
-      if (user.allowNotifications) {
-        console.log('Ride Ending, sending PS to user');
-        await sentPushNotification(
-          token,
-          `Lift Update`,
-          `Congratulations! You have earned ${carPoolingGreenPoints} green points for Lift.`,
-          user._id.toString(),
-          carPoolingGreenPoints.toString()
-        );
       }
-    }
+    );
 
-    pool.droppedOffUsers.forEach(async (user) => {
-      const findUser = (await User.findById(user)) as IUser;
-      if (!findUser) return; // Handle missing user case
-      const points = carPoolingGreenPoints / 4;
-      const userPoints = Math.max(1, Math.trunc(points));
-      userRideOwnerPoints = userPoints;
-      greenPointsHistoryForResponse.points = userRideOwnerPoints;
-      const greenPoints = (findUser.greenPoints || 0) + userPoints;
-      await User.updateOne(
-        {
-          _id: user
+    await sentPushNotification(
+      userToken,
+      `Lift accepted`,
+      `Congratulations! You have earned ${carPoolingGreenPoints} green points for Lift.`,
+      user?._id.toString(),
+      carPoolingGreenPoints.toString()
+    );
+
+    const points = carPoolingGreenPoints / 4;
+    const rideOwnerPoints = Math.floor(points);
+    const userPoints = Math.floor(points);
+
+    greenPointsHistoryForResponse.points = rideOwnerPoints;
+    const userTotalPoints = (user.greenPoints || 0) + userPoints;
+
+    await User.updateOne(
+      { _id: user._id },
+      {
+        $set: {
+          greenPoints: userTotalPoints
         },
-        {
-          $set: {
-            greenPoints: greenPoints
-          },
-          $push: {
-            greenPointsHistory: {
-              points: userPoints || 0,
-              type: 'credit',
-              reason: 'carpooling'
-            }
+        $push: {
+          greenPointsHistory: {
+            points: userPoints,
+            reason: "Lift",
+            type: "credit",
+            date: new Date()
           }
         }
-      );
-      console.log('why sendsx');
-      if (findUser.allowNotifications) {
-        const token = findUser.firebaseToken || '';
-        await sentPushNotification(
-          token,
-          `Lift Update`,
-          `Congratulations! You have earned ${userPoints} green points for Lift.`,
-          findUser._id.toString(),
-          userPoints.toString()
-        );
       }
-    });
+    );
 
     return SuccessHandler({
       res,

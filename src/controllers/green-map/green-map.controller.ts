@@ -3,6 +3,7 @@ import ErrorHandler from '../../utils/errorHandler';
 import SuccessHandler from '../../utils/successHandler';
 import GreenMap from '../../models/green-map/green-map.model';
 import User from '../../models/User/user.model';
+import { sentPushNotification } from '../../utils/firebase';
 
 const createGreenMap: RequestHandler = async (req, res) => {
   // #swagger.tags = ['green-map']
@@ -166,15 +167,31 @@ const rewardGreenMap: RequestHandler = async (req, res) => {
         res
       });
     }
-    user.greenPoints += greenMap.greenPointsPerTime;
-    user.greenPointsHistory.push({ 
-      points: greenMap.greenPointsPerTime || 0,
-      type: 'credit',
-      reason: 'Green map reward',
-      date: new Date() 
-    });
+    const greenMapGreenPoints = greenMap.greenPointsPerTime || 0;
+    await User.updateOne(
+      { _id: req.user?._id },
+      {
+        $inc: { greenPoints: greenMapGreenPoints },
+        $push: {
+          greenPointsHistory: {
+            points: greenMapGreenPoints || 0,
+            reason: "Green Map",
+            type: "credit",
+            date: new Date()
+          }
+        }
+      }
+    );
 
-    await user.save();
+    const userToken = user?.firebaseToken || '';
+
+    await sentPushNotification(
+      userToken,
+      `Green Map accepted`,
+      `Congratulations! You have earned ${greenMapGreenPoints} green points for Green Map.`,
+      user?._id.toString(),
+      greenMapGreenPoints.toString()
+    );
 
     return SuccessHandler({
       res,

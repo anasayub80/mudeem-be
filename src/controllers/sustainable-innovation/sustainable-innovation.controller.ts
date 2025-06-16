@@ -157,21 +157,29 @@ const changeProjectStatus: RequestHandler = async (req, res) => {
         res
       });
     }
-    user.greenPoints =
-      status === 'accepted'
-        ? user.greenPoints + Number(points)
-        : user.greenPoints;
-    if (status === 'accepted') {
-      user.greenPointsHistory.push({
-        points: Number(points),
-        type: 'credit',
-        reason: 'Project accepted',
-        date: new Date()
-      });
-      const token = user?.firebaseToken || '';
-      await sentPushNotification(token, `Project accepted`, `Congratulations! You have earned ${points} green points for your project approval.`, user._id.toString(), points.toString());
-    }
-    await user.save();
+    await User.updateOne(
+      { _id: req.user?._id },
+      {
+        $inc: { greenPoints: points },
+        $push: {
+          greenPointsHistory: {
+            points: points || 0,
+            reason: "Sustainable Innovation",
+            type: "credit",
+            date: new Date()
+          }
+        }
+      }
+    );
+
+    const token = user?.firebaseToken || '';
+    await sentPushNotification(
+      token,
+      `Sustainable Innovation accepted`,
+      `Congratulations! You have earned ${points} green points for Sustainable Innovation.`,
+      user._id.toString(),
+      points.toString()
+    );
     return SuccessHandler({
       res,
       data: project,
